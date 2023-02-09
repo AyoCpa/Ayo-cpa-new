@@ -18,6 +18,7 @@ import { countLetters, countWords } from "@/utils/countLetters";
 import logoFull from "@/public/ASSETS/LOGOS/logo-full.svg";
 import line from "@/public/ASSETS/ICONS/line.svg";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
+import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -57,9 +58,7 @@ export default function Home() {
         </div>
       </div>
 
-      
       <HireFlash />
-      
 
       <div className="py-16">
         <div
@@ -139,15 +138,19 @@ export default function Home() {
       <ServiceFlash />
 
       <div className={styles.flashDetails}>
-        <div className={`text-5xl w-1/2 mx-auto text-center leading-snug ${ubuntu.variable} font-ubuntu`}>
+        <div
+          className={`text-5xl w-1/2 mx-auto text-center leading-snug ${ubuntu.variable} font-ubuntu`}
+        >
           Ayo234 is our bookkeping tool, it helps track financial records and
           manage cash flow for your businesses.
         </div>
 
         <div className="mt-10">
-              <ButtonWithIcon text="Try it now" dark={true} />
+          <ButtonWithIcon text="Try it now" dark={true} />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
