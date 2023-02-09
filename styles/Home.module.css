@@ -7,6 +7,34 @@
   min-height: 100vh;
 }
 
+
+
+
+
+.flashDetails{
+  height: 70vh;
+  align-items: center;
+  justify-content: center ;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerImage{
+  background-image: linear-gradient( to right ,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ) , url("../public/ASSETS/IMAGES/home-page-banner.jpg");
+  height: 100vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
