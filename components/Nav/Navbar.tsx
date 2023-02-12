@@ -2,20 +2,38 @@ import logo from "@/public/ASSETS/LOGOS/logo.svg";
 import { ubuntu, inter } from "@/utils/fonts";
 import Image from "next/image";
 import textArrowDown from "../../public/ASSETS/ICONS/text-arrow-down.svg";
-import user from "@/public/ASSETS/ICONS/user_icon.svg"
-import { useReducer } from "react";
+import user from "@/public/ASSETS/ICONS/user_icon.svg";
+import { useEffect, useState } from "react";
 import { ButtonWithNoIcon } from "../Buttons/ActionButton";
+import logoColored from "@/public/ASSETS/LOGOS/logo-colored.svg";
+import userDark from "@/public/ASSETS/ICONS/user-dark.svg";
 
 const Navbar = () => {
+  const isLoggedIn = false;
+  const [scrollPos, setScrollPos] = useState(0);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollPos(window.scrollY);
+    });
+  }, []);
+
   return (
     <div
-      className={`${inter.variable} font-inter fixed top-0 w-full z-10 flex flex-row justify-between px-12 py-4 text-white items-center`}
+      className={`${
+        inter.variable
+      } font-inter fixed top-0 w-full z-10 flex flex-row justify-between ${
+        scrollPos > 10 && "bg-white"
+      } px-12 py-4 text-white items-center`}
     >
       <div className="">
-        <Image src={logo} alt="ayocpa's logo" />
+        <Image src={scrollPos > 10 ? logoColored : logo} alt="ayocpa's logo" />
       </div>
 
-      <div className="flex flex-row justify-between w-1/2 items-center text-[#EFEFEF]">
+      <div
+        className={`flex flex-row justify-between w-1/2 items-center ${
+          scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
+        }`}
+      >
         <span className="cursor-pointer">About</span>
         <span className="cursor-pointer">Services</span>
         <span className="cursor-pointer">Resources</span>
@@ -31,12 +49,38 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center">
-        <div className="border border-1 border-white px-2 py-2 cursor-pointer">
-          <Image src={user} alt="user_icon" />
+        <div
+          className={`border border-1 ${
+            scrollPos > 10 ? "border-black" : "border-white"
+          } px-2 py-2 cursor-pointer ${
+            scrollPos <= 10 && isLoggedIn
+              ? "bg-white"
+              : scrollPos > 10 && isLoggedIn
+              ? "bg-[#2E263D]"
+              : scrollPos <= 10 && !isLoggedIn
+              ? ""
+              : ""
+          }`}
+        >
+          <Image
+            src={
+              scrollPos <= 10 && isLoggedIn
+                ? userDark
+                : scrollPos > 10 && isLoggedIn
+                ? user
+                : scrollPos <= 10 && !isLoggedIn
+                ? user
+                : userDark
+            }
+            alt="user_icon"
+          />
         </div>
 
         <div className="ml-4">
-          <ButtonWithNoIcon text="Client Portal" />
+          <ButtonWithNoIcon
+            dark={scrollPos > 10 ? true : false}
+            text="Client Portal"
+          />
         </div>
       </div>
     </div>
