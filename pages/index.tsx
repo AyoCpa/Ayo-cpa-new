@@ -15,7 +15,6 @@ import logoFull from "@/public/ASSETS/LOGOS/logo-full.svg";
 import line from "@/public/ASSETS/ICONS/line.svg";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
-import {useEffect} from "react"
 
 export default function Home() {
   return (
@@ -34,14 +33,14 @@ export default function Home() {
         <div className={styles.bannerImage}>
           <FixedArrowUp />
 
-          <div className="w-3/5  mx-auto text-white">
+          <div className=" w-4/5 lg:w-3/5  mx-auto text-white">
             <div
-              className={`${ubuntu.variable} font-ubuntu text-center text-5xl leading-snug `}
+              className={`${ubuntu.variable} text-2xl  font-ubuntu text-center lg:text-5xl leading-snug `}
             >
               New name, same faces, same team you’ve always trusted.
             </div>
             <div
-              className={`${inter.variable} font-inter text-xl text-center mt-5 w-4/5 m-auto`}
+              className={`${inter.variable} font-inter text-base lg:text-xl text-center mt-5 w-full lg:w-4/5  m-auto`}
             >
               Ayo & Company Chartered Professional Accountants is a new name
               representing trusted professionals serving the Lakeland and
@@ -59,28 +58,28 @@ export default function Home() {
 
       <div className="py-16" >
         <div
-          className={`text-center ${ubuntu.variable} font-ubuntu text-3xl mb-10`}
+          className={`text-center ${ubuntu.variable} font-ubuntu text-xl lg:text-3xl mb-10`}
         >
           Services
         </div>
 
         <Row justify="center">
-          <Col xs={20}>
+          <Col xs={22} lg={20}>
             <Row gutter={80}>
               {ServicesObject.map((item, index, root) => {
                 return (
-                  <Col xs={8} key={index} className="mb-20">
-                    <div>
+                  <Col xs={22} lg={8} key={index} className="mb-20">
+                    <div className="text-center m-auto" style={{ border: '1px solid red' }}>
                       <Image src={item.image} alt="calculator-image" />
                     </div>
 
                     <div
-                      className={`${ubuntu.variable} font-ubuntu font-xl py-4 font-bold`}
+                      className={`${ubuntu.variable} text-center font-ubuntu font-xl py-4 font-bold`}
                     >
                       {item.name}
                     </div>
 
-                    <div className={`${inter.variable} font-inter font-lg`}>
+                    <div className={`${inter.variable} text-center font-inter font-lg`}>
                       {countLetters(item.details, 150)}
                     </div>
                   </Col>

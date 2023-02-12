@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { ButtonWithNoIcon } from "../Buttons/ActionButton";
 import logoColored from "@/public/ASSETS/LOGOS/logo-colored.svg";
 import userDark from "@/public/ASSETS/ICONS/user-dark.svg";
+import hamburgerWhite from "@/public/ASSETS/ICONS/hamburger-white.svg"
+import hamburgerBlack from "@/public/ASSETS/ICONS/hamburger-black.svg"
 
 const Navbar = () => {
   const isLoggedIn = false;
@@ -30,7 +32,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`flex flex-row justify-between w-1/2 items-center ${
+        className={`xl:flex hidden flex-row justify-between w-1/2 items-center ${
           scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
         }`}
       >
@@ -76,10 +78,19 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="ml-4">
+        <div  className="hidden xl:block ml-4">
           <ButtonWithNoIcon
             dark={scrollPos > 10 ? true : false}
             text="Client Portal"
+          />
+        </div>
+
+        <div className="ml-2 xl:hidden cursor-pointer">
+          <Image 
+            src={scrollPos > 10 ? hamburgerBlack : hamburgerWhite}
+            alt="hamburger"
+            width={35}
+            height={35}
           />
         </div>
       </div>

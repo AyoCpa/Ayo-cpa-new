@@ -21,7 +21,7 @@ export const ButtonWithIcon = ({
           dark ? "text-black" : "text-white"
         } font-inter px-4 py-2 border ${
           dark ? "border-black" : "border-white"
-        } flex items-center cursor-pointer`}
+        } flex items-center cursor-pointer lg:text-base text-xs`}
       >
         <div>{text}</div>
         <div className="ml-1">
@@ -44,7 +44,7 @@ export const ButtonWithNoIcon = ({
           dark ? "text-black" : "text-white"
         } font-inter px-4 py-2 border ${
           dark ? "border-black" : "border-white"
-        } flex items-center cursor-pointer`}
+        } flex items-center cursor-pointer lg:text-base text-xs`}
       >
         <div>{text}</div>
       </div>
