@@ -6,7 +6,7 @@ export const ServiceFlash = () => {
     return (
       <div className={styles.subBanner}>
         <div
-          className={`w-1/2 leading-snug text-5xl mx-auto text-center text-white  ${ubuntu.variable} font-ubuntu`}
+          className={`lg:w-1/2 w-full leading-snug text-xl lg:text-5xl mx-auto text-center text-white  ${ubuntu.variable} font-ubuntu`}
         >
           We are always at your service, and we’re part of your team.
         </div>

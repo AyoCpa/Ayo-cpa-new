@@ -25,7 +25,7 @@
   height: 100vh;
   background-position: left;
   background-repeat: no-repeat;
-  object-fit: cover;
+  overflow: hidden;
   background-size: cover;
   /* background-attachment: fixed; */
   background-repeat: no-repeat;

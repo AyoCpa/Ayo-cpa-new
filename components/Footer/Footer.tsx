@@ -18,7 +18,7 @@ export const Footer = () => {
           </div>
 
           <Row className={`text-white ${inter.variable} font-inter`}>
-            <Col xs={6}>
+            <Col xs={12} lg={6}>
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Get in touch
               </div>
@@ -39,7 +39,7 @@ export const Footer = () => {
                 </div>
               </div>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} lg={6}>
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Our Offices
               </div>
@@ -53,7 +53,7 @@ export const Footer = () => {
                 Main <br /> Cold Lake, AB T9M 1P2
               </div>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} lg={6} className="mt-16 lg:mt-0">
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Company
               </div>
@@ -66,7 +66,7 @@ export const Footer = () => {
                 Privacy Statement
               </div>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} lg={6} className="mt-16 lg:mt-0">
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Quick Links
               </div>
@@ -86,7 +86,7 @@ export const Footer = () => {
           </Row>
         </Col>
 
-        <Col xs={24}>
+        <Col xs={24} className="mb-28 lg:mb-0">
           <div
             className={` ${inter.variable} mt-10 font-inter text-[#E6E6E6] text-xs text-center text-white`}
           >
@@ -95,7 +95,7 @@ export const Footer = () => {
         </Col>
       </Row>
 
-      <div className="absolute bottom-0 right-0">
+      <div className="absolute bottom-0 right-0 -z-2">
             <Image 
                 src={footerSticker}
                 alt="footer sticker"

@@ -59,27 +59,28 @@ export default function Home() {
       <div className="py-16" >
         <div
           className={`text-center ${ubuntu.variable} font-ubuntu text-xl lg:text-3xl mb-10`}
+          
         >
           Services
         </div>
 
         <Row justify="center">
           <Col xs={22} lg={20}>
-            <Row gutter={80}>
+            <Row gutter={40} className="flex justify-center lg:justify-start">
               {ServicesObject.map((item, index, root) => {
                 return (
-                  <Col xs={22} lg={8} key={index} className="mb-20">
-                    <div className="text-center m-auto" style={{ border: '1px solid red' }}>
+                  <Col xs={22} lg={8} key={index} className={`mb-20`}>
+                    <div className="lg:text-left text-center lg:block flex justify-center">
                       <Image src={item.image} alt="calculator-image" />
                     </div>
 
                     <div
-                      className={`${ubuntu.variable} text-center font-ubuntu font-xl py-4 font-bold`}
+                      className={`${ubuntu.variable} text-center lg:text-left font-ubuntu  text-lg lg:text-xl py-4 font-bold`}
                     >
                       {item.name}
                     </div>
 
-                    <div className={`${inter.variable} text-center font-inter font-lg`}>
+                    <div className={`${inter.variable} text-center lg:text-left font-inter lg:text-lg text-xs`}>
                       {countLetters(item.details, 150)}
                     </div>
                   </Col>
@@ -94,19 +95,19 @@ export default function Home() {
         </Row>
       </div>
 
-      <Row justify={"end"} className="bg-[#1A1229] mt-10">
-        <Col xs={22}>
-          <Row>
-            <Col xs={11} className="text-white py-16 ">
+      <Row className="bg-[#1A1229] mt-10 flex lg:justify-end justify-center">
+        <Col xs={24} lg={22}>
+          <Row className="flex justify-center lg:justify-start">
+            <Col xs={22} lg={11} className="text-white py-16 ">
               <div
-                className={`${ubuntu.variable} font-ubuntu text-3xl w-2/3 leading-normal`}
+                className={`${ubuntu.variable} font-ubuntu lg:text-3xl w-full lg:w-2/3 leading-normal text-xl `}
               >
                 We're more than just accountants, we want to help improve your
                 businesses
               </div>
 
               <div
-                className={`${inter.variable} font-inter text-lg w-2/3 mt-10 `}
+                className={`${inter.variable} font-inter text-sm lg:text-lg w-full lg:w-2/3 mt-10 `}
               >
                 Ayo & Company Chartered Professional Accountants, our team of
                 accountants and technicians provide services to a wide variety
@@ -114,8 +115,8 @@ export default function Home() {
               </div>
             </Col>
 
-            <Col xs={13} className="bg-white">
-              <div className="w-3/5 m-auto flex flex-col h-full items-center justify-center">
+            <Col xs={24} lg={13} className="bg-white">
+              <div className="w-3/5 mx-auto py-16 lg:py-0 flex flex-col h-full items-center justify-center">
                 <div>
                   <Image src={logoFull} alt="Logo Full" />
                 </div>
@@ -135,7 +136,7 @@ export default function Home() {
 
       <div className={styles.flashDetails}>
         <div
-          className={`text-5xl w-1/2 mx-auto text-center leading-snug ${ubuntu.variable} font-ubuntu`}
+          className={`text-xl lg:text-5xl w-full lg:w-1/2 mx-auto text-center leading-snug ${ubuntu.variable} font-ubuntu`}
         >
           Ayo234 is our bookkeping tool, it helps track financial records and
           manage cash flow for your businesses.
