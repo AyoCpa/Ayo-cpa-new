@@ -7,10 +7,13 @@ import { useEffect, useState } from "react";
 import { ButtonWithNoIcon } from "../Buttons/ActionButton";
 import logoColored from "@/public/ASSETS/LOGOS/logo-colored.svg";
 import userDark from "@/public/ASSETS/ICONS/user-dark.svg";
-import hamburgerWhite from "@/public/ASSETS/ICONS/hamburger-white.svg"
-import hamburgerBlack from "@/public/ASSETS/ICONS/hamburger-black.svg"
+import hamburgerWhite from "@/public/ASSETS/ICONS/hamburger-white.svg";
+import hamburgerBlack from "@/public/ASSETS/ICONS/hamburger-black.svg";
+import underline from "@/public/ASSETS/ICONS/underline.svg";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter()
   const isLoggedIn = false;
   const [scrollPos, setScrollPos] = useState(0);
   useEffect(() => {
@@ -36,7 +39,14 @@ const Navbar = () => {
           scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
         }`}
       >
-        <span className="cursor-pointer">About</span>
+        <span className="cursor-pointer relative" onClick={() => {
+          router.push("/about")
+        }}>
+          About
+          <span className="absolute">
+            <Image src={underline} alt="underline" />
+          </span>
+        </span>
         <span className="cursor-pointer">Services</span>
         <span className="cursor-pointer">Resources</span>
         <span className="cursor-pointer">File My Taxes</span>
@@ -78,7 +88,7 @@ const Navbar = () => {
           />
         </div>
 
-        <div  className="hidden xl:block ml-4">
+        <div className="hidden xl:block ml-4">
           <ButtonWithNoIcon
             dark={scrollPos > 10 ? true : false}
             text="Client Portal"
@@ -86,7 +96,7 @@ const Navbar = () => {
         </div>
 
         <div className="ml-2 xl:hidden cursor-pointer">
-          <Image 
+          <Image
             src={scrollPos > 10 ? hamburgerBlack : hamburgerWhite}
             alt="hamburger"
             width={35}
