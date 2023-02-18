@@ -17,6 +17,17 @@
     align-items: center;
 }
 
+.serviceBanner{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../public/ASSETS/IMAGES/new_service.jpg");
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
 
 
 

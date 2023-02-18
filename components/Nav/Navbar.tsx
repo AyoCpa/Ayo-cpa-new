@@ -26,7 +26,7 @@ const Navbar = () => {
     <div
       className={`${
         inter.variable
-      } font-inter fixed top-0 w-full z-10 flex flex-row justify-between ${
+      } font-inter font-medium  fixed top-0 w-full z-10 flex flex-row justify-between ${
         scrollPos > 10 && "bg-white"
       } px-12 py-4 text-white items-center`}
     >
@@ -47,7 +47,7 @@ const Navbar = () => {
             <Image src={underline} alt="underline" />
           </span>
         </span>
-        <span className="cursor-pointer">Services</span>
+        <span className="cursor-pointer" onClick={() => router.push("/service")}>Services</span>
         <span className="cursor-pointer">Resources</span>
         <span className="cursor-pointer">File My Taxes</span>
         <span className="flex flex-row items-center cursor-pointer">

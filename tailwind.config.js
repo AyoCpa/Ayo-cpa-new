@@ -15,7 +15,8 @@ module.exports = {
     extend: {
       fontFamily:{
         inter:["var(--font-inter)" , ...fontFamily.sans],
-        ubuntu:['var(--font-ubuntu)' , ...fontFamily.sans]
+        ubuntu:['var(--font-ubuntu)' , ...fontFamily.sans],
+        ubuntuLight: ['var(--font-ubuntu-light)' , ...fontFamily.sans]
       }
     },
   },
