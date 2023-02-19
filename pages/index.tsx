@@ -37,7 +37,7 @@ export default function Home() {
             <div
               className={`${ubuntu.variable} font-medium text-2xl  font-ubuntu text-center lg:text-5xl lg:leading-tight `}
             >
-              New name, same faces, same team you’ve always trusted.
+              New name, same faces, same team you&apos;ve always trusted.
             </div>
             <div
               className={`${inter.variable} font-inter text-base lg:text-xl text-center mt-5 w-full lg:w-4/5  m-auto`}
@@ -103,7 +103,7 @@ export default function Home() {
               <div
                 className={`${ubuntu.variable} font-ubuntu font-bold lg:text-3xl w-full lg:w-2/3 lg:leading-normal text-xl `}
               >
-                We're more than just accountants, we want to help improve your
+                We&apos;re more than just accountants, we want to help improve your
                 businesses
               </div>
 
