@@ -12,7 +12,7 @@ import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 function about() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <FixedArrowUp />
       <section className={styles.aboutBanner}>
         <div className="text-white ml-10 mt-24">
