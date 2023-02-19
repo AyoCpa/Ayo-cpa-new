@@ -12,7 +12,7 @@ import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 
 function Service() {
   return (
-    <div>
+    <div style={{ border:'1px solid red' }}>
       <div>
         <Navbar />
       </div>
@@ -237,9 +237,9 @@ function Service() {
           </div>
         </Col>
       </Row>
-      <div>
+      {/* <div>
         <HireFlash />
-      </div>
+      </div> */}
 
       <div>
         <ServiceFlash />

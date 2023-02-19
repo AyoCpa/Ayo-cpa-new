@@ -27,7 +27,7 @@ const Navbar = () => {
       className={`${
         inter.variable
       } font-inter font-medium  fixed top-0 w-full z-10 flex flex-row justify-between ${
-        scrollPos > 10 ? "bg-red-600" : 'bg-slate-900'
+        scrollPos > 10 ? "bg-white" : 'bg-transparent'
       } px-12 py-4 text-white items-center`}
     >
       <div className="">

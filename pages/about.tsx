@@ -38,9 +38,9 @@ function about() {
           </span>
         </div>
       </section>
-      <section>
+      {/* <section>
         <HireFlash />
-      </section>
+      </section> */}
 
       <section>
         <ServiceFlash />
