@@ -34,9 +34,9 @@ function Service() {
         />
       </section>
 
-      <Row justify={"center"} className="bg-[#e5e5e5] pt-20 pb-24 ">
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+      <Row className="bg-[#e5e5e5] pt-20 pb-24 " justify={"end"}>
+        <Col xs={24} className={styles.serviceCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable}  font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 `}
@@ -76,8 +76,8 @@ function Service() {
           </div>
         </Col>
 
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+        <Col xs={24} className={styles.bookkeepingCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable} font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 mt-16 lg:mt-0 `}
@@ -108,8 +108,8 @@ function Service() {
           </div>
         </Col>
 
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+        <Col xs={24} className={styles.taxationCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable}  font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 mt-16 lg:mt-0 `}
@@ -144,8 +144,8 @@ function Service() {
           </div>
         </Col>
 
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+        <Col xs={24} className={styles.retirementCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable}  font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 mt-16 lg:mt-0 `}
@@ -174,8 +174,8 @@ function Service() {
           </div>
         </Col>
 
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+        <Col xs={24} className={styles.agricCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable}  font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 mt-16 lg:mt-0 `}
@@ -206,8 +206,8 @@ function Service() {
           </div>
         </Col>
 
-        <Col xs={24} lg={18} className="pt-16 lg:mt-20">
-          <div className="flex lg:flex-row flex-col lg:items-center">
+        <Col xs={24} className={styles.advisoryCol}>
+          <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
               <div
                 className={`${ubuntuLight.variable}  font-ubuntu-light text-[#1E1E1E] text-[150px] lg:text-[300px] p-4 lg:p-0 mt-16 lg:mt-0 `}

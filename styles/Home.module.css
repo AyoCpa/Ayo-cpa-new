@@ -7,42 +7,131 @@
   min-height: 100vh;
 }
 
-.aboutBanner{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) , url("../public/ASSETS/IMAGES/About_Image.png");
-    height: 50vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
+
+.serviceCol {
+  padding-top: 64px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/Accounting.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-bottom: 100px;
+
 }
 
-.serviceBanner{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+.bookkeepingCol {
+  padding-top: 100px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/bookkeeping.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.retirementCol {
+  padding-top: 100px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/retirement.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.agricCol {
+  padding-top: 100px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/agric.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.advisoryCol{
+  padding-top: 100px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/business-advisory.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.taxationCol {
+  padding-top: 100px;
+  margin-top: 0px;
+  background-image: url("../public/ASSETS/IMAGES/taxation.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+@media (min-width:1024px) {
+
+  .advisoryCol{
+    margin-top: 80px;
+  }
+
+  .agricCol{
+    margin-top: 80px ;
+  }
+
+  .serviceCol {
+    margin-top: 80px;
+  }
+
+  .bookkeepingCol {
+    margin-top: 80px;
+  }
+
+  .taxationCol{
+    margin-top: 80px;
+  }
+  .retirementCol{
+    padding-top: 150px;
+    margin-top: 80px;
+  }
+}
+
+.aboutBanner {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.serviceBanner {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("../public/ASSETS/IMAGES/new_service.jpg");
-    height: 50vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
 }
 
 
 
 
 
-.flashDetails{
+.flashDetails {
   height: 70vh;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
   background-color: #e5e5e5;
   display: flex;
   flex-direction: column;
 }
 
-.bannerImage{
-  background-image: linear-gradient( to right ,rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ) , url("../public/ASSETS/IMAGES/home-page-banner.jpg");
+.bannerImage {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../public/ASSETS/IMAGES/home-page-banner.jpg");
   height: 100vh;
   background-position: left;
   background-repeat: no-repeat;
@@ -192,11 +281,9 @@
   inset: 0;
   padding: 1px;
   border-radius: var(--border-radius);
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--tile-start-rgb), 1),
-    rgba(var(--tile-end-rgb), 1)
-  );
+  background: linear-gradient(to bottom right,
+      rgba(var(--tile-start-rgb), 1),
+      rgba(var(--tile-end-rgb), 1));
   background-clip: content-box;
 }
 
@@ -275,11 +362,9 @@
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--background-start-rgb), 1),
+        rgba(var(--callout-rgb), 0.5));
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
@@ -290,11 +375,9 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgb(var(--background-end-rgb)) 40%);
     z-index: 1;
   }
 }
@@ -321,6 +404,7 @@
   from {
     transform: rotate(360deg);
   }
+
   to {
     transform: rotate(0deg);
   }
