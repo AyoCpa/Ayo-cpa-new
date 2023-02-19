@@ -39,9 +39,9 @@ function Resource() {
 
         <section className="mt-16 pb-20">
           <Row justify={"center"}>
-            <Col xs={18}>
+            <Col xs={20} lg={18}>
               <Row gutter={40}>
-                <Col xs={8}>
+                <Col xs={24} lg={8}>
                   <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
                     <Image
                       src={payroll}
@@ -59,7 +59,7 @@ function Resource() {
                   </div>
                 </Col>
 
-                <Col xs={8}>
+                <Col xs={24} lg={8}>
                   <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
                     <Image
                       src={autoBenefit}
@@ -76,7 +76,7 @@ function Resource() {
                     </div>
                   </div>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} lg={8}>
                   <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
                     <Image src={pst} alt="pst image" className="h-[200px]" />
 
@@ -89,7 +89,7 @@ function Resource() {
                     </div>
                   </div>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} lg={8}>
                   <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
                     <div>
                       <Image
@@ -108,7 +108,7 @@ function Resource() {
                     </div>
                   </div>
                 </Col>
-                <Col xs={8}>
+                <Col xs={24} lg={8}>
                   <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
                     <Image src={cra} alt="cra image" className="h-[200px]" />
 
@@ -127,7 +127,7 @@ function Resource() {
         </section>
 
         <section>
-          <HireFlash />
+          {/* <HireFlash /> */}
         </section>
 
         <section>
