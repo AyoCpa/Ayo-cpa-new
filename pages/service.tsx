@@ -12,7 +12,7 @@ import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 
 function Service() {
   return (
-    <div style={{ border:'1px solid red' }}>
+    <div >
       <div>
         <Navbar />
       </div>
