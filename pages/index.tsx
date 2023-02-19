@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <HireFlash /> */}
+      <HireFlash />
 
       <div className="py-16 bg-[#E5E5E5]">
         <div

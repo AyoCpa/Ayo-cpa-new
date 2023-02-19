@@ -96,7 +96,7 @@
   }
 }
 
-.aboutBanner {
+.aboutBanner , .resourceBanner {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
   height: 50vh;
   background-repeat: no-repeat;
@@ -115,6 +115,10 @@
   background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.resourceBanner{
+  background-image: linear-gradient(to right , rgba(0,0,0,0.8) , rgba(0,0,0,0.8)) , url("../public/ASSETS//IMAGES//resourceBanner.jpg");
 }
 
 

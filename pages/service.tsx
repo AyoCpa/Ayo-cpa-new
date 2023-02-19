@@ -237,9 +237,9 @@ function Service() {
           </div>
         </Col>
       </Row>
-      {/* <div>
+      <div>
         <HireFlash />
-      </div> */}
+      </div>
 
       <div>
         <ServiceFlash />

@@ -48,7 +48,7 @@ const Navbar = () => {
           </span>
         </span>
         <span className="cursor-pointer" onClick={() => router.push("/service")}>Services</span>
-        <span className="cursor-pointer">Resources</span>
+        <span className="cursor-pointer" onClick={() => router.push("/resource")} >Resources</span>
         <span className="cursor-pointer">File My Taxes</span>
         <span className="flex flex-row items-center cursor-pointer">
           More Actions
