@@ -19,7 +19,7 @@ function about() {
           <SideBannerContent mainText="About Us" currentPage="About" />
         </div>
       </section>
-      <section className="bg-[#E5E5E5] pb-16">
+      <section className="bg-[#efefef] pb-16">
         <PagesSubHeader text="We are tested and trusted with the numbers." />
 
         <div className="mt-16 w-[90%] lg:w-4/5 mx-auto text-[#5A5A5A]">

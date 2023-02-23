@@ -56,7 +56,7 @@ export default function Home() {
 
       <HireFlash />
 
-      <div className="py-16 bg-[#E5E5E5]">
+      <div className="py-16 bg-[#efefef]">
         <div
           className={`text-center ${ubuntu.variable} font-bold font-ubuntu text-xl lg:text-3xl mb-10`}
         >
@@ -103,8 +103,8 @@ export default function Home() {
               <div
                 className={`${ubuntu.variable} font-ubuntu font-bold lg:text-3xl w-full lg:w-2/3 lg:leading-normal text-xl `}
               >
-                We&apos;re more than just accountants, we want to help improve your
-                businesses
+                We&apos;re more than just accountants, we want to help improve
+                your businesses
               </div>
 
               <div

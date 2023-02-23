@@ -32,7 +32,7 @@ function MakePaymentPrompt() {
         </div>
       </section>
 
-      <div className="bg-[#e5e5e5]">
+      <div className="bg-[#efefef]">
         <section>
           <PagesSubHeader text="Secure payments for your Client Portal proceedings" />
         </section>
@@ -82,9 +82,7 @@ function MakePaymentPrompt() {
                       text="Proceed"
                       dark={true}
                       alignCenter={false}
-                      handleRoute={() =>
-                        router.push("/make-payment-as-guest")
-                      }
+                      handleRoute={() => router.push("/make-payment-as-guest")}
                     />
                   </div>
                 </Col>

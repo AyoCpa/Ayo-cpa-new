@@ -26,7 +26,7 @@ function Resource() {
       <div>
         <FixedArrowUp />
       </div>
-      <div className="bg-[#e5e5e5]">
+      <div className="bg-[#efefef]">
         <section className={styles.resourceBanner}>
           <div className="text-white ml-10 mt-24">
             <SideBannerContent mainText="Resources" currentPage="Resources" />
@@ -126,9 +126,7 @@ function Resource() {
           </Row>
         </section>
 
-        <section>
-          {/* <HireFlash /> */}
-        </section>
+        <section>{/* <HireFlash /> */}</section>
 
         <section>
           <ServiceFlash />

@@ -12,7 +12,7 @@ import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 
 function Service() {
   return (
-    <div >
+    <div>
       <div>
         <Navbar />
       </div>
@@ -27,14 +27,14 @@ function Service() {
         </div>
       </section>
 
-      <section className="bg-[#E5E5E5]">
+      <section className="bg-[#efefef]">
         <PagesSubHeader
           larger={true}
           text="Providing the best professional financial services."
         />
       </section>
 
-      <Row className="bg-[#e5e5e5] pt-20 pb-24 " justify={"end"}>
+      <Row className="bg-[#efefef] pt-20 pb-24 " justify={"end"}>
         <Col xs={24} className={styles.serviceCol}>
           <div className="flex lg:flex-row flex-col lg:items-center lg:w-4/5 lg:mx-auto">
             <div>
