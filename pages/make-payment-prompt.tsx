@@ -4,14 +4,19 @@ import Navbar from "@/components/Nav/Navbar";
 import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
 import { PagesSubHeader } from "@/components/Nuggets/PagesSubHeader";
-import {inter , ubuntu} from "@/utils/fonts"
-import {Row , Col} from "antd"
-import { ButtonWithIcon, ButtonWithNoIcon } from "@/components/Buttons/ActionButton";
+import { inter, ubuntu } from "@/utils/fonts";
+import { Row, Col } from "antd";
+import {
+  ButtonWithIcon,
+  ButtonWithNoIcon,
+} from "@/components/Buttons/ActionButton";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import { useRouter } from "next/router";
 
 function MakePaymentPrompt() {
+  const router = useRouter();
   return (
     <div>
       <div>
@@ -77,6 +82,9 @@ function MakePaymentPrompt() {
                       text="Proceed"
                       dark={true}
                       alignCenter={false}
+                      handleRoute={() =>
+                        router.push("/make-payment-as-guest")
+                      }
                     />
                   </div>
                 </Col>
@@ -86,15 +94,15 @@ function MakePaymentPrompt() {
         </section>
 
         <section>
-            <HireFlash />
+          <HireFlash />
         </section>
 
         <section>
-            <ServiceFlash />
+          <ServiceFlash />
         </section>
 
         <section>
-            <Footer />
+          <Footer />
         </section>
       </div>
     </div>

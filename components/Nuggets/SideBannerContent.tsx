@@ -1,16 +1,18 @@
 import { inter, ubuntu } from "@/utils/fonts";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 
 type SideBannerContentProps = {
   mainText: string;
-  currentPage: string;
+  currentPage?: string;
+  extra?: { url: string; title: string }[];
 };
 
 export const SideBannerContent = ({
   mainText,
   currentPage,
+  extra,
 }: SideBannerContentProps) => {
-    const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <div className={`${ubuntu.variable} font-ubuntu text-xl lg:text-4xl`}>
@@ -24,7 +26,28 @@ export const SideBannerContent = ({
         >
           Home
         </span>{" "}
-        / <span className="text-[#AAAAAA]">{currentPage}</span>{" "}
+        /{" "}
+        {extra?.length ? (
+          extra.map((item, index, root) => {
+            return (
+              <span
+                key={index}
+                className={` ${
+                  index == extra.length - 1
+                    ? "text-[#AAAAAA]"
+                    : "text-[#E6E6E6] cursor-pointer"
+                }`}
+                onClick={() => {
+                  router.push(item.url);
+                }}
+              >
+                {item.title} {index !== extra.length - 1 && "/ " }
+              </span>
+            );
+          })
+        ) : (
+          <span className="text-[#AAAAAA]">{currentPage}</span>
+        )}{" "}
       </div>
     </>
   );

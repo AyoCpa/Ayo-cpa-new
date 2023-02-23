@@ -7,15 +7,19 @@ type ButtonProps = {
   text: string;
   alignCenter?: boolean;
   dark?: boolean;
+  handleRoute?: Function;
 }; //use interfaces for defining types.
 
 export const ButtonWithIcon = ({
   text,
   alignCenter = true,
   dark = false,
+  handleRoute = () => {},
 }: ButtonProps) => {
   return (
-    <div className={`flex ${alignCenter && "justify-center"}`}>
+    <div className={`flex ${alignCenter && "justify-center"}`}
+      onClick={() => handleRoute()}
+    >
       <div
         className={`${inter.variable} ${
           dark ? "text-black" : "text-white"
@@ -36,9 +40,12 @@ export const ButtonWithNoIcon = ({
   text,
   alignCenter = true,
   dark = false,
+  handleRoute = () => {}
 }: ButtonProps) => {
   return (
-    <div className={`flex ${alignCenter && "justify-center"}`}>
+    <div className={`flex ${alignCenter && "justify-center"}`}
+      onClick={() => handleRoute()}
+    >
       <div
         className={`${inter.variable} ${
           dark ? "text-black" : "text-white"
