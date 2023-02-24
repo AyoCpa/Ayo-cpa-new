@@ -12,15 +12,24 @@ import inputCoin from "../public/ASSETS/ICONS/input-coin.svg";
 import inputCard from "../public/ASSETS/ICONS/input-card.svg";
 import Image from "next/image";
 import { AuthButton } from "@/components/Buttons/AuthButton";
+import { useState, useEffect } from "react";
+import { HireFlash } from "@/components/PageFlash/HireFlash";
+import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
+import { Footer } from "@/components/Footer/Footer";
 
 function MakePaymentAsGuest() {
+  const [paymentActive, setPaymentActive] = useState(true);
+  const [eTransferActive, setETransferActive] = useState(false);
+  const [chequeActive, setChequeActive] = useState(false);
   const headerStyle = `${ubuntu.variable} font-ubuntu mb-8 text-lg lg:text-xl font-semibold`;
   const imageInputStyle = "absolute top-2 left-2";
   const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A]  placeholder:text-xs lg:placeholder:text-base bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
 
   const handleFormSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
+
+  const handlePaymentMethod = (): void => {};
   return (
     <>
       <section>
@@ -162,7 +171,13 @@ function MakePaymentAsGuest() {
                       <div className="flex items-center">
                         <div className="pt-1">
                           <input
+                            onClick={() => {
+                              setPaymentActive(true);
+                              setChequeActive(false);
+                              setETransferActive(false);
+                            }}
                             type="radio"
+                            checked={paymentActive}
                             className=" cursor-pointer w-[18px] h-[18px]"
                           />
                         </div>
@@ -176,8 +191,14 @@ function MakePaymentAsGuest() {
                       <div className="flex items-center ml-4 mr-4 lg:mr-10 lg:ml-10">
                         <div className="pt-1">
                           <input
+                            checked={eTransferActive}
                             type="radio"
                             className=" cursor-pointer w-[18px] h-[18px]"
+                            onClick={() => {
+                              setPaymentActive(false);
+                              setChequeActive(false);
+                              setETransferActive(true);
+                            }}
                           />
                         </div>
                         <p
@@ -190,8 +211,14 @@ function MakePaymentAsGuest() {
                       <div className="flex items-center ">
                         <div className="pt-1">
                           <input
+                            checked={chequeActive}
                             type="radio"
                             className=" cursor-pointer w-[18px] h-[18px]"
+                            onClick={() => {
+                              setPaymentActive(false);
+                              setChequeActive(true);
+                              setETransferActive(false);
+                            }}
                           />
                         </div>
                         <p
@@ -203,70 +230,113 @@ function MakePaymentAsGuest() {
                     </div>
                   </div>
 
-                  <Row gutter={40} className="mt-10">
-                    <Col xs={24} lg={12}>
-                      <div className="relative mb-4 lg:mb-0">
-                        <span className={imageInputStyle}>
-                          <Image src={inputCard} alt="" />
-                        </span>
+                  {paymentActive && (
+                    <Row gutter={40} className="mt-10">
+                      <Col xs={24} lg={12}>
+                        <div className="relative mb-4 lg:mb-0">
+                          <span className={imageInputStyle}>
+                            <Image src={inputCard} alt="" />
+                          </span>
 
-                        <input
-                          name="client_name"
-                          type="text"
-                          className={inputStyle}
-                          placeholder="Card Name"
-                        />
-                      </div>
-                    </Col>
+                          <input
+                            name="client_name"
+                            type="text"
+                            className={inputStyle}
+                            placeholder="Card Name"
+                          />
+                        </div>
+                      </Col>
 
-                    <Col xs={24} lg={12}>
-                      <div className="relative">
-                        <span className={imageInputStyle}>
-                          <Image src={inputCard} alt="" />
-                        </span>
+                      <Col xs={24} lg={12}>
+                        <div className="relative">
+                          <span className={imageInputStyle}>
+                            <Image src={inputCard} alt="" />
+                          </span>
 
-                        <input
-                          name="client_name"
-                          type="text"
-                          className={inputStyle}
-                          placeholder="Card Number"
-                        />
-                      </div>
-                    </Col>
+                          <input
+                            name="client_name"
+                            type="text"
+                            className={inputStyle}
+                            placeholder="Card Number"
+                          />
+                        </div>
+                      </Col>
 
-                    <Col xs={24} lg={12} className="mt-8">
-                      <Row gutter={20}>
-                        <Col xs={12}>
-                          <div className="relative">
-                            <span className={imageInputStyle}>
-                              <Image src={inputCard} alt="" />
-                            </span>
+                      <Col xs={24} lg={12} className="mt-8">
+                        <Row gutter={20}>
+                          <Col xs={12}>
+                            <div className="relative">
+                              <span className={imageInputStyle}>
+                                <Image src={inputCard} alt="" />
+                              </span>
 
-                            <input
-                              name="client_name"
-                              type="text"
-                              className={inputStyle}
-                              placeholder="Expiry Date"
-                            />
-                          </div>
-                        </Col>
-                        <Col xs={12}>
-                          <div className="relative">
-                            <span className={imageInputStyle}>
-                              <Image src={inputCard} alt="" />
-                            </span>
+                              <input
+                                name="client_name"
+                                type="text"
+                                className={inputStyle}
+                                placeholder="Expiry Date"
+                              />
+                            </div>
+                          </Col>
+                          <Col xs={12}>
+                            <div className="relative">
+                              <span className={imageInputStyle}>
+                                <Image src={inputCard} alt="" />
+                              </span>
 
-                            <input
-                              name="client_name"
-                              type="text"
-                              className={inputStyle}
-                              placeholder="Cvv"
-                            />
-                          </div>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
+                              <input
+                                name="client_name"
+                                type="text"
+                                className={inputStyle}
+                                placeholder="Cvv"
+                              />
+                            </div>
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
+                  )}
+
+                  {eTransferActive && (
+                    <Row gutter={40} className="mt-10">
+                      <Col xs={24} lg={12} className="border">
+                        <div>
+                          <p
+                            className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
+                          >
+                            Please send your e-transfer to payment@ayocpa.ca
+                          </p>
+                          <p
+                            className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
+                          >
+                            After sending your e-transfer, click complete
+                            payment to notify us of the payment
+                          </p>
+                        </div>
+                      </Col>
+                    </Row>
+                  )}
+                  {chequeActive && (
+                    <Row gutter={40} className="mt-10">
+                      <Col xs={24} lg={12} className="border">
+                        <div>
+                          <p
+                            className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
+                          >
+                            Please make your cheque payable to “Ayo & Company
+                            CPA”, PO Box 540 Stn Main, Cold Lake, Alberta T9M
+                            1P2
+                          </p>
+                          <p
+                            className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
+                          >
+                            After sending your cheque, click complete payment to
+                            notify us of the payment
+                          </p>
+                        </div>
+                      </Col>
+                    </Row>
+                  )}
                 </section>
 
                 <div>
@@ -277,6 +347,18 @@ function MakePaymentAsGuest() {
           </Row>
         </section>
       </div>
+
+      <section>
+        <HireFlash />
+      </section>
+
+      <section>
+        <ServiceFlash />
+      </section>
+
+      <section>
+        <Footer />
+      </section>
     </>
   );
 }
