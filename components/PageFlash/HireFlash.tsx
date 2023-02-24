@@ -6,7 +6,7 @@ export const HireFlash = () => {
     return (
       <Row justify={"center"}  className="bg-[#6FB1E3] py-16">
         <Col xs={22} lg={20}>
-          <Row gutter={{ xs:0 ,lg:50 }}} >
+          <Row gutter={{ xs:0 ,lg:50 }} >
             <Col xs={24} lg={8}>
               <div className={`${ubuntu.variable} font-bold font-ubuntu text-white text-xl lg:text-4xl`}>
                 Hire an Accountant / <br/> File your tax
