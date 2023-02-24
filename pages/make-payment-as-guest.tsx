@@ -348,11 +348,11 @@ function MakePaymentAsGuest() {
         </section>
       </div>
 
-      <section>{/* <HireFlash /> */}</section>
+      <section><HireFlash /></section>
 
-      <section>{/* <ServiceFlash /> */}</section>
+      <section><ServiceFlash /></section>
 
-      <section>{/* <Footer /> */}</section>
+      <section><Footer /></section>
     </>
   );
 }
