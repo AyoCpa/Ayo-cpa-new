@@ -231,7 +231,7 @@ function MakePaymentAsGuest() {
                   </div>
 
                   {paymentActive && (
-                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
+                    <Row gutter={{ xs: 12, lg: 40 }} className="mt-10">
                       <Col xs={24} lg={12}>
                         <div className="relative mb-4 lg:mb-0">
                           <span className={imageInputStyle}>
