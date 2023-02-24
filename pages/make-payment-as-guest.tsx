@@ -14,9 +14,13 @@ import Image from "next/image";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 
 function MakePaymentAsGuest() {
-  const headerStyle = `${ubuntu.variable} font-ubuntu mb-8 text-xl font-semibold`;
+  const headerStyle = `${ubuntu.variable} font-ubuntu mb-8 text-lg lg:text-xl font-semibold`;
   const imageInputStyle = "absolute top-2 left-2";
-  const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A] bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
+  const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A]  placeholder:text-xs lg:placeholder:text-base bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
+
+  const handleFormSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+  }
   return (
     <>
       <section>
@@ -42,16 +46,16 @@ function MakePaymentAsGuest() {
       <div className="bg-[#efefef] pt-20">
         <section className="pb-20">
           <Row justify={"center"}>
-            <Col xs={16}>
+            <Col xs={22} lg={16}>
               <div>
                 <p
-                  className={`${ubuntu.variable} font-ubuntu text-2xl font-semibold tracking-wide`}
+                  className={`${ubuntu.variable} font-ubuntu text-lg lg:text-2xl font-semibold tracking-wide`}
                 >
                   Making Payment as a Guest
                 </p>
 
                 <p
-                  className={`${inter.variable} font-inter text-[#6E6E6E] text-lg mt-3`}
+                  className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
                 >
                   Secure payments for your Cilent Portal proceedings
                 </p>
@@ -62,12 +66,12 @@ function MakePaymentAsGuest() {
 
         <section className="pb-20">
           <Row justify={"center"}>
-            <Col xs={16}>
-              <form action="">
+            <Col xs={22} lg={16}>
+              <form action="" onSubmit={handleFormSubmit}>
                 <p className={headerStyle}>User Information</p>
                 <Row gutter={40} className="mb-12">
-                  <Col xs={12}>
-                    <div className="relative">
+                  <Col xs={24} lg={12}>
+                    <div className="relative mb-4 lg:mb-0">
                       <span className={imageInputStyle}>
                         <Image src={inputProfile} alt="" />
                       </span>
@@ -80,7 +84,7 @@ function MakePaymentAsGuest() {
                       />
                     </div>
                   </Col>
-                  <Col xs={12}>
+                  <Col xs={24} lg={12}>
                     <div className="relative">
                       <span className={imageInputStyle}>
                         <Image src={inputEmail} alt="" />
@@ -98,19 +102,19 @@ function MakePaymentAsGuest() {
                 <section className="mb-12">
                   <div className="mb-8">
                     <p
-                      className={`${ubuntu.variable} font-ubuntu mb-2 text-xl font-semibold`}
+                      className={`${ubuntu.variable} font-ubuntu mb-2 text-lg lg:text-xl font-semibold`}
                     >
                       Enter Profile
                     </p>
                     <p
-                      className={`${inter.variable} text-sm font-inter text-[#5A5A5A]`}
+                      className={`${inter.variable} text-xs lg:text-sm font-inter text-[#5A5A5A]`}
                     >
                       Input Profile(s) which payments will be applied
                     </p>
                   </div>
 
                   <Row gutter={40}>
-                    <Col xs={12} className="mb-4">
+                    <Col xs={24} lg={12} className="mb-4">
                       <div className="relative">
                         <span className={imageInputStyle}>
                           <Image src={inputProfileHalf} alt="" />
@@ -134,7 +138,7 @@ function MakePaymentAsGuest() {
                   </Row>
 
                   <Row gutter={40}>
-                    <Col xs={12}>
+                    <Col xs={24} lg={12}>
                       <div className="relative">
                         <span className={imageInputStyle}>
                           <Image src={inputCoin} alt="" />
@@ -154,7 +158,7 @@ function MakePaymentAsGuest() {
                 <section>
                   <div>
                     <p className={headerStyle}>Payment Method</p>
-                    <div className="flex items-center">
+                    <div className="flex items-center flex-wrap">
                       <div className="flex items-center">
                         <div className="pt-1">
                           <input
@@ -163,13 +167,13 @@ function MakePaymentAsGuest() {
                           />
                         </div>
                         <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-lg`}
+                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
                         >
                           Online Payment
                         </p>
                       </div>
 
-                      <div className="flex items-center ml-10">
+                      <div className="flex items-center ml-4 mr-4 lg:mr-10 lg:ml-10">
                         <div className="pt-1">
                           <input
                             type="radio"
@@ -177,13 +181,13 @@ function MakePaymentAsGuest() {
                           />
                         </div>
                         <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-lg`}
+                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm  lg:text-lg`}
                         >
                           E-Transfer
                         </p>
                       </div>
 
-                      <div className="flex items-center ml-10">
+                      <div className="flex items-center ">
                         <div className="pt-1">
                           <input
                             type="radio"
@@ -191,7 +195,7 @@ function MakePaymentAsGuest() {
                           />
                         </div>
                         <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-lg`}
+                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
                         >
                           Cheques
                         </p>
@@ -200,8 +204,8 @@ function MakePaymentAsGuest() {
                   </div>
 
                   <Row gutter={40} className="mt-10">
-                    <Col xs={12}>
-                      <div className="relative">
+                    <Col xs={24} lg={12}>
+                      <div className="relative mb-4 lg:mb-0">
                         <span className={imageInputStyle}>
                           <Image src={inputCard} alt="" />
                         </span>
@@ -215,7 +219,7 @@ function MakePaymentAsGuest() {
                       </div>
                     </Col>
 
-                    <Col xs={12}>
+                    <Col xs={24} lg={12}>
                       <div className="relative">
                         <span className={imageInputStyle}>
                           <Image src={inputCard} alt="" />
@@ -230,7 +234,7 @@ function MakePaymentAsGuest() {
                       </div>
                     </Col>
 
-                    <Col xs={12} className="mt-8">
+                    <Col xs={24} lg={12} className="mt-8">
                       <Row gutter={20}>
                         <Col xs={12}>
                           <div className="relative">
@@ -266,7 +270,7 @@ function MakePaymentAsGuest() {
                 </section>
 
                 <div>
-                    <AuthButton />
+                  <AuthButton text="Complete Payment" active={true} />
                 </div>
               </form>
             </Col>
