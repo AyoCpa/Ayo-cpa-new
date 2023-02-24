@@ -353,7 +353,7 @@ function MakePaymentAsGuest() {
       </section>
 
       <section>
-        <ServiceFlash />
+        {/* <ServiceFlash /> */}
       </section>
 
       <section>
