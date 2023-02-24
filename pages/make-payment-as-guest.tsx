@@ -349,7 +349,7 @@ function MakePaymentAsGuest() {
       </div>
 
       <section>
-        <HireFlash />
+        {/* <HireFlash /> */}
       </section>
 
       <section>
