@@ -78,7 +78,7 @@ function MakePaymentAsGuest() {
             <Col xs={22} lg={16}>
               <form action="" onSubmit={handleFormSubmit}>
                 <p className={headerStyle}>User Information</p>
-                <Row  className="mb-12">
+                <Row gutter={{ xs: 0, lg: 40 }} className="mb-12">
                   <Col xs={24} lg={12}>
                     <div className="relative mb-4 lg:mb-0">
                       <span className={imageInputStyle}>
@@ -122,7 +122,7 @@ function MakePaymentAsGuest() {
                     </p>
                   </div>
 
-                  <Row >
+                  <Row gutter={{ xs: 0, lg: 40 }}>
                     <Col xs={24} lg={12} className="mb-4">
                       <div className="relative">
                         <span className={imageInputStyle}>
@@ -146,7 +146,7 @@ function MakePaymentAsGuest() {
                     </Col>
                   </Row>
 
-                  <Row >
+                  <Row gutter={{ xs: 0, lg: 40 }}>
                     <Col xs={24} lg={12}>
                       <div className="relative">
                         <span className={imageInputStyle}>
@@ -231,7 +231,7 @@ function MakePaymentAsGuest() {
                   </div>
 
                   {paymentActive && (
-                    <Row  className="mt-10">
+                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
                       <Col xs={24} lg={12}>
                         <div className="relative mb-4 lg:mb-0">
                           <span className={imageInputStyle}>
@@ -263,7 +263,7 @@ function MakePaymentAsGuest() {
                       </Col>
 
                       <Col xs={24} lg={12} className="mt-8">
-                        <Row >
+                        <Row gutter={{ xs: 0, lg: 40 }}>
                           <Col xs={12}>
                             <div className="relative">
                               <span className={imageInputStyle}>
@@ -298,7 +298,7 @@ function MakePaymentAsGuest() {
                   )}
 
                   {eTransferActive && (
-                    <Row  className="mt-10">
+                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
                       <Col xs={24} lg={12} className="border">
                         <div>
                           <p
@@ -317,7 +317,7 @@ function MakePaymentAsGuest() {
                     </Row>
                   )}
                   {chequeActive && (
-                    <Row gutter={40} className="mt-10">
+                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
                       <Col xs={24} lg={12} className="border">
                         <div>
                           <p
@@ -348,17 +348,11 @@ function MakePaymentAsGuest() {
         </section>
       </div>
 
-      <section>
-        {/* <HireFlash /> */}
-      </section>
+      <section>{/* <HireFlash /> */}</section>
 
-      <section>
-        {/* <ServiceFlash /> */}
-      </section>
+      <section>{/* <ServiceFlash /> */}</section>
 
-      <section>
-        {/* <Footer /> */}
-      </section>
+      <section>{/* <Footer /> */}</section>
     </>
   );
 }
