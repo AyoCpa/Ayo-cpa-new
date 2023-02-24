@@ -299,7 +299,7 @@ function MakePaymentAsGuest() {
 
                   {eTransferActive && (
                     <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12} className="border">
+                      <Col xs={24} lg={12} >
                         <div>
                           <p
                             className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
@@ -318,7 +318,7 @@ function MakePaymentAsGuest() {
                   )}
                   {chequeActive && (
                     <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12} className="border">
+                      <Col xs={24} lg={12} >
                         <div>
                           <p
                             className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
