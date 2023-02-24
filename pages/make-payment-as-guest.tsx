@@ -357,7 +357,7 @@ function MakePaymentAsGuest() {
       </section>
 
       <section>
-        <Footer />
+        {/* <Footer /> */}
       </section>
     </>
   );
