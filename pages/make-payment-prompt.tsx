@@ -40,7 +40,7 @@ function MakePaymentPrompt() {
         <section className="py-20">
           <Row justify={"center"}>
             <Col xs={22} lg={16}>
-              <Row gutter={80}>
+              <Row gutter={{xs:0, lg:80}}>
                 <Col xs={24} lg={12}>
                   <div className="border-2 border-[#7FBAE6] px-6 py-8">
                     <p
