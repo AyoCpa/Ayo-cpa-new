@@ -8,8 +8,8 @@ type AuthPagesHeaderProps = {
 function AuthPageHeader({header , subHeader}: AuthPagesHeaderProps) {
   return (
     <div>
-      <p className={`text-[#1E1E1E] text-xl font-bold ${ubuntu.variable} font-ubuntu`}>{header}</p>
-      <p className={`text-sm text-[#1E1E1E] ${inter.variable} font-inter`}>{subHeader}</p>
+      <p className={`text-[#1E1E1E] text-lg lg:text-xl font-bold ${ubuntu.variable} font-ubuntu`}>{header}</p>
+      <p className={`lg:text-sm text-xs text-[#1E1E1E] ${inter.variable} font-inter mt-1`}>{subHeader}</p>
     </div>
   );
 }

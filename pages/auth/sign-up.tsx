@@ -1,33 +1,79 @@
 import React from "react";
-import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Nav/Navbar";
 import Cancel from "@/components/Nuggets/Cancel";
 import AuthPageHeader from "@/components/Headers/AuthPageHeader";
 import GInput from "@/components/Inputs/GInput";
+import inputProfile from "../../public/ASSETS/ICONS/profile-input.svg";
+import inputEmail from "../../public/ASSETS/ICONS/email-input.svg";
+import telephone from '@/public/ASSETS/ICONS/telephone.svg'
+import location from "@/public/ASSETS/ICONS/input-location.svg"
+import { AuthButton } from "@/components/Buttons/AuthButton";
+import Copyright from "@/components/Nuggets/Copyright";
+import AuthWrapper from "@/components/Nuggets/AuthWrapper";
+import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 
 function SignUp() {
-  const handleSignUp = () => {
-   
-  }
+  const handleSignUp = () => {};
   return (
     <>
       <div>
         <Navbar authScreen={true} />
       </div>
-      <div className={styles.signUpBanner}>
-        <div className="bg-[#EFEFEF] min-h-[300px] w-[500px] mx-auto relative px-10 pt-12">
-          <Cancel />
-          <section>
-            <AuthPageHeader header="Create an account" subHeader="Register as a new Client" />
-          </section>
+      <OverallAuthWrapper>
+        <>
+          <AuthWrapper>
+            <>
+              <Cancel />
+              <section>
+                <AuthPageHeader
+                  header="Create an account"
+                  subHeader="Register as a new Client"
+                />
+              </section>
 
-          <form action="" onSubmit={handleSignUp}>
-            <GInput />
+              <div className="mt-8">
+                <form action="" onSubmit={handleSignUp}>
+                  <div className="mb-4">
+                    <GInput
+                      image={inputProfile}
+                      placeholder="Full Name"
+                      name="full_name"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <GInput
+                      image={inputEmail}
+                      placeholder="Email Address"
+                      name="email_address"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <GInput
+                      image={telephone}
+                      placeholder="Telephone"
+                      name="phone_number"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <GInput
+                      image={location}
+                      placeholder="Address"
+                      name="address"
+                    />
+                  </div>
 
-            <input type="submit" />
-          </form>
-        </div>
-      </div>
+                  <div className="mb-8">
+                    <AuthButton text="Continue" active={false} />
+                  </div>
+                </form>
+              </div>
+            </>
+          </AuthWrapper>
+          <div>
+            <Copyright />
+          </div>
+        </>
+      </OverallAuthWrapper>
     </>
   );
 }
