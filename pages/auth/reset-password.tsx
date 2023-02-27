@@ -1,19 +1,15 @@
+import AuthPageHeader from "@/components/Headers/AuthPageHeader";
+import GInput from "@/components/Inputs/GInput";
 import Navbar from "@/components/Nav/Navbar";
 import AuthWrapper from "@/components/Nuggets/AuthWrapper";
 import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 import React from "react";
-import Image from "next/image";
-import arrowLeft from "@/public/ASSETS/ICONS/arrow-left.svg";
-import AuthPageHeader from "@/components/Headers/AuthPageHeader";
-import GInput from "@/components/Inputs/GInput";
-import input_email from "@/public/ASSETS/ICONS/email-input.svg";
+import password_lock from "@/public/ASSETS/ICONS/password-lock.svg";
 import { AuthButton } from "@/components/Buttons/AuthButton";
-import { useRouter } from "next/router";
 import Copyright from "@/components/Nuggets/Copyright";
 import Warning from "@/components/Messages/Warning";
 
-function ForgotPassword() {
-  const router = useRouter();
+function ResetPassword() {
   return (
     <>
       <div>
@@ -24,15 +20,10 @@ function ForgotPassword() {
           <AuthWrapper>
             <>
             <Warning />
-              <div className="mb-4 mt-8 cursor-pointer" onClick={() => {
-                router.push("/auth/sign-in")
-              }}>
-                <Image src={arrowLeft} alt="arrow_left" />
-              </div>
-              <section>
+              <section className="mt-8">
                 <AuthPageHeader
-                  header="Forgot your password ?"
-                  subHeader="To reset your password, please enter the email you registered with. A unique code will be emailed to your address, which will let you reset your password."
+                  header="Reset Password"
+                  subHeader="Create a new password"
                 />
               </section>
 
@@ -40,19 +31,24 @@ function ForgotPassword() {
                 <form action="">
                   <div className="mb-4">
                     <GInput
-                      image={input_email}
-                      name="email"
-                      placeholder="Email Address"
+                      image={password_lock}
+                      name="password"
+                      placeholder="New Password"
                     />
                   </div>
-
+                  <div className="mb-4">
+                    <GInput
+                      image={password_lock}
+                      name="c_password"
+                      placeholder="Confirm Password"
+                    />
+                  </div>
                   <div className="mb-8">
-                    <AuthButton text="Send" active={false} />
+                    <AuthButton active={false} text="Reset" />
                   </div>
                 </form>
               </div>
             </>
-            
           </AuthWrapper>
           <div>
             <Copyright />
@@ -63,4 +59,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default ResetPassword;
