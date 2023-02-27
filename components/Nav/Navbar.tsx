@@ -12,8 +12,12 @@ import hamburgerBlack from "@/public/ASSETS/ICONS/hamburger-black.svg";
 import underline from "@/public/ASSETS/ICONS/underline.svg";
 import { useRouter } from "next/router";
 
-const Navbar = () => {
-  const router = useRouter()
+type NavBarProps = {
+  authScreen?: boolean;
+};
+
+const Navbar = ({ authScreen = false }: NavBarProps) => {
+  const router = useRouter();
   const isLoggedIn = false;
   const [scrollPos, setScrollPos] = useState(0);
   useEffect(() => {
@@ -27,38 +31,56 @@ const Navbar = () => {
       className={`${
         inter.variable
       } font-inter font-medium  fixed top-0 w-full z-10 flex flex-row justify-between ${
-        scrollPos > 10 ? "bg-white" : 'bg-transparent'
-      } px-12 py-4 text-white items-center`}
+        scrollPos > 10
+          ? "bg-white"
+          : authScreen
+          ? "bg-[#1a1229cc]"
+          : "bg-transparent"
+      } ${!authScreen ? "px-12" : "px-40"}  py-4 text-white items-center`}
     >
       <div className="">
         <Image src={scrollPos > 10 ? logoColored : logo} alt="ayocpa's logo" />
       </div>
-
-      <div
-        className={`xl:flex hidden flex-row justify-between w-1/2 items-center ${
-          scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
-        }`}
-      >
-        <span className="cursor-pointer relative" onClick={() => {
-          router.push("/about")
-        }}>
-          About
-          <span className="absolute">
-            <Image src={underline} alt="underline" />
+      {!authScreen && (
+        <div
+          className={`xl:flex hidden flex-row justify-between w-1/2 items-center ${
+            scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
+          }`}
+        >
+          <span
+            className="cursor-pointer relativeH"
+            onClick={() => {
+              router.push("/about");
+            }}
+          >
+            About
+            <span className="absolute">
+              <Image src={underline} alt="underline" />
+            </span>
           </span>
-        </span>
-        <span className="cursor-pointer" onClick={() => router.push("/service")}>Services</span>
-        <span className="cursor-pointer" onClick={() => router.push("/resource")} >Resources</span>
-        <span className="cursor-pointer">File My Taxes</span>
-        <span className="flex flex-row items-center cursor-pointer">
-          More Actions
-          <span className="pl-2">
-            <Image src={textArrowDown} alt="text-arrow-down" />
+          <span
+            className="cursor-pointer"
+            onClick={() => router.push("/service")}
+          >
+            Services
           </span>
-        </span>
-        <span className="cursor-pointer">Ayo234</span>
-        <span className="cursor-pointer">Contact us</span>
-      </div>
+          <span
+            className="cursor-pointer"
+            onClick={() => router.push("/resource")}
+          >
+            Resources
+          </span>
+          <span className="cursor-pointer">File My Taxes</span>
+          <span className="flex flex-row items-center cursor-pointer">
+            More Actions
+            <span className="pl-2">
+              <Image src={textArrowDown} alt="text-arrow-down" />
+            </span>
+          </span>
+          <span className="cursor-pointer">Ayo234</span>
+          <span className="cursor-pointer">Contact us</span>
+        </div>
+      )}
 
       <div className="flex items-center">
         <div
@@ -87,13 +109,14 @@ const Navbar = () => {
             alt="user_icon"
           />
         </div>
-
-        <div className="hidden xl:block ml-4">
-          <ButtonWithNoIcon
-            dark={scrollPos > 10 ? true : false}
-            text="Client Portal"
-          />
-        </div>
+        {!authScreen && (
+          <div className="hidden xl:block ml-4">
+            <ButtonWithNoIcon
+              dark={scrollPos > 10 ? true : false}
+              text="Client Portal"
+            />
+          </div>
+        )}
 
         <div className="ml-2 xl:hidden cursor-pointer">
           <Image
