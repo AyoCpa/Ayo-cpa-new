@@ -5,17 +5,18 @@ import { inter } from "@/utils/fonts";
 
 type ErrorProps = {
   message: string;
+  handleClose: Function;
 };
-function Error({ message }: ErrorProps) {
+function Error({ message, handleClose }: ErrorProps) {
     // TODO:Do Not forget to add a margin top to the elements below this
   return (
     <>
-      <div className="absolute  border  top-0 flex item-align py-4 w-full right-0 left-0 justify-center bg-[#FDF7E2]">
-        <div>
+      <div onClick={() => handleClose(false)} className="absolute  border  top-0 flex item-align py-4 w-full right-0 left-0 justify-center bg-[#FFD6D9]">
+        <div className="cursor-pointer">
           <Image src={markX} alt="" />
         </div>
         <p
-          className={`text-[#FFD6D9] ${inter.variable} font-inter ml-4 font-light `}
+          className={`text-[#932C2F] ${inter.variable} font-inter ml-4 font-light `}
         >
           {message}
         </p>
