@@ -25,7 +25,7 @@ function GInput({
   const [showPassword, setShowPassword] = useState(false);
   const [mouseEnter, setMouseEnter] = useState(false);
   const [onBlurTriggered, setOnBlurredTriggered] = useState(false);
-  const imageInputStyle = "absolute top-2.5 left-2";
+  const imageInputStyle = "absolute top-2 left-2";
   const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A]  placeholder:text-xs lg:placeholder:text-base bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
   return (
     <div className={` ${inter.variable} font-inter relative mb-4 lg:mb-0`}>
