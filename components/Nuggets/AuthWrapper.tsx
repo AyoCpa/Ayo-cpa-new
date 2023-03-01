@@ -6,7 +6,7 @@ type AuthWrapperProps = {
 }
 function AuthWrapper({children}:AuthWrapperProps) {
   return (
-    <div className="bg-[#EFEFEF]  w-4/5 lg:w-[600px] mx-auto relative px-12 pt-12">
+    <div className="bg-[#EFEFEF] w-[90%]  lg:w-[600px] mx-auto relative px-4 lg:px-12 pt-12">
       {children}
     </div>
   );
