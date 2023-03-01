@@ -49,6 +49,7 @@ function SignIn() {
                       image={input_lock}
                       name="password"
                       placeholder="Password"
+                      passwordType={true}
                     />
                     <div className="flex justify-end mt-3 mb-3">
                       <p
