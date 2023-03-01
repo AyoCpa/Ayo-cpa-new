@@ -9,8 +9,19 @@ import { inter } from "@/utils/fonts";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
 import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
+import { useEffect, useState } from "react";
 
 function OtpSent() {
+  const [otp, setOtp] = useState("");
+  const [submitButtonActive, setSubmitButtonActive] = useState(false);
+  useEffect(() => {
+    if (otp.length === 6) {
+      setSubmitButtonActive(true);
+      return;
+    }
+    setSubmitButtonActive(false);
+  }, [otp]);
+
   return (
     <>
       <div>
@@ -36,6 +47,7 @@ function OtpSent() {
                       image={password_lock}
                       name="code"
                       placeholder="Code"
+                      handleInputData={setOtp}
                     />
                     <div>
                       <p
@@ -46,7 +58,10 @@ function OtpSent() {
                     </div>
                   </div>
                   <div className="mb-8">
-                    <AuthButton active={false} text="Next" />
+                    <AuthButton
+                      active={submitButtonActive ? true : false}
+                      text="Next"
+                    />
                   </div>
                 </form>
               </div>

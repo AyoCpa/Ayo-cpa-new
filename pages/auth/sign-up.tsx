@@ -25,11 +25,8 @@ function SignUp() {
   const [address, setAddress] = useState("");
   const [error, setError] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
-    console.log(data);
-    console.log("i Got Clicked");
+  const handleSignUp = () => {
+    
   };
 
   useEffect(() => {

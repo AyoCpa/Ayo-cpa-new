@@ -9,9 +9,21 @@ import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
 import Warning from "@/components/Messages/Warning";
 import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
-
+import { useState, useEffect } from "react";
 
 function ResetPassword() {
+  const [password, setPassword] = useState("");
+  const [cPassword, setCPassword] = useState("");
+  const [buttonActive , setButtonActive] = useState(false)
+
+  useEffect(() => {
+    if(password.length > 6 && password === cPassword){
+      setButtonActive(true)
+      return;
+    }
+    setButtonActive(false)
+  }, [password , cPassword]);
+
   return (
     <>
       <div>
@@ -21,7 +33,7 @@ function ResetPassword() {
         <>
           <AuthWrapper>
             <>
-            <Warning />
+              <Warning />
               <section className="mt-8">
                 <AuthPageHeader
                   header="Reset Password"
@@ -37,6 +49,8 @@ function ResetPassword() {
                       name="password"
                       placeholder="New Password"
                       imageOnFocus={passwordLockDark}
+                      handleInputData={setPassword}
+                      passwordType={true}
                     />
                   </div>
                   <div className="mb-4">
@@ -45,10 +59,12 @@ function ResetPassword() {
                       name="c_password"
                       placeholder="Confirm Password"
                       imageOnFocus={passwordLockDark}
+                      handleInputData={setCPassword}
+                      passwordType={true}
                     />
                   </div>
                   <div className="mb-8">
-                    <AuthButton active={false} text="Reset" />
+                    <AuthButton active={buttonActive ? true : false} text="Reset" />
                   </div>
                 </form>
               </div>

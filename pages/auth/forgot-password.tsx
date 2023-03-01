@@ -1,7 +1,7 @@
 import Navbar from "@/components/Nav/Navbar";
 import AuthWrapper from "@/components/Nuggets/AuthWrapper";
 import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import arrowLeft from "@/public/ASSETS/ICONS/arrow-left.svg";
 import AuthPageHeader from "@/components/Headers/AuthPageHeader";
@@ -12,9 +12,20 @@ import { useRouter } from "next/router";
 import Copyright from "@/components/Nuggets/Copyright";
 import Warning from "@/components/Messages/Warning";
 import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
+import ValidateEmail from "@/utils/email-validate";
 
 function ForgotPassword() {
   const router = useRouter();
+  const [email, setEmailAddress] = useState("");
+  const [submitActive, setSubmitActive] = useState(false);
+
+  useEffect(() => {
+    if (ValidateEmail(email)) {
+      setSubmitActive(true);
+      return
+    }
+    setSubmitActive(false)
+  }, [email]);
   return (
     <>
       <div>
@@ -48,11 +59,15 @@ function ForgotPassword() {
                       image={input_email}
                       name="email"
                       placeholder="Email Address"
+                      handleInputData={setEmailAddress}
                     />
                   </div>
 
                   <div className="mb-8">
-                    <AuthButton text="Send" active={false} />
+                    <AuthButton
+                      text="Send"
+                      active={submitActive ? true : false}
+                    />
                   </div>
                 </form>
               </div>
