@@ -12,7 +12,7 @@ function Warning() {
         <div>
           <Image src={warning} alt="" />
         </div>
-        <p className={`text-[#D2A812] ${inter.variable} font-inter ml-4 font-light `}>
+        <p className={`text-[#D2A812] ${inter.variable} lg:text-base text-sm font-inter ml-4 font-light `}>
           New password set will be for both Website and Client Portal access
         </p>
       </div>

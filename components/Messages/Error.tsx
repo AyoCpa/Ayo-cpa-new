@@ -16,7 +16,7 @@ function Error({ message, handleClose }: ErrorProps) {
           <Image src={markX} alt="" />
         </div>
         <p
-          className={`text-[#932C2F] ${inter.variable} font-inter ml-4 font-light `}
+          className={`text-[#932C2F] ${inter.variable} font-inter lg:text-base text-sm ml-4 font-light `}
         >
           {message}
         </p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Nav/Navbar";
 import Cancel from "@/components/Nuggets/Cancel";
 import AuthPageHeader from "@/components/Headers/AuthPageHeader";
@@ -16,10 +16,36 @@ import Copyright from "@/components/Nuggets/Copyright";
 import AuthWrapper from "@/components/Nuggets/AuthWrapper";
 import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 import Error from "@/components/Messages/Error";
+import ValidateEmail from "@/utils/email-validate";
 
 function SignUp() {
-  const [error, setError] = useState(true);
-  const handleSignUp = () => {};
+  const [name, setName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [error, setError] = useState(false);
+  const [activateButton, setActivateButton] = useState(false);
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    console.log(data);
+    console.log("i Got Clicked");
+  };
+
+  useEffect(() => {
+    if (
+      name.length > 3 &&
+      emailAddress.length > 3 &&
+      ValidateEmail(emailAddress) &&
+      phone.length > 3 &&
+      address.length > 3
+    ) {
+      setActivateButton(true);
+    } else {
+      setActivateButton(false);
+    }
+  }, [name, emailAddress, phone, address]);
+
   return (
     <>
       <div>
@@ -53,6 +79,7 @@ function SignUp() {
                       image={inputProfile}
                       placeholder="Full Name"
                       name="full_name"
+                      handleInputData={setName}
                     />
                   </div>
                   <div className="mb-4">
@@ -61,6 +88,7 @@ function SignUp() {
                       image={inputEmail}
                       placeholder="Email Address"
                       name="email_address"
+                      handleInputData={setEmailAddress}
                     />
                   </div>
                   <div className="mb-4">
@@ -69,6 +97,7 @@ function SignUp() {
                       image={telephone}
                       placeholder="Telephone"
                       name="phone_number"
+                      handleInputData={setPhone}
                     />
                   </div>
                   <div className="mb-4">
@@ -77,11 +106,15 @@ function SignUp() {
                       image={location}
                       placeholder="Address"
                       name="address"
+                      handleInputData={setAddress}
                     />
                   </div>
 
                   <div className="mb-8">
-                    <AuthButton text="Continue" active={false} />
+                    <AuthButton
+                      text="Continue"
+                      active={activateButton ? true : false}
+                    />
                   </div>
                 </form>
               </div>

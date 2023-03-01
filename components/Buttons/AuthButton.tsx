@@ -10,9 +10,15 @@ type AuthButtonProps = {
 export const AuthButton = ({ text, active }: AuthButtonProps) => {
   return (
     <div className="flex">
-      <div className="flex items-center border bg-[#D2D2D2] py-3 px-4 rounded mt-3 cursor-pointer">
-        <div className={`${inter.variable} font-inter lg:text-base text-xs text-white px-1 `}>
-          <input type="submit" value={text} />
+      <div
+        className={`flex items-center border ${
+          active ? "bg-[#6FB1E3]" : "bg-[#D2D2D2]"
+        } py-3 px-4 rounded mt-3 cursor-pointer`}
+      >
+        <div
+          className={`${inter.variable} font-inter lg:text-base text-xs text-white px-1 `}
+        >
+          <input  disabled={!active} type="submit" value={text} />
         </div>
         <div>
           <Image src={arrowRight} alt="" />
