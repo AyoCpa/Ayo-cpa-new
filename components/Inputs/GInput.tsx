@@ -17,7 +17,7 @@ function GInput({ image, placeholder, name, imageOnFocus }: GInputProps) {
   return (
     <div className={` ${inter.variable} font-inter relative mb-4 lg:mb-0`}>
       <span className={imageInputStyle}>
-        <Image src={inputFocused ? imageOnFocus : image} alt="" className="w-20 h-20 lg:w-[36px] lg:h-[32px]" />
+        <Image src={inputFocused ? imageOnFocus : image} alt="" className="w-[20px] h-[20px] lg:w-[36px] lg:h-[32px]" />
       </span>
 
       <input
