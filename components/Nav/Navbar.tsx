@@ -1,5 +1,5 @@
 import logo from "@/public/ASSETS/LOGOS/logo.svg";
-import { ubuntu, inter } from "@/utils/fonts";
+import {  inter } from "@/utils/fonts";
 import Image from "next/image";
 import textArrowDown from "../../public/ASSETS/ICONS/text-arrow-down.svg";
 import user from "@/public/ASSETS/ICONS/user_icon.svg";
@@ -17,6 +17,7 @@ type NavBarProps = {
 };
 
 const Navbar = ({ authScreen = false }: NavBarProps) => {
+  const [showAuthDetails, setShowAuthDetails] = useState(false)
   const router = useRouter();
   const isLoggedIn = false;
   const [scrollPos, setScrollPos] = useState(0);
@@ -84,7 +85,7 @@ const Navbar = ({ authScreen = false }: NavBarProps) => {
 
       <div className="flex items-center">
         <div
-          className={`border border-1 ${
+          className={`relative border border-1 ${
             scrollPos > 10 ? "border-black" : "border-white"
           } px-2 py-2 cursor-pointer ${
             scrollPos <= 10 && isLoggedIn
@@ -95,7 +96,19 @@ const Navbar = ({ authScreen = false }: NavBarProps) => {
               ? ""
               : ""
           }`}
+          onClick={() => {
+            setShowAuthDetails((prev) => {
+              return !showAuthDetails;
+            });
+          }}
         >
+          {showAuthDetails && (
+            <div className="absolute top-14 right-0 text-[#1E1E1E] p-3 px-4 bg-[#fff]">
+              <p className={`${inter.variable} font-inter lg:text-base text-xs mb-2`} onClick={() => router.push("/auth/sign-in")}>Login</p>
+              <p className={`${inter.variable} font-inter lg:text-base text-xs`} onClick={() => router.push("/auth/sign-up")} >Register</p>
+            </div>
+          )}
+
           <Image
             src={
               scrollPos <= 10 && isLoggedIn

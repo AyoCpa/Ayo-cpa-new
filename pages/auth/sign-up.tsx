@@ -32,7 +32,8 @@ function SignUp() {
                 />
               )}
 
-              <Cancel />
+              {!error && <Cancel />}
+
               <section>
                 <AuthPageHeader
                   header="Create an account"
