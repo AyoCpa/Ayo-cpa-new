@@ -2,6 +2,7 @@
     width: 100%;
     padding:  10px 40px;
     background: transparent;
+    font-size: 12px;
 }
 
 .inputStyle::placeholder{
@@ -17,6 +18,7 @@
 @media (min-width: 1024px) {
     .inputStyle{
         padding: 12px 48px;
+        font-size: 16px;
     }
     .inputStyle::placeholder{
         font-size: 16px;
