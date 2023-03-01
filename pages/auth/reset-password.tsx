@@ -8,6 +8,8 @@ import password_lock from "@/public/ASSETS/ICONS/password-lock.svg";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
 import Warning from "@/components/Messages/Warning";
+import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
+
 
 function ResetPassword() {
   return (
@@ -34,6 +36,7 @@ function ResetPassword() {
                       image={password_lock}
                       name="password"
                       placeholder="New Password"
+                      imageOnFocus={passwordLockDark}
                     />
                   </div>
                   <div className="mb-4">
@@ -41,6 +44,7 @@ function ResetPassword() {
                       image={password_lock}
                       name="c_password"
                       placeholder="Confirm Password"
+                      imageOnFocus={passwordLockDark}
                     />
                   </div>
                   <div className="mb-8">

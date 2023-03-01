@@ -9,6 +9,8 @@ import input_email from "@/public/ASSETS/ICONS/email-input.svg";
 import password_lock from "@/public/ASSETS/ICONS/password-lock.svg";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
+import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
+import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
 
 function RegistrationComplete() {
   return (
@@ -34,6 +36,7 @@ function RegistrationComplete() {
                   <div className="mb-4">
                     <GInput
                       image={input_email}
+                      imageOnFocus={inputEmailDark}
                       placeholder="example@example.com"
                       name="email_address"
                     />
@@ -43,10 +46,12 @@ function RegistrationComplete() {
                       image={password_lock}
                       placeholder="Set Password"
                       name="password"
+                      imageOnFocus={passwordLockDark}
                     />
                   </div>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={passwordLockDark}
                       image={password_lock}
                       placeholder="Confirm Password"
                       name="cPassword"

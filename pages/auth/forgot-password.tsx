@@ -11,6 +11,7 @@ import { AuthButton } from "@/components/Buttons/AuthButton";
 import { useRouter } from "next/router";
 import Copyright from "@/components/Nuggets/Copyright";
 import Warning from "@/components/Messages/Warning";
+import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
 
 function ForgotPassword() {
   const router = useRouter();
@@ -23,10 +24,13 @@ function ForgotPassword() {
         <>
           <AuthWrapper>
             <>
-            <Warning />
-              <div className="mb-4 mt-8 cursor-pointer" onClick={() => {
-                router.push("/auth/sign-in")
-              }}>
+              <Warning />
+              <div
+                className="mb-4 mt-8 cursor-pointer"
+                onClick={() => {
+                  router.push("/auth/sign-in");
+                }}
+              >
                 <Image src={arrowLeft} alt="arrow_left" />
               </div>
               <section>
@@ -40,6 +44,7 @@ function ForgotPassword() {
                 <form action="">
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={inputEmailDark}
                       image={input_email}
                       name="email"
                       placeholder="Email Address"
@@ -52,7 +57,6 @@ function ForgotPassword() {
                 </form>
               </div>
             </>
-            
           </AuthWrapper>
           <div>
             <Copyright />

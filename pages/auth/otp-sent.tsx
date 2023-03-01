@@ -4,10 +4,11 @@ import Navbar from "@/components/Nav/Navbar";
 import AuthWrapper from "@/components/Nuggets/AuthWrapper";
 import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 import React from "react";
-import password_lock from "@/public/ASSETS/ICONS/password-lock.svg"
-import {inter} from "@/utils/fonts"
+import password_lock from "@/public/ASSETS/ICONS/password-lock.svg";
+import { inter } from "@/utils/fonts";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
+import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
 
 function OtpSent() {
   return (
@@ -31,6 +32,7 @@ function OtpSent() {
                 <form action="">
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={passwordLockDark}
                       image={password_lock}
                       name="code"
                       placeholder="Code"

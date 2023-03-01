@@ -4,8 +4,12 @@ import Cancel from "@/components/Nuggets/Cancel";
 import AuthPageHeader from "@/components/Headers/AuthPageHeader";
 import GInput from "@/components/Inputs/GInput";
 import inputProfile from "../../public/ASSETS/ICONS/profile-input.svg";
+import inputProfileDark from "@/public/ASSETS/ICONS/profile-input-dark.svg";
+import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
 import inputEmail from "../../public/ASSETS/ICONS/email-input.svg";
 import telephone from "@/public/ASSETS/ICONS/telephone.svg";
+import telephoneDark from "@/public/ASSETS/ICONS/telephone-dark.svg";
+import locationDark from "@/public/ASSETS/ICONS/location-dark.svg";
 import location from "@/public/ASSETS/ICONS/input-location.svg";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
@@ -45,6 +49,7 @@ function SignUp() {
                 <form action="" onSubmit={handleSignUp}>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={inputProfileDark}
                       image={inputProfile}
                       placeholder="Full Name"
                       name="full_name"
@@ -52,6 +57,7 @@ function SignUp() {
                   </div>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={inputEmailDark}
                       image={inputEmail}
                       placeholder="Email Address"
                       name="email_address"
@@ -59,6 +65,7 @@ function SignUp() {
                   </div>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={telephoneDark}
                       image={telephone}
                       placeholder="Telephone"
                       name="phone_number"
@@ -66,6 +73,7 @@ function SignUp() {
                   </div>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={locationDark}
                       image={location}
                       placeholder="Address"
                       name="address"

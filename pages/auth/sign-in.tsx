@@ -11,6 +11,8 @@ import { inter } from "@/utils/fonts";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import Copyright from "@/components/Nuggets/Copyright";
 import { useRouter } from "next/router";
+import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
+import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
 
 function SignIn() {
   const router = useRouter();
@@ -35,6 +37,7 @@ function SignIn() {
                 <form action="">
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={inputEmailDark}
                       image={input_email}
                       name="email_address"
                       placeholder="Email Address"
@@ -42,6 +45,7 @@ function SignIn() {
                   </div>
                   <div className="mb-4">
                     <GInput
+                      imageOnFocus={passwordLockDark}
                       image={input_lock}
                       name="password"
                       placeholder="Password"
