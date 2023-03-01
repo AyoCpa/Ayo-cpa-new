@@ -2,12 +2,12 @@
     width: 100%;
     padding:  10px 40px;
     background: transparent;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .inputStyle::placeholder{
     color: #5A5A5A;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .inputStyle:focus{
@@ -18,7 +18,6 @@
 @media (min-width: 1024px) {
     .inputStyle{
         padding: 12px 48px;
-        font-size: 16px;
     }
     .inputStyle::placeholder{
         font-size: 16px;
