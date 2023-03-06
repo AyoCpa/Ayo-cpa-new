@@ -17,6 +17,7 @@ export default async function handler(
       console.log(user);
       console.log(user)
       console.log(user)
+      console.log(user)
     } catch (e) {
       console.log("error_in_catch", e);
     }
