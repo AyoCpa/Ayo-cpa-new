@@ -17,6 +17,7 @@ import AuthWrapper from "@/components/Nuggets/AuthWrapper";
 import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 import Error from "@/components/Messages/Error";
 import ValidateEmail from "@/utils/email-validate";
+import axios from "axios";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -25,8 +26,22 @@ function SignUp() {
   const [address, setAddress] = useState("");
   const [error, setError] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
-  const handleSignUp = () => {
-    
+  const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("/api/auth/create_user", {
+        email_address: "feranmijogbodo@gmail.com",
+        phone_number: "09034532123",
+        address: "No 22 sawmill ",
+      })
+      .then((res) => {
+        console.log(res);
+        console.log("just testing");
+      })
+      .catch((e) => {
+        console.log(e.response.headers.allow);
+        console.log("just Testing and there's an error");
+      });
   };
 
   useEffect(() => {
