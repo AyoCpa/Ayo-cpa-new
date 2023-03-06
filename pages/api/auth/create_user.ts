@@ -15,6 +15,7 @@ export default async function handler(
         data: { email_address, phone_number, address },
       });
       console.log(user);
+      console.log(user)
     } catch (e) {
       console.log("error_in_catch", e);
     }
