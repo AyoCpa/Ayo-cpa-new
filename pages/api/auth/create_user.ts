@@ -45,7 +45,7 @@ export default async function handler(
     try {
       isUser = await findUser(email_address);
     } catch (error) {
-      console.log("error_trying_to_find_ user" , error)
+      console.log("error_trying_to_find_ user_findUser" , error)
       return res.status(500).json({msg: "Database could not fetch data"})
       // return something when it's not possible to fetch a data due to database issue
     }
