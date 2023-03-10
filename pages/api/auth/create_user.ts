@@ -52,12 +52,12 @@ export default async function handler(
 
 
     if (!isUser) {
-      let user;
+      let user_data;
       try {
-        user = await prisma.user.create({
+        user_data = await prisma.user.create({
           data: { email_address, phone_number, address, name},
         });
-        return res.status(201).json(user);
+        return res.status(201).json(user_data);
       } catch (e) {
         console.log("error_in_catch", e);
         return res.status(500).json({msg:"database could not fetch data"})
