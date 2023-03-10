@@ -26,14 +26,15 @@ function SignUp() {
   const [address, setAddress] = useState("");
   const [error, setError] = useState(false);
   const [activateButton, setActivateButton] = useState(false);
+
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    
+
     axios
-      .post("/api/auth/create_user", {
-        email_address: "feranmijogbodo@gmail.com",
-        phone_number: "09034532123",
-        address: "No 22 sawmill ",
-      })
+      .post("/api/auth/create_user",data)
       .then((res) => {
         console.log(res);
         console.log("just testing");
@@ -90,7 +91,7 @@ function SignUp() {
                       imageOnFocus={inputProfileDark}
                       image={inputProfile}
                       placeholder="Full Name"
-                      name="full_name"
+                      name="name"
                       handleInputData={setName}
                     />
                   </div>
