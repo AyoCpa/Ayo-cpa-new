@@ -18,6 +18,7 @@ import OverallAuthWrapper from "@/components/Nuggets/OverallAuthWrapper";
 import Error from "@/components/Messages/Error";
 import ValidateEmail from "@/utils/email-validate";
 import axios from "axios";
+import { Success } from "@/components/Messages/Success";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -64,7 +65,9 @@ function SignUp() {
       <div>
         <Navbar authScreen={true} />
       </div>
-      <OverallAuthWrapper>
+      <Success header_1="Thank You!" header_2="Your registration details has been sent" message="We will send you a confirmation mail once your registration has been approved or declined" />
+
+      {/* <OverallAuthWrapper>
         <>
           <AuthWrapper>
             <>
@@ -83,6 +86,7 @@ function SignUp() {
                   subHeader="Register as a new Client"
                 />
               </section>
+
 
               <div className="mt-8">
                 <form action="" onSubmit={handleSignUp}>
@@ -137,7 +141,7 @@ function SignUp() {
             <Copyright />
           </div>
         </>
-      </OverallAuthWrapper>
+      </OverallAuthWrapper> */}
     </>
   );
 }
