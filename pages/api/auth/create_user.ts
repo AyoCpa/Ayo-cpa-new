@@ -65,12 +65,12 @@ export default async function handler(
     }
 
     // when user exist using email as a unique identifier
-    return res.status(409).json({ msg: "user exists" });
+    return res.status(409).json({ msg: "User already exist" });
   } else {
     return res
       .setHeader("allow", "POST")
       .status(405)
-      .json({ msg: "method not allowed" });
+      .json({ msg: "Method is not allowed" });
   }
 }
 
