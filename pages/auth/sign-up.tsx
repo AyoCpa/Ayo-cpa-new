@@ -65,7 +65,7 @@ function SignUp() {
       <div>
         <Navbar authScreen={true} />
       </div>
-      <Success header_1="Thank You!" header_2="Your registration details has been sent" message="We will send you a confirmation mail once your registration has been approved or declined." />
+      <Success header_1="Thank You!" header_2="Your registration details has been sent" message="We will send you a confirmation mail once your registration has been approved or declined....." />
 
       {/* <OverallAuthWrapper>
         <>
