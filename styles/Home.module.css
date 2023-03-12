@@ -20,8 +20,6 @@
 }
 
 
-
-
 .serviceCol {
   padding-top: 64px;
   margin-top: 0px;
@@ -83,9 +81,12 @@
   padding-bottom: 120px;
 }
 
+
+
+
 @media (min-width:1024px) {
 
-  .advisoryCol{
+  .advisoryCol {
     margin-top: 80px;
   }
 
@@ -110,7 +111,7 @@
   }
 }
 
-.aboutBanner , .resourceBanner , .paymentBanner {
+.aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
   height: 50vh;
   background-repeat: no-repeat;
@@ -118,6 +119,12 @@
   background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.bookAppointmentCol{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("../public/ASSETS/IMAGES/book-an-appointment-image.jpg");
+  ;
 }
 
 .paymentBanner{
