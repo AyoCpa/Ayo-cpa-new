@@ -16,3 +16,24 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #efefef inset !important;
 }
+
+textarea{
+    resize: none;
+}
+
+textarea::placeholder{
+    color: #5A5A5A;
+    font-size: 14px;
+}
+
+@media (min-width:1024px) {
+    textarea::placeholder{
+        font-size: 14px;
+    }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
