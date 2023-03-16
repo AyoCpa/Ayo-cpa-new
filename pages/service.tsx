@@ -14,7 +14,7 @@ function Service() {
   return (
     <div>
       <div>
-        <Navbar />
+        <Navbar currentPage="services" />
       </div>
 
       <div>

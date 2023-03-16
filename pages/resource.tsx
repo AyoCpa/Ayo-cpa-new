@@ -20,7 +20,7 @@ function Resource() {
   return (
     <>
       <div>
-        <Navbar />
+        <Navbar currentPage="resources" />
       </div>
 
       <div>
