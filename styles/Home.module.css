@@ -111,7 +111,7 @@
   }
 }
 
-.aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol {
+.aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol , .termsOfService {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
   height: 50vh;
   background-repeat: no-repeat;
@@ -121,6 +121,11 @@
   align-items: center;
 }
 
+.termsOfService{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("../public/ASSETS/IMAGES/terms-of-us.jpg");
+  ;
+}
 .bookAppointmentCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
   url("../public/ASSETS/IMAGES/book-an-appointment-image.jpg");
