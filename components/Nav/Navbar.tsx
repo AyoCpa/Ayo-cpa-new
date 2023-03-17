@@ -1,5 +1,5 @@
 import logo from "@/public/ASSETS/LOGOS/logo.svg";
-import {  inter } from "@/utils/fonts";
+import { inter } from "@/utils/fonts";
 import Image from "next/image";
 import textArrowDown from "../../public/ASSETS/ICONS/text-arrow-down.svg";
 import user from "@/public/ASSETS/ICONS/user_icon.svg";
@@ -14,10 +14,11 @@ import { useRouter } from "next/router";
 
 type NavBarProps = {
   authScreen?: boolean;
+  currentPage?: string;
 };
 
-const Navbar = ({ authScreen = false }: NavBarProps) => {
-  const [showAuthDetails, setShowAuthDetails] = useState(false)
+const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
+  const [showAuthDetails, setShowAuthDetails] = useState(false);
   const router = useRouter();
   const isLoggedIn = false;
   const [scrollPos, setScrollPos] = useState(0);
@@ -48,30 +49,78 @@ const Navbar = ({ authScreen = false }: NavBarProps) => {
             scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
           }`}
         >
-          <span
-            className="cursor-pointer relativeH"
+          <div
+            className={`cursor-pointer ${
+              currentPage == "about" && "mt-3"
+            }  relative flex justify-center flex-col items-center`}
             onClick={() => {
               router.push("/about");
             }}
           >
-            About
-            <span className="absolute">
-              <Image src={underline} alt="underline" />
-            </span>
-          </span>
-          <span
-            className="cursor-pointer"
+            <p>About</p>
+            {currentPage == "about" && (
+              <span className="flex justify-center">
+                <Image
+                  src={underline}
+                  style={{ width: "50px", paddingTop: "8px" }}
+                  alt="underline"
+                />
+              </span>
+            )}
+          </div>
+
+          <div
+            className={`cursor-pointer ${
+              currentPage == "services" && "mt-3"
+            }  relative flex justify-center flex-col items-center`}
             onClick={() => router.push("/service")}
           >
-            Services
-          </span>
-          <span
-            className="cursor-pointer"
+            <p>Services</p>
+            {currentPage == "services" && (
+              <span className="flex justify-center">
+                <Image
+                  src={underline}
+                  style={{ width: "64px", paddingTop: "8px" }}
+                  alt="underline"
+                />
+              </span>
+            )}
+          </div>
+          <div
+            className={`cursor-pointer ${
+              currentPage == "resources" && "mt-3"
+            }  relative flex justify-center flex-col items-center`}
             onClick={() => router.push("/resource")}
           >
-            Resources
-          </span>
-          <span className="cursor-pointer">File My Taxes</span>
+            <p>Resources</p>
+            {currentPage == "resources" && (
+              <span className="flex justify-center">
+                <Image
+                  src={underline}
+                  style={{ width: "72px", paddingTop: "8px" }}
+                  alt="underline"
+                />
+              </span>
+            )}
+          </div>
+          <div
+            className={`cursor-pointer ${
+              currentPage == "taxes" && "mt-3"
+            }  relative flex justify-center flex-col items-center`}
+            onClick={() => router.push("/resource")}
+          >
+            <p>File My Taxes</p>
+            {currentPage == "taxes" && (
+              <span className="flex justify-center">
+                <Image
+                  src={underline}
+                  style={{ width: "72px", paddingTop: "8px" }}
+                  alt="underline"
+                />
+              </span>
+            )}
+          </div>
+
           <span className="flex flex-row items-center cursor-pointer">
             More Actions
             <span className="pl-2">
@@ -79,7 +128,23 @@ const Navbar = ({ authScreen = false }: NavBarProps) => {
             </span>
           </span>
           <span className="cursor-pointer">Ayo234</span>
-          <span className="cursor-pointer">Contact us</span>
+          <div
+            className={`cursor-pointer ${
+              currentPage == "contact" && "mt-3"
+            }  relative flex justify-center flex-col items-center`}
+            onClick={() => router.push("/contact")}
+          >
+            <p>Contact Us</p>
+            {currentPage == "contact" && (
+              <span className="flex justify-center">
+                <Image
+                  src={underline}
+                  style={{ width: "72px", paddingTop: "8px" }}
+                  alt="underline"
+                />
+              </span>
+            )}
+          </div>
         </div>
       )}
 
@@ -104,8 +169,18 @@ const Navbar = ({ authScreen = false }: NavBarProps) => {
         >
           {showAuthDetails && (
             <div className="absolute top-14 right-0 text-[#1E1E1E] p-3 px-4 bg-[#fff]">
-              <p className={`${inter.variable} font-inter lg:text-base text-xs mb-2`} onClick={() => router.push("/auth/sign-in")}>Login</p>
-              <p className={`${inter.variable} font-inter lg:text-base text-xs`} onClick={() => router.push("/auth/sign-up")} >Register</p>
+              <p
+                className={`${inter.variable} font-inter lg:text-base text-xs mb-2`}
+                onClick={() => router.push("/auth/sign-in")}
+              >
+                Login
+              </p>
+              <p
+                className={`${inter.variable} font-inter lg:text-base text-xs`}
+                onClick={() => router.push("/auth/sign-up")}
+              >
+                Register
+              </p>
             </div>
           )}
 
