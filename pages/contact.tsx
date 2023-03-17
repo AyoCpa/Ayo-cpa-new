@@ -71,7 +71,7 @@ function Contact() {
                     <SectionHeader text="User information" />
                   </section>
                 </Col>
-                <Col xs={12}>
+                <Col lg={12} xs={24}>
                   <form action="">
                     <div className="mb-4">
                       <GInput
@@ -130,8 +130,8 @@ function Contact() {
                     </div>
                   </form>
                 </Col>
-                <Col xs={12}>
-                  <div className="flex flex-col items-end">
+                <Col xs={24} lg={12} >
+                  <div className="flex flex-col items-center lg:items-end">
                     {communicationData.map((item, index, root) => {
                       return (
                         <div

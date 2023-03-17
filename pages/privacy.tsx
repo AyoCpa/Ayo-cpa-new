@@ -2,6 +2,7 @@ import Navbar from "@/components/Nav/Navbar";
 import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
 import React from "react";
+import styles from '../styles/Home.module.css'
 
 function Privacy() {
   return (
