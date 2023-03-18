@@ -11,9 +11,13 @@ datasource db {
 }
 
 model User {
-  id            String @id @default(cuid())
-  email_address String @unique
-  name          String
-  phone_number  String
-  address       String
+  id                String   @id @default(cuid())
+  email_address     String   @unique
+  name              String
+  phone_number      String
+  address           String
+  verified          Boolean?
+  salt              String?
+  hash              String?
+  verificationToken String   @default(cuid())
 }
