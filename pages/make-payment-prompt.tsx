@@ -14,6 +14,7 @@ import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import { useRouter } from "next/router";
+import { IdentityOption } from "@/components/Nuggets/IdentityOption";
 
 function MakePaymentPrompt() {
   const router = useRouter();
@@ -38,57 +39,14 @@ function MakePaymentPrompt() {
         </section>
 
         <section className="py-20">
-          <Row justify={"center"}>
-            <Col xs={22} lg={16}>
-              <Row gutter={{xs:0, lg:80}}>
-                <Col xs={24} lg={12}>
-                  <div className="border-2 border-[#7FBAE6] px-6 py-8">
-                    <p
-                      className={`${ubuntu.variable} font-ubuntu text-[#1E1E1E] text-lg lg:text-2xl font-bold`}
-                    >
-                      Continue as an existing Client
-                    </p>
-                    <p
-                      className={`${inter.variable} font-inter text-sm lg:text-lg text-[#5A5A5A] my-4 lg:h-[100px]`}
-                    >
-                      Quickly and securely make payments for your business
-                      Profile(s) on the Client Portal, proceed to the Client
-                      Portal
-                    </p>
-
-                    <ButtonWithNoIcon
-                      text="Client Portal"
-                      dark={true}
-                      alignCenter={false}
-                    />
-                  </div>
-                </Col>
-
-                <Col xs={24} lg={12}>
-                  <div className="border-2 border-[#464646] px-6 py-8 mt-16 lg:mt-0">
-                    <p
-                      className={`${ubuntu.variable} font-ubuntu text-[#1E1E1E] text-lg lg:text-2xl font-bold`}
-                    >
-                      Continue as a Guest
-                    </p>
-                    <p
-                      className={`${inter.variable} font-inter text-sm lg:text-lg text-[#5A5A5A] my-4  lg:h-[100px]`}
-                    >
-                      Make payments for your business Profile(s) quickly and
-                      securely as a quest.
-                    </p>
-
-                    <ButtonWithIcon
-                      text="Proceed"
-                      dark={true}
-                      alignCenter={false}
-                      handleRoute={() => router.push("/make-payment-as-guest")}
-                    />
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <IdentityOption
+            blueBorderHead="Continue as an existing Client"
+            blueBorderText="Quickly and securely make payments for your business Profile(s) on the Client Portal, proceed to the Client Portal"
+            blueBorderButtonText="Client Portal"
+            blackBorderHead="Continue as a Guest"
+            blackBorderText="Make payments for your business Profile(s) quickly and securely as a quest."
+            blackBorderButtonText="Proceed"
+          />
         </section>
 
         <section>

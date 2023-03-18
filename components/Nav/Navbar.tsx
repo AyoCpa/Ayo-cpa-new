@@ -107,7 +107,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
             className={`cursor-pointer ${
               currentPage == "taxes" && "mt-3"
             }  relative flex justify-center flex-col items-center`}
-            onClick={() => router.push("/resource")}
+            onClick={() => router.push("/file-my-taxes")}
           >
             <p>File My Taxes</p>
             {currentPage == "taxes" && (
