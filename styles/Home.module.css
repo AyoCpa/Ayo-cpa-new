@@ -111,7 +111,7 @@
   }
 }
 
-.aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol , .termsOfService ,.contactCol{
+.aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol , .termsOfService ,.contactCol , .remoteAccessCol , .submitDocCol , .taxesCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
   height: 50vh;
   background-repeat: no-repeat;
@@ -119,6 +119,22 @@
   background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.taxesCol{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("../public/ASSETS/IMAGES/file-my-tax.jpg");
+}
+
+
+.submitDocCol{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("../public/ASSETS/IMAGES/submit-document.jpg");
+}
+
+.remoteAccessCol{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("../public/ASSETS/IMAGES/remote-access.jpg");
 }
 
 .contactCol{

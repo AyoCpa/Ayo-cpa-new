@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 import ValidateEmail from "@/utils/email-validate";
+import {Email} from "../../../utils/sendEmail"
 
 const prisma = new PrismaClient();
 
@@ -57,6 +58,13 @@ export default async function handler(
         user_data = await prisma.user.create({
           data: { email_address, phone_number, address, name},
         });
+        
+        try {
+          await new Email({name , email:email_address}).sendMagicLink()
+        } catch (error) {
+          console.log("error_sending_mail" , error)
+        }
+
         return res.status(201).json(user_data);
       } catch (e) {
         console.log("error_in_catch", e);
