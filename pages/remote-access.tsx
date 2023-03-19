@@ -7,6 +7,7 @@ import { PageSideSubHeader } from "@/components/Nuggets/PageSideSubHeader";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import {Row , Col} from "antd"
 
 function RemoteAccess() {
   return (
@@ -33,6 +34,20 @@ function RemoteAccess() {
             mainText="Remote Access"
             subText="Give us permission to access your PC remotely"
           />
+        </section>
+
+        <section className="mt-10">
+          <Row justify="center" align="middle">
+            <Col lg={12} xs={22} >
+              <iframe
+                src="https://FastSupport.gotoassist.com"
+                height="500px"
+                width="100%"
+              >
+                your browser does not support IFRAMEs
+              </iframe>
+            </Col>
+          </Row>
         </section>
 
         {/* Add the remaining content here  */}
