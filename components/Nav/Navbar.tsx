@@ -11,6 +11,7 @@ import hamburgerWhite from "@/public/ASSETS/ICONS/hamburger-white.svg";
 import hamburgerBlack from "@/public/ASSETS/ICONS/hamburger-black.svg";
 import underline from "@/public/ASSETS/ICONS/underline.svg";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type NavBarProps = {
   authScreen?: boolean;
@@ -22,6 +23,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
   const router = useRouter();
   const isLoggedIn = false;
   const [scrollPos, setScrollPos] = useState(0);
+  const [showMoreAction, setShowMoreAction] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollPos(window.scrollY);
@@ -121,11 +123,38 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
             )}
           </div>
 
-          <span className="flex flex-row items-center cursor-pointer">
-            More Actions
-            <span className="pl-2">
-              <Image src={textArrowDown} alt="text-arrow-down" />
+          <span className="flex flex-row items-center cursor-pointer relative ">
+            <span
+              onClick={() => {
+                setShowMoreAction((prev) => !prev);
+              }}
+              className="flex items-center"
+            >
+              <span>More Actions</span>
+
+              <span className="pl-2">
+                <Image src={textArrowDown} alt="text-arrow-down" />
+              </span>
             </span>
+
+            {showMoreAction && (
+              <div
+                className={`absolute top-10 right-10 bg-white  min-w-[180px] px-3 py-3 text-[#1E1E1E] rounded-md ${inter.variable} font-inter font-semibold `}
+              >
+                <p className="text-sm pt-1">
+                  <Link href="/submit-document">Submit Document</Link>
+                </p>
+                <p className="text-sm pt-1">
+                  <Link href="/book-an-appointment">Book an appointment</Link>
+                </p>
+                <p className="text-sm pt-1">
+                  <Link href="/make-payment-prompt">Payment</Link>
+                </p>
+                <p className="text-sm pt-1">
+                  <Link href="/remote-access">Remote Access</Link>
+                </p>
+              </div>
+            )}
           </span>
           <span className="cursor-pointer">Ayo234</span>
           <div
