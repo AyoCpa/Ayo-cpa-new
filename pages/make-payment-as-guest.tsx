@@ -6,21 +6,33 @@ import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
 import { Col, Row } from "antd";
 import { ubuntu, inter } from "@/utils/fonts";
 import inputEmail from "../public/ASSETS/ICONS/email-input.svg";
+import inputEmailDark from "../public/ASSETS/ICONS/email-input-dark.svg";
 import inputProfile from "../public/ASSETS/ICONS/profile-input.svg";
-import inputProfileHalf from "../public/ASSETS/ICONS/input-profile-half.svg";
+import inputProfileDark from "../public/ASSETS/ICONS/profile-input-dark.svg";
 import inputCoin from "../public/ASSETS/ICONS/input-coin.svg";
+import inputCoinDark from "../public/ASSETS/ICONS/input-coin-dark.svg"
 import inputCard from "../public/ASSETS/ICONS/input-card.svg";
+import inputCardDark from "../public/ASSETS/ICONS/input-card-dark.svg"
 import Image from "next/image";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { useState, useEffect } from "react";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import GInput from "@/components/Inputs/GInput";
 
 function MakePaymentAsGuest() {
   const [paymentActive, setPaymentActive] = useState(true);
   const [eTransferActive, setETransferActive] = useState(false);
   const [chequeActive, setChequeActive] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [email, setEmail] = useState("");
+  const [profileName, setProfileName] = useState("");
+  const [expiry , setExpiry] = useState("")
+  const [amount , setAmount] = useState("")
+  const [cvv , setCvv]= useState("")
+  const [cardName, setCardName] = useState("")
+  const [cardNumber , setCardNumber] = useState("")
   const headerStyle = `${ubuntu.variable} font-ubuntu mb-8 text-lg lg:text-xl font-semibold`;
   const imageInputStyle = "absolute top-2 left-2";
   const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A]  placeholder:text-xs lg:placeholder:text-base bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
@@ -80,32 +92,22 @@ function MakePaymentAsGuest() {
                 <p className={headerStyle}>User Information</p>
                 <Row gutter={{ xs: 0, lg: 40 }} className="mb-12">
                   <Col xs={24} lg={12}>
-                    <div className="relative mb-4 lg:mb-0">
-                      <span className={imageInputStyle}>
-                        <Image src={inputProfile} alt="" />
-                      </span>
-
-                      <input
-                        name="client_name"
-                        type="text"
-                        className={inputStyle}
-                        placeholder="Client Name"
-                      />
-                    </div>
+                    <GInput
+                      image={inputProfile}
+                      imageOnFocus={inputProfileDark}
+                      placeholder="Client Name"
+                      name="client_name"
+                      handleInputData={setClientName}
+                    />
                   </Col>
                   <Col xs={24} lg={12}>
-                    <div className="relative">
-                      <span className={imageInputStyle}>
-                        <Image src={inputEmail} alt="" />
-                      </span>
-
-                      <input
-                        name="email_address"
-                        type="text"
-                        className={inputStyle}
-                        placeholder="Email Address"
-                      />
-                    </div>
+                    <GInput
+                      name="email_address"
+                      handleInputData={setEmail}
+                      image={inputEmail}
+                      imageOnFocus={inputEmailDark}
+                      placeholder="Email Address"
+                    />
                   </Col>
                 </Row>
                 <section className="mb-12">
@@ -125,15 +127,12 @@ function MakePaymentAsGuest() {
                   <Row gutter={{ xs: 0, lg: 40 }}>
                     <Col xs={24} lg={12} className="mb-4">
                       <div className="relative">
-                        <span className={imageInputStyle}>
-                          <Image src={inputProfileHalf} alt="" />
-                        </span>
-
-                        <input
-                          name="email_address"
-                          type="text"
-                          className={inputStyle}
+                        <GInput
+                          name="profile_name"
                           placeholder="Profile Name"
+                          image={inputProfile}
+                          imageOnFocus={inputProfileDark}
+                          handleInputData={setProfileName}
                         />
                       </div>
                       <div>
@@ -148,18 +147,13 @@ function MakePaymentAsGuest() {
 
                   <Row gutter={{ xs: 0, lg: 40 }}>
                     <Col xs={24} lg={12}>
-                      <div className="relative">
-                        <span className={imageInputStyle}>
-                          <Image src={inputCoin} alt="" />
-                        </span>
-
-                        <input
-                          name="email_address"
-                          type="text"
-                          className={inputStyle}
-                          placeholder="Enter amount"
-                        />
-                      </div>
+                      <GInput
+                        image={inputCoin}
+                        imageOnFocus={inputCoinDark}
+                        name="amount"
+                        placeholder="Enter amount"
+                        handleInputData={setAmount}
+                      />
                     </Col>
                   </Row>
                 </section>
@@ -233,64 +227,44 @@ function MakePaymentAsGuest() {
                   {paymentActive && (
                     <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
                       <Col xs={24} lg={12}>
-                        <div className="relative mb-4 lg:mb-0">
-                          <span className={imageInputStyle}>
-                            <Image src={inputCard} alt="" />
-                          </span>
-
-                          <input
-                            name="client_name"
-                            type="text"
-                            className={inputStyle}
-                            placeholder="Card Name"
-                          />
-                        </div>
+                        <GInput
+                          image={inputCard}
+                          imageOnFocus={inputCardDark}
+                          name="card_name"
+                          placeholder="Card Name"
+                          handleInputData={setCardName}
+                        />
                       </Col>
 
                       <Col xs={24} lg={12}>
-                        <div className="relative">
-                          <span className={imageInputStyle}>
-                            <Image src={inputCard} alt="" />
-                          </span>
-
-                          <input
-                            name="client_name"
-                            type="text"
-                            className={inputStyle}
-                            placeholder="Card Number"
-                          />
-                        </div>
+                        <GInput
+                          image={inputCard}
+                          imageOnFocus={inputCardDark}
+                          name="card_number"
+                          placeholder="Card Number"
+                          handleInputData={setCardNumber}
+                        />
                       </Col>
 
                       <Col xs={24} lg={12} className="mt-8">
                         <Row gutter={{ xs: 12, lg: 40 }}>
                           <Col xs={12}>
-                            <div className="relative">
-                              <span className={imageInputStyle}>
-                                <Image src={inputCard} alt="" />
-                              </span>
-
-                              <input
-                                name="client_name"
-                                type="text"
-                                className={inputStyle}
-                                placeholder="Expiry Date"
-                              />
-                            </div>
+                            <GInput
+                              image={inputCard}
+                              imageOnFocus={inputCardDark}
+                              name="expiry"
+                              placeholder="Expiry Date"
+                              handleInputData={setExpiry}
+                            />
                           </Col>
                           <Col xs={12}>
-                            <div className="relative">
-                              <span className={imageInputStyle}>
-                                <Image src={inputCard} alt="" />
-                              </span>
-
-                              <input
-                                name="client_name"
-                                type="text"
-                                className={inputStyle}
-                                placeholder="Cvv"
-                              />
-                            </div>
+                            <GInput
+                              image={inputCard}
+                              imageOnFocus={inputCardDark}
+                              name="cvv"
+                              placeholder="CVV"
+                              handleInputData={setCvv}
+                            />
                           </Col>
                         </Row>
                       </Col>
@@ -299,7 +273,7 @@ function MakePaymentAsGuest() {
 
                   {eTransferActive && (
                     <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12} >
+                      <Col xs={24} lg={12}>
                         <div>
                           <p
                             className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
@@ -318,7 +292,7 @@ function MakePaymentAsGuest() {
                   )}
                   {chequeActive && (
                     <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12} >
+                      <Col xs={24} lg={12}>
                         <div>
                           <p
                             className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
@@ -339,8 +313,8 @@ function MakePaymentAsGuest() {
                   )}
                 </section>
 
-                <div>
-                  <AuthButton text="Complete Payment" active={true} />
+                <div className="mt-12">
+                  <AuthButton text="Complete Payment" active={false} />
                 </div>
               </form>
             </Col>
@@ -348,11 +322,17 @@ function MakePaymentAsGuest() {
         </section>
       </div>
 
-      <section><HireFlash /></section>
+      <section>
+        <HireFlash />
+      </section>
 
-      <section><ServiceFlash /></section>
+      <section>
+        <ServiceFlash />
+      </section>
 
-      <section><Footer /></section>
+      <section>
+        <Footer />
+      </section>
     </>
   );
 }
