@@ -21,3 +21,16 @@ model User {
   hash              String?
   verificationToken String   @default(cuid())
 }
+
+model Payment {
+  id          String  @id @default(cuid())
+  clientName  String
+  email       String  
+  profileName String
+  amount      String
+  mode        String
+  cardName    String?
+  cardNumber  String?
+  expiry      String?
+  cvv         String?
+}
