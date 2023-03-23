@@ -10,15 +10,17 @@ import inputEmailDark from "../public/ASSETS/ICONS/email-input-dark.svg";
 import inputProfile from "../public/ASSETS/ICONS/profile-input.svg";
 import inputProfileDark from "../public/ASSETS/ICONS/profile-input-dark.svg";
 import inputCoin from "../public/ASSETS/ICONS/input-coin.svg";
-import inputCoinDark from "../public/ASSETS/ICONS/input-coin-dark.svg"
+import inputCoinDark from "../public/ASSETS/ICONS/input-coin-dark.svg";
 import inputCard from "../public/ASSETS/ICONS/input-card.svg";
-import inputCardDark from "../public/ASSETS/ICONS/input-card-dark.svg"
+import inputCardDark from "../public/ASSETS/ICONS/input-card-dark.svg";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { useState, useEffect } from "react";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import GInput from "@/components/Inputs/GInput";
+import ValidateEmail from "@/utils/email-validate";
+import axios from "axios";
 
 function MakePaymentAsGuest() {
   const [paymentActive, setPaymentActive] = useState(true);
@@ -27,18 +29,94 @@ function MakePaymentAsGuest() {
   const [clientName, setClientName] = useState("");
   const [email, setEmail] = useState("");
   const [profileName, setProfileName] = useState("");
-  const [expiry , setExpiry] = useState("")
-  const [amount , setAmount] = useState("")
-  const [cvv , setCvv]= useState("")
-  const [cardName, setCardName] = useState("")
-  const [cardNumber , setCardNumber] = useState("")
+  const [expiry, setExpiry] = useState("");
+  const [amount, setAmount] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const headerStyle = `${ubuntu.variable} font-ubuntu mb-8 text-lg lg:text-xl font-semibold`;
   const imageInputStyle = "absolute top-2 left-2";
   const inputStyle = `w-full py-3 px-12 placeholder-[#5A5A5A]  placeholder:text-xs lg:placeholder:text-base bg-transparent border-[#AAAAAA] border-2 rounded ${inter.variable} font-inter`;
+  const [buttonActive, setButtonActive] = useState(false);
 
-  const handleFormSubmit = (e: React.SyntheticEvent) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setButtonActive(false);
+    let mode = "";
+    if (paymentActive) {
+      mode = "online_payment";
+    } else if (eTransferActive) {
+      mode = "e_transfer";
+    } else if (chequeActive) {
+      mode = "e_transfer";
+    }
+
+    const payload = {
+      mode,
+      cardName,
+      cardNumber,
+      cvv,
+      email,
+      profileName,
+      clientName,
+      amount,
+      expiry,
+    };
+
+    axios
+      .post("/api/payment", payload)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        setButtonActive(true);
+      });
   };
+
+  useEffect(() => {
+    if (paymentActive) {
+      if (
+        !clientName ||
+        !email ||
+        !ValidateEmail(email) ||
+        !profileName ||
+        !amount ||
+        !cvv ||
+        !expiry ||
+        !cardNumber ||
+        !cardName
+      ) {
+        setButtonActive(false);
+      } else {
+        setButtonActive(true);
+      }
+    } else {
+      if (
+        !clientName ||
+        !email ||
+        !ValidateEmail(email) ||
+        !profileName ||
+        !amount
+      ) {
+        setButtonActive(false);
+      } else {
+        setButtonActive(true);
+      }
+    }
+  }, [
+    clientName,
+    email,
+    profileName,
+    expiry,
+    amount,
+    cvv,
+    cardName,
+    cardNumber,
+    paymentActive,
+  ]);
 
   const handlePaymentMethod = (): void => {};
   return (
@@ -188,6 +266,10 @@ function MakePaymentAsGuest() {
                             type="radio"
                             className=" cursor-pointer w-[18px] h-[18px]"
                             onClick={() => {
+                              setCardName("");
+                              setCardNumber("");
+                              setCvv("");
+                              setExpiry("");
                               setPaymentActive(false);
                               setChequeActive(false);
                               setETransferActive(true);
@@ -208,6 +290,10 @@ function MakePaymentAsGuest() {
                             type="radio"
                             className=" cursor-pointer w-[18px] h-[18px]"
                             onClick={() => {
+                              setCardName("");
+                              setCardNumber("");
+                              setCvv("");
+                              setExpiry("");
                               setPaymentActive(false);
                               setChequeActive(true);
                               setETransferActive(false);
@@ -313,7 +399,7 @@ function MakePaymentAsGuest() {
                 </section>
 
                 <div className="mt-12">
-                  <AuthButton text="Complete Payment" active={false} />
+                  <AuthButton text="Complete Payment" active={buttonActive} />
                 </div>
               </form>
             </Col>

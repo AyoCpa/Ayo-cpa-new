@@ -25,9 +25,10 @@ model User {
 model Payment {
   id          String  @id @default(cuid())
   clientName  String
-  email       String  @unique
+  email       String  
   profileName String
   amount      String
+  mode        String
   cardName    String?
   cardNumber  String?
   expiry      String?
