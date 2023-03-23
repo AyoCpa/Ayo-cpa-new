@@ -21,8 +21,11 @@ import { Footer } from "@/components/Footer/Footer";
 import GInput from "@/components/Inputs/GInput";
 import ValidateEmail from "@/utils/email-validate";
 import axios from "axios";
+import { Success } from "@/components/Messages/Success";
+import { useRouter } from "next/router";
 
 function MakePaymentAsGuest() {
+  const router = useRouter();
   const [paymentActive, setPaymentActive] = useState(true);
   const [eTransferActive, setETransferActive] = useState(false);
   const [chequeActive, setChequeActive] = useState(false);
@@ -30,6 +33,8 @@ function MakePaymentAsGuest() {
   const [email, setEmail] = useState("");
   const [profileName, setProfileName] = useState("");
   const [expiry, setExpiry] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, , setError] = useState(false);
   const [amount, setAmount] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardName, setCardName] = useState("");
@@ -66,7 +71,10 @@ function MakePaymentAsGuest() {
     axios
       .post("/api/payment", payload)
       .then((res) => {
-        console.log(res.data);
+        setSuccess(true);
+        setTimeout(() => {
+          router.push("/");
+        }, 5000);
       })
       .catch((e) => {
         console.log(e);
@@ -140,272 +148,279 @@ function MakePaymentAsGuest() {
           />
         </div>
       </section>
+      {success ? (
+        <Success
+          header_1="Thank You!"
+          header_2="Your payment has been sent"
+          message="We will send you a confirmation mail once payment has been recieved"
+        />
+      ) : (
+        <div className="bg-[#efefef] pt-20">
+          <section className="pb-20">
+            <Row justify={"center"}>
+              <Col xs={22} lg={16}>
+                <div>
+                  <p
+                    className={`${ubuntu.variable} font-ubuntu text-lg lg:text-2xl font-semibold tracking-wide`}
+                  >
+                    Making Payment as a Guest
+                  </p>
 
-      <div className="bg-[#efefef] pt-20">
-        <section className="pb-20">
-          <Row justify={"center"}>
-            <Col xs={22} lg={16}>
-              <div>
-                <p
-                  className={`${ubuntu.variable} font-ubuntu text-lg lg:text-2xl font-semibold tracking-wide`}
-                >
-                  Making Payment as a Guest
-                </p>
+                  <p
+                    className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
+                  >
+                    Secure payments for your Cilent Portal proceedings
+                  </p>
+                </div>
+              </Col>
+            </Row>
+          </section>
 
-                <p
-                  className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
-                >
-                  Secure payments for your Cilent Portal proceedings
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </section>
-
-        <section className="pb-20">
-          <Row justify={"center"}>
-            <Col xs={22} lg={16}>
-              <form action="" onSubmit={handleFormSubmit}>
-                <p className={headerStyle}>User Information</p>
-                <Row gutter={{ xs: 0, lg: 40 }} className="mb-12">
-                  <Col xs={24} lg={12}>
-                    <GInput
-                      image={inputProfile}
-                      imageOnFocus={inputProfileDark}
-                      placeholder="Client Name"
-                      name="client_name"
-                      handleInputData={setClientName}
-                    />
-                  </Col>
-                  <Col xs={24} lg={12}>
-                    <GInput
-                      name="email_address"
-                      handleInputData={setEmail}
-                      image={inputEmail}
-                      imageOnFocus={inputEmailDark}
-                      placeholder="Email Address"
-                    />
-                  </Col>
-                </Row>
-                <section className="mb-12">
-                  <div className="mb-8">
-                    <p
-                      className={`${ubuntu.variable} font-ubuntu mb-2 text-lg lg:text-xl font-semibold`}
-                    >
-                      Enter Profile
-                    </p>
-                    <p
-                      className={`${inter.variable} text-xs lg:text-sm font-inter text-[#5A5A5A]`}
-                    >
-                      Input Profile(s) which payments will be applied
-                    </p>
-                  </div>
-
-                  <Row gutter={{ xs: 0, lg: 40 }}>
-                    <Col xs={24} lg={12} className="mb-4">
-                      <div className="relative">
-                        <GInput
-                          name="profile_name"
-                          placeholder="Profile Name"
-                          image={inputProfile}
-                          imageOnFocus={inputProfileDark}
-                          handleInputData={setProfileName}
-                        />
-                      </div>
-                      <div>
-                        <p
-                          className={`${inter.variable} text-[#1A1229] cursor-pointer py-2 font-inter`}
-                        >
-                          + Add more Profile
-                        </p>
-                      </div>
-                    </Col>
-                  </Row>
-
-                  <Row gutter={{ xs: 0, lg: 40 }}>
+          <section className="pb-20">
+            <Row justify={"center"}>
+              <Col xs={22} lg={16}>
+                <form action="" onSubmit={handleFormSubmit}>
+                  <p className={headerStyle}>User Information</p>
+                  <Row gutter={{ xs: 0, lg: 40 }} className="mb-12">
                     <Col xs={24} lg={12}>
                       <GInput
-                        image={inputCoin}
-                        imageOnFocus={inputCoinDark}
-                        name="amount"
-                        placeholder="Enter amount"
-                        handleInputData={setAmount}
+                        image={inputProfile}
+                        imageOnFocus={inputProfileDark}
+                        placeholder="Client Name"
+                        name="client_name"
+                        handleInputData={setClientName}
+                      />
+                    </Col>
+                    <Col xs={24} lg={12}>
+                      <GInput
+                        name="email_address"
+                        handleInputData={setEmail}
+                        image={inputEmail}
+                        imageOnFocus={inputEmailDark}
+                        placeholder="Email Address"
                       />
                     </Col>
                   </Row>
-                </section>
+                  <section className="mb-12">
+                    <div className="mb-8">
+                      <p
+                        className={`${ubuntu.variable} font-ubuntu mb-2 text-lg lg:text-xl font-semibold`}
+                      >
+                        Enter Profile
+                      </p>
+                      <p
+                        className={`${inter.variable} text-xs lg:text-sm font-inter text-[#5A5A5A]`}
+                      >
+                        Input Profile(s) which payments will be applied
+                      </p>
+                    </div>
 
-                <section>
-                  <div>
-                    <p className={headerStyle}>Payment Method</p>
-                    <div className="flex items-center flex-wrap">
-                      <div className="flex items-center">
-                        <div className="pt-1">
-                          <input
-                            onClick={() => {
-                              setPaymentActive(true);
-                              setChequeActive(false);
-                              setETransferActive(false);
-                            }}
-                            type="radio"
-                            checked={paymentActive}
-                            className=" cursor-pointer w-[18px] h-[18px]"
+                    <Row gutter={{ xs: 0, lg: 40 }}>
+                      <Col xs={24} lg={12} className="mb-4">
+                        <div className="relative">
+                          <GInput
+                            name="profile_name"
+                            placeholder="Profile Name"
+                            image={inputProfile}
+                            imageOnFocus={inputProfileDark}
+                            handleInputData={setProfileName}
                           />
                         </div>
-                        <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
-                        >
-                          Online Payment
-                        </p>
-                      </div>
-
-                      <div className="flex items-center ml-4 mr-4 lg:mr-10 lg:ml-10">
-                        <div className="pt-1">
-                          <input
-                            checked={eTransferActive}
-                            type="radio"
-                            className=" cursor-pointer w-[18px] h-[18px]"
-                            onClick={() => {
-                              setCardName("");
-                              setCardNumber("");
-                              setCvv("");
-                              setExpiry("");
-                              setPaymentActive(false);
-                              setChequeActive(false);
-                              setETransferActive(true);
-                            }}
-                          />
+                        <div>
+                          <p
+                            className={`${inter.variable} text-[#1A1229] cursor-pointer py-2 font-inter`}
+                          >
+                            + Add more Profile
+                          </p>
                         </div>
-                        <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm  lg:text-lg`}
-                        >
-                          E-Transfer
-                        </p>
-                      </div>
+                      </Col>
+                    </Row>
 
-                      <div className="flex items-center ">
-                        <div className="pt-1">
-                          <input
-                            checked={chequeActive}
-                            type="radio"
-                            className=" cursor-pointer w-[18px] h-[18px]"
-                            onClick={() => {
-                              setCardName("");
-                              setCardNumber("");
-                              setCvv("");
-                              setExpiry("");
-                              setPaymentActive(false);
-                              setChequeActive(true);
-                              setETransferActive(false);
-                            }}
-                          />
+                    <Row gutter={{ xs: 0, lg: 40 }}>
+                      <Col xs={24} lg={12}>
+                        <GInput
+                          image={inputCoin}
+                          imageOnFocus={inputCoinDark}
+                          name="amount"
+                          placeholder="Enter amount"
+                          handleInputData={setAmount}
+                        />
+                      </Col>
+                    </Row>
+                  </section>
+
+                  <section>
+                    <div>
+                      <p className={headerStyle}>Payment Method</p>
+                      <div className="flex items-center flex-wrap">
+                        <div className="flex items-center">
+                          <div className="pt-1">
+                            <input
+                              onClick={() => {
+                                setPaymentActive(true);
+                                setChequeActive(false);
+                                setETransferActive(false);
+                              }}
+                              type="radio"
+                              checked={paymentActive}
+                              className=" cursor-pointer w-[18px] h-[18px]"
+                            />
+                          </div>
+                          <p
+                            className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
+                          >
+                            Online Payment
+                          </p>
                         </div>
-                        <p
-                          className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
-                        >
-                          Cheques
-                        </p>
+
+                        <div className="flex items-center ml-4 mr-4 lg:mr-10 lg:ml-10">
+                          <div className="pt-1">
+                            <input
+                              checked={eTransferActive}
+                              type="radio"
+                              className=" cursor-pointer w-[18px] h-[18px]"
+                              onClick={() => {
+                                setCardName("");
+                                setCardNumber("");
+                                setCvv("");
+                                setExpiry("");
+                                setPaymentActive(false);
+                                setChequeActive(false);
+                                setETransferActive(true);
+                              }}
+                            />
+                          </div>
+                          <p
+                            className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm  lg:text-lg`}
+                          >
+                            E-Transfer
+                          </p>
+                        </div>
+
+                        <div className="flex items-center ">
+                          <div className="pt-1">
+                            <input
+                              checked={chequeActive}
+                              type="radio"
+                              className=" cursor-pointer w-[18px] h-[18px]"
+                              onClick={() => {
+                                setCardName("");
+                                setCardNumber("");
+                                setCvv("");
+                                setExpiry("");
+                                setPaymentActive(false);
+                                setChequeActive(true);
+                                setETransferActive(false);
+                              }}
+                            />
+                          </div>
+                          <p
+                            className={`ml-4 ${inter.variable} font-inter text-[#5A5A5A] text-sm lg:text-lg`}
+                          >
+                            Cheques
+                          </p>
+                        </div>
                       </div>
                     </div>
+
+                    {paymentActive && (
+                      <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
+                        <Col xs={24} lg={12}>
+                          <GInput
+                            image={inputCard}
+                            imageOnFocus={inputCardDark}
+                            name="card_name"
+                            placeholder="Card Name"
+                            handleInputData={setCardName}
+                          />
+                        </Col>
+
+                        <Col xs={24} lg={12}>
+                          <GInput
+                            image={inputCard}
+                            imageOnFocus={inputCardDark}
+                            name="card_number"
+                            placeholder="Card Number"
+                            handleInputData={setCardNumber}
+                          />
+                        </Col>
+
+                        <Col xs={24} lg={12} className="mt-8">
+                          <Row gutter={{ xs: 12, lg: 40 }}>
+                            <Col xs={12}>
+                              <GInput
+                                image={inputCard}
+                                imageOnFocus={inputCardDark}
+                                name="expiry"
+                                placeholder="Expiry Date"
+                                handleInputData={setExpiry}
+                              />
+                            </Col>
+                            <Col xs={12}>
+                              <GInput
+                                image={inputCard}
+                                imageOnFocus={inputCardDark}
+                                name="cvv"
+                                placeholder="CVV"
+                                handleInputData={setCvv}
+                              />
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                    )}
+
+                    {eTransferActive && (
+                      <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
+                        <Col xs={24} lg={12}>
+                          <div>
+                            <p
+                              className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
+                            >
+                              Please send your e-transfer to payment@ayocpa.ca
+                            </p>
+                            <p
+                              className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
+                            >
+                              After sending your e-transfer, click complete
+                              payment to notify us of the payment
+                            </p>
+                          </div>
+                        </Col>
+                      </Row>
+                    )}
+                    {chequeActive && (
+                      <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
+                        <Col xs={24} lg={12}>
+                          <div>
+                            <p
+                              className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
+                            >
+                              Please make your cheque payable to “Ayo & Company
+                              CPA”, PO Box 540 Stn Main, Cold Lake, Alberta T9M
+                              1P2
+                            </p>
+                            <p
+                              className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
+                            >
+                              After sending your cheque, click complete payment
+                              to notify us of the payment
+                            </p>
+                          </div>
+                        </Col>
+                      </Row>
+                    )}
+                  </section>
+
+                  <div className="mt-12">
+                    <AuthButton text="Complete Payment" active={buttonActive} />
                   </div>
-
-                  {paymentActive && (
-                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12}>
-                        <GInput
-                          image={inputCard}
-                          imageOnFocus={inputCardDark}
-                          name="card_name"
-                          placeholder="Card Name"
-                          handleInputData={setCardName}
-                        />
-                      </Col>
-
-                      <Col xs={24} lg={12}>
-                        <GInput
-                          image={inputCard}
-                          imageOnFocus={inputCardDark}
-                          name="card_number"
-                          placeholder="Card Number"
-                          handleInputData={setCardNumber}
-                        />
-                      </Col>
-
-                      <Col xs={24} lg={12} className="mt-8">
-                        <Row gutter={{ xs: 12, lg: 40 }}>
-                          <Col xs={12}>
-                            <GInput
-                              image={inputCard}
-                              imageOnFocus={inputCardDark}
-                              name="expiry"
-                              placeholder="Expiry Date"
-                              handleInputData={setExpiry}
-                            />
-                          </Col>
-                          <Col xs={12}>
-                            <GInput
-                              image={inputCard}
-                              imageOnFocus={inputCardDark}
-                              name="cvv"
-                              placeholder="CVV"
-                              handleInputData={setCvv}
-                            />
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                  )}
-
-                  {eTransferActive && (
-                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12}>
-                        <div>
-                          <p
-                            className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
-                          >
-                            Please send your e-transfer to payment@ayocpa.ca
-                          </p>
-                          <p
-                            className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
-                          >
-                            After sending your e-transfer, click complete
-                            payment to notify us of the payment
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
-                  )}
-                  {chequeActive && (
-                    <Row gutter={{ xs: 0, lg: 40 }} className="mt-10">
-                      <Col xs={24} lg={12}>
-                        <div>
-                          <p
-                            className={`${inter.variable} font-inter text-base lg:text-xl text-[#1E1E1E] font-semibold`}
-                          >
-                            Please make your cheque payable to “Ayo & Company
-                            CPA”, PO Box 540 Stn Main, Cold Lake, Alberta T9M
-                            1P2
-                          </p>
-                          <p
-                            className={`${inter.variable} font-inter text-xs lg:text-sm text-[#6E6E6E] mt-2 mb-4 lg:mb-8 `}
-                          >
-                            After sending your cheque, click complete payment to
-                            notify us of the payment
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
-                  )}
-                </section>
-
-                <div className="mt-12">
-                  <AuthButton text="Complete Payment" active={buttonActive} />
-                </div>
-              </form>
-            </Col>
-          </Row>
-        </section>
-      </div>
+                </form>
+              </Col>
+            </Row>
+          </section>
+        </div>
+      )}
 
       <section>
         <HireFlash />
