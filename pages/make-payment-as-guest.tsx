@@ -34,7 +34,7 @@ function MakePaymentAsGuest() {
   const [profileName, setProfileName] = useState("");
   const [expiry, setExpiry] = useState("");
   const [success, setSuccess] = useState(false);
-  const [error, , setError] = useState(false);
+  const [error,  setError] = useState(false);
   const [amount, setAmount] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardName, setCardName] = useState("");
