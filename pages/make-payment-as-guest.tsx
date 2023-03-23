@@ -13,7 +13,6 @@ import inputCoin from "../public/ASSETS/ICONS/input-coin.svg";
 import inputCoinDark from "../public/ASSETS/ICONS/input-coin-dark.svg"
 import inputCard from "../public/ASSETS/ICONS/input-card.svg";
 import inputCardDark from "../public/ASSETS/ICONS/input-card-dark.svg"
-import Image from "next/image";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { useState, useEffect } from "react";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
