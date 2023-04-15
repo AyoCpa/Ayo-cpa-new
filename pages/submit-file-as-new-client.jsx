@@ -195,7 +195,7 @@ function SubmitFileAsClient() {
                             <span
                               className={`text-[#1A1229] ${inter.variable} p-2 font-inter border-2 border-[#1A1229] font-bold`}
                             >
-                              {fileName ? fileName : "Add files"}
+                              {fileName ? fileName : "Add files."}
                             </span>
                           </div>
                         </div>
