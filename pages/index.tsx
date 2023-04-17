@@ -65,7 +65,7 @@ export default function Home() {
 
         <Row justify="center">
           <Col xs={22} lg={20}>
-            <Row gutter={40} className="flex justify-center lg:justify-start">
+            <Row gutter={{xs:0 , lg:40}} className="flex justify-center lg:justify-start">
               {ServicesObject.map((item, index, root) => {
                 return (
                   <Col xs={22} lg={8} key={index} className={`mb-20`}>
