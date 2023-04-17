@@ -16,14 +16,18 @@ export const MobileNav = () => {
           <Image src={x_} alt="" />
         </div>
         <div>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>About</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>Services</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>Resources</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>File My Taxes</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>More Actions</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>Ayo234</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>Contact us</p>
-          <p className={`${inter.variable} text-right mt-3 font-inter text-[#EFEFEF] font-semibold`}>Contact us</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>About</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>Services</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>Resources</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>File My Taxes</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>More Actions</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>Ayo234</p>
+          <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>Contact us</p>
+          <div className={`${inter.variable} text-right mt-4 pt-3 font-inter text-[#EFEFEF] font-semibold`}>
+            <span className="border px-6 py-3">
+              Client Portal
+            </span>
+          </div>
         </div>
       </div>
     </div>
