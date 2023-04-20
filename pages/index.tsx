@@ -10,7 +10,7 @@ import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { Row, Col } from "antd";
 import { ServicesObject } from "@/utils/ServicesObject";
-import { countLetters, countWords } from "@/utils/countLetters";
+import { countLetters } from "@/utils/countLetters";
 import logoFull from "@/public/ASSETS/LOGOS/logo-full.svg";
 import line from "@/public/ASSETS/ICONS/line.svg";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
