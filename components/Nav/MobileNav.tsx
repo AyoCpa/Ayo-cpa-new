@@ -32,6 +32,7 @@ export const MobileNav = () => {
           <p
             onClick={() => {
               router.push("/service");
+              dispatch(closeMobileNav());
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
@@ -40,6 +41,7 @@ export const MobileNav = () => {
           <p
             onClick={() => {
               router.push("/resource");
+              dispatch(closeMobileNav());
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
@@ -48,6 +50,7 @@ export const MobileNav = () => {
           <p
             onClick={() => {
               router.push("/file-my-taxes");
+              dispatch(closeMobileNav());
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
@@ -62,6 +65,7 @@ export const MobileNav = () => {
           <p
             onClick={() => {
               router.push("/contact");
+              dispatch(closeMobileNav());
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
