@@ -10,7 +10,7 @@ interface User{
 export class Email {
     name:string;
     to:string;
-    fromEmail = "mark@infarena.ca";
+    fromEmail = "mark@ayocpa.ca";
     fromName="Ayocpa";
 
   constructor(user:User) {
@@ -24,7 +24,7 @@ export class Email {
         email: this.fromEmail,
         name: this.fromName,
       },
-      templateId: "d-b6bc731d7c734117b2aa58745bd6fdb8",
+      templateId: "d-bd2656743d3d4787bc0fa9f319f73eda",
       dynamic_template_data: {
         name: this.name,
         senderMail: this.fromEmail,

@@ -1,7 +1,7 @@
 import Navbar from "@/components/Nav/Navbar";
 import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
 import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import { PageSideSubHeader } from "@/components/Nuggets/PageSideSubHeader";
 import { SectionHeader } from "@/components/Nuggets/SectionHeader";
@@ -24,12 +24,19 @@ import Image from "next/image";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import axios from "axios";
+import ValidateEmail from "@/utils/email-validate";
 
 function Contact() {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
+  const [buttonActive, setButtonActive] = useState(false);
+  const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const communicationData = [
     { image: email_big, text: "Email us", contact: "ayocpa@mail.com" },
@@ -40,6 +47,44 @@ function Contact() {
       contact: "Login/register to access this feature",
     },
   ];
+
+  useEffect(() => {
+    if (
+      name &&
+      phoneNumber &&
+      address &&
+      emailAddress &&
+      ValidateEmail(emailAddress) &&
+      comment
+    ) {
+      setButtonActive(true);
+    } else {
+      setButtonActive(false);
+    }
+  }, [name, phoneNumber, address, emailAddress, comment]);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setButtonActive(false);
+    axios
+      .post("/api/send-email", {
+        name,
+        phone: phoneNumber,
+        address,
+        email: emailAddress,
+        comment,
+      })
+      .then((res) => {
+        setSuccess(true);
+      })
+      .catch((e) => {
+        setFailed(true);
+      })
+      .finally(() => {
+        setButtonActive(true);
+      });
+  };
+
   return (
     <>
       <div>
@@ -72,7 +117,7 @@ function Contact() {
                   </section>
                 </Col>
                 <Col lg={12} xs={24}>
-                  <form action="">
+                  <form action="" onSubmit={sendEmail}>
                     <div className="mb-4">
                       <GInput
                         imageOnFocus={inputProfileDark}
@@ -122,15 +167,37 @@ function Contact() {
                         id=""
                         cols={30}
                         rows={10}
+                        onChange={(e) => {
+                          setComment(e.target.value);
+                        }}
                       ></textarea>
                     </div>
 
                     <div className="mt-6 mb-10">
-                      <AuthButton text="Send message" active={false} />
+                      <AuthButton text="Send message" active={buttonActive} />
+                    </div>
+
+                    <div>
+                      {success && (
+                        <p
+                          className={`${inter.variable} font-inter text-[green]`}
+                        >
+                          Thank you for reaching out. your message is received
+                        </p>
+                      )}
+
+                      {failed && (
+                        <p
+                          className={`${inter.variable} font-inter text-[red]`}
+                        >
+                          Oops, an error occured trying to send message, Try
+                          again!
+                        </p>
+                      )}
                     </div>
                   </form>
                 </Col>
-                <Col xs={24} lg={12} >
+                <Col xs={24} lg={12}>
                   <div className="flex flex-col items-center lg:items-end">
                     {communicationData.map((item, index, root) => {
                       return (
