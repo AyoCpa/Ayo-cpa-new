@@ -2,23 +2,29 @@ import arrowRight from "@/public/ASSETS/ICONS/arrow-right.svg";
 import arrowRightDark from "@/public/ASSETS/ICONS/arrow-right-dark.svg";
 import Image from "next/image";
 import { inter } from "@/utils/fonts";
+import { useRouter } from "next/router";
 
 type ButtonProps = {
   text: string;
   alignCenter?: boolean;
   dark?: boolean;
   handleRoute?: Function;
+  url?: string;
 }; //use interfaces for defining types.
 
 export const ButtonWithIcon = ({
   text,
   alignCenter = true,
   dark = false,
+  url="",
   handleRoute = () => {},
 }: ButtonProps) => {
+  const router = useRouter();
+
   return (
-    <div className={`flex ${alignCenter && "justify-center"}`}
-      onClick={() => handleRoute()}
+    <div
+      className={`flex ${alignCenter && "justify-center"}`}
+      onClick={() => router.push(url)}
     >
       <div
         className={`${inter.variable} ${
@@ -40,10 +46,11 @@ export const ButtonWithNoIcon = ({
   text,
   alignCenter = true,
   dark = false,
-  handleRoute = () => {}
+  handleRoute = () => {},
 }: ButtonProps) => {
   return (
-    <div className={`flex ${alignCenter && "justify-center"}`}
+    <div
+      className={`flex ${alignCenter && "justify-center"}`}
       onClick={() => handleRoute()}
     >
       <div

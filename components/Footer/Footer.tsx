@@ -1,5 +1,6 @@
 import logoWhite from "@/public/ASSETS/LOGOS/logo-white.svg";
 import Image from "next/image";
+import Link from "next/link";
 import { Row, Col } from "antd";
 import { inter, ubuntu } from "@/utils/fonts";
 import facebook from "@/public/ASSETS/ICONS/facebook.svg";
@@ -8,7 +9,7 @@ import linkedIn from "@/public/ASSETS/ICONS/linkedIn.svg";
 import footerSticker from "@/public/ASSETS/ICONS/footer_sticker.svg";
 
 export const Footer = () => {
-    const date = new Date().getFullYear();
+  const date = new Date().getFullYear();
   return (
     <div className="relative">
       <Row justify={"center"} className="bg-[#1A1229] py-12">
@@ -58,30 +59,50 @@ export const Footer = () => {
                 Company
               </div>
 
-              <div className="text-xs mb-4 cursor-pointer">About</div>
-              <div className="text-xs mb-4 cursor-pointer">Contact us</div>
-              <div className="text-xs mb-4 cursor-pointer">Accessibility</div>
-              <div className="text-xs mb-4 cursor-pointer">Terms of Use</div>
               <div className="text-xs mb-4 cursor-pointer">
-                Privacy Statement
+                <Link href="/about">About</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/contact">Contact us</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/accessibility">Accessibility</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/terms-of-use">Terms of Use</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/privacy">Privacy Statement</Link>
               </div>
             </Col>
             <Col xs={12} lg={6} className="mt-16 lg:mt-0">
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Quick Links
               </div>
-              <div className="text-xs mb-4 cursor-pointer">Client Portal</div>
-              <div className="text-xs mb-4 cursor-pointer">Resources</div>
-              <div className="text-xs mb-4 cursor-pointer">File My Taxes</div>
               <div className="text-xs mb-4 cursor-pointer">
-                Submit Documents
+                <Link href="/">Client Portal</Link>
               </div>
               <div className="text-xs mb-4 cursor-pointer">
-                Book an appointment
+                <Link href="/resource">Resources</Link>
               </div>
-              <div className="text-xs mb-4 cursor-pointer">Payments</div>
-              <div className="text-xs mb-4 cursor-pointer">Ayo 234</div>
-              <div className="text-xs mb-4 cursor-pointer">Remote Access</div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/">File My Taxes</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/submit-file-as-new-client">Submit Documents</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/book-an-appointment">Book an appointment</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/make-payment-as-guest">Payments</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/">Ayo 234</Link>
+              </div>
+              <div className="text-xs mb-4 cursor-pointer">
+                <Link href="/remote-access">Remote Access</Link>
+              </div>
             </Col>
           </Row>
         </Col>
@@ -96,10 +117,7 @@ export const Footer = () => {
       </Row>
 
       <div className="absolute bottom-0 right-0 -z-2">
-            <Image 
-                src={footerSticker}
-                alt="footer sticker"
-            />
+        <Image src={footerSticker} alt="footer sticker" />
       </div>
     </div>
   );

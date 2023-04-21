@@ -13,7 +13,7 @@ export const ServiceFlash = () => {
       </div>
       <div className="mt-12">
         <Link href="/book-an-appointment">
-          <ButtonWithIcon text="Book an appointment" />
+          <ButtonWithIcon url="/book-an-appointment" text="Book an appointment" />
         </Link>
       </div>
     </div>

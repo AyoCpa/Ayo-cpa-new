@@ -78,7 +78,7 @@ export const IdentityOption = ({
                   text={blackBorderButtonText}
                   dark={true}
                   alignCenter={false}
-                  handleRoute={() => router.push("/make-payment-as-guest")}
+                  url="/make-payment-as-guest"
                 />
 
                 {blackBorderButtonExtra && (
@@ -87,7 +87,7 @@ export const IdentityOption = ({
                       text={blackBorderButtonExtraText}
                       dark={true}
                       alignCenter={false}
-                      handleRoute={() => router.push("/")}
+                      url="/"
                     />
                   </div>
                 )}
