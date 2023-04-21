@@ -59,6 +59,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
           <Image
             src={scrollPos > 10 ? logoColored : logo}
             alt="ayocpa's logo"
+            className="w-[100px] lg:w-full"
           />
         </div>
         {!authScreen && (
