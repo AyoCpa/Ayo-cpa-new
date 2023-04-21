@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import x_ from "@/public/ASSETS/ICONS/mobileXButton.svg";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,12 @@ export const MobileNav = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [collapsedItem, setCollapsedItem] = useState(false);
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(closeMobileNav());
+  //   };
+  // }, []);
+
   return (
     <div className="lg:hidden fixed top-0 w-full bg-[#1A1229] z-20 min-h-screen">
       <div className="flex justify-end px-8 py-10 flex-col items-end">
@@ -82,16 +88,36 @@ export const MobileNav = () => {
             </div>
             {collapsedItem && (
               <div>
-                <p className="text-xs font-normal my-3 cursor-pointer">
+                <p
+                  className="text-xs font-normal my-3 cursor-pointer"
+                  onClick={() => {
+                    dispatch(closeMobileNav());
+                  }}
+                >
                   <Link href="/submit-document">Submit document</Link>
                 </p>
-                <p className="text-xs font-normal my-3 cursor-pointer">
+                <p
+                  className="text-xs font-normal my-3 cursor-pointer"
+                  onClick={() => {
+                    dispatch(closeMobileNav());
+                  }}
+                >
                   <Link href="/book-an-appointment">Book an appointment</Link>
                 </p>
-                <p className="text-xs font-normal my-3 cursor-pointer">
+                <p
+                  className="text-xs font-normal my-3 cursor-pointer"
+                  onClick={() => {
+                    dispatch(closeMobileNav());
+                  }}
+                >
                   <Link href="/make-payment-prompt">Payment</Link>
                 </p>
-                <p className="text-xs font-normal my-3 cursor-pointer">
+                <p
+                  className="text-xs font-normal my-3 cursor-pointer"
+                  onClick={() => {
+                    dispatch(closeMobileNav());
+                  }}
+                >
                   <Link href="/remote-access">Remote access</Link>
                 </p>
               </div>
