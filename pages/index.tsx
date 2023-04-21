@@ -47,8 +47,8 @@ export default function Home() {
               surrounding area since 1964...
             </div>
 
-            <div className="mt-10">
-              <ButtonWithIcon text="Read more" />
+            <div className="mt-10 ">
+              <ButtonWithIcon text="Read more" url="/about" />
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function Home() {
               })}
 
               <Col xs={24}>
-                <ButtonWithIcon text="All services" dark={true} />
+                <ButtonWithIcon text="All services" dark={true} url="/service" />
               </Col>
             </Row>
           </Col>
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
 
         <div className="mt-10">
-          <ButtonWithIcon text="Try it now" dark={true} />
+          <ButtonWithIcon text="Try it now" dark={true} url="" />
         </div>
       </div>
 

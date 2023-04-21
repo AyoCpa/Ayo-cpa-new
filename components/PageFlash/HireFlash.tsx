@@ -19,7 +19,7 @@ export const HireFlash = () => {
               </div>
 
               <div className="pt-8">
-                <ButtonWithIcon text="Get started now" alignCenter={false} />
+                <ButtonWithIcon text="Get started now" alignCenter={false} url="/" />
               </div>
             </Col>
           </Row>
