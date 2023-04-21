@@ -15,7 +15,7 @@ export class UploadEmail {
   sender: string;
   constructor(payload: PayloadProps) {
     this.name = "Mark";
-    this.to = "feranmijogbodo@gmail.com";
+    this.to = "ayo@ayocpa.ca";
     this.fromEmail = "file.submit@ayocpa.ca";
     this.fromName = "AyoCpa";
     this.description = payload.description;

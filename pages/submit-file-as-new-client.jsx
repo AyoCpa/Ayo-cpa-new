@@ -20,10 +20,10 @@ import ValidateEmail from "@/utils/email-validate";
 
 function SubmitFileAsClient() {
   const [clicked, setClicked] = useState(false);
+  const [buttonActive, setButtonActive] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [fileDescriptionError, setFileDescriptionError] = useState("");
-  const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
@@ -45,24 +45,18 @@ function SubmitFileAsClient() {
       setFileDescriptionError("");
     }
 
-    if (!file) {
-      errorFound = 1;
-      setError("A file should be selected");
-    } else {
-      setError("");
-    }
-
     if (!email) {
       errorFound = 1;
-      setEmailError("Email is require");
+      setEmailError("Email is required");
     } else if (!ValidateEmail(email)) {
       errorFound = 1;
       setEmailError("Wrong format of email");
     } else {
       setEmailError("");
     }
-
-    if (file) {
+    if (!file) {
+      setError("A file is required");
+    } else {
       const getFileExtension = file?.name.split(".")[1];
       if (getFileExtension != "zip") {
         errorFound = 1;
@@ -78,17 +72,15 @@ function SubmitFileAsClient() {
   const upload = async (e) => {
     setClicked(true);
     e.preventDefault();
+    setButtonActive(false);
     const data = Object.fromEntries(new FormData(e.target));
-    console.log(data);
-    console.log(file);
+
     const isValidated = validateData(data);
     if (!isValidated) {
       setClicked(false);
-      console.log("not validated");
+      setButtonActive(true);
       return;
     }
-
-    
 
     data.fileName = file.name;
     data.description = data.fileDescription;
@@ -112,7 +104,6 @@ function SubmitFileAsClient() {
     });
 
     if ((response.status = 200)) {
-      console.log("File Uploaded Successfully");
       setSuccess(true);
       try {
         axios
@@ -129,6 +120,7 @@ function SubmitFileAsClient() {
     }
 
     setClicked(false);
+    setButtonActive(true);
 
     // Make a Put Request
 
@@ -207,6 +199,13 @@ function SubmitFileAsClient() {
                             name="email"
                             handleInputData={setEmail}
                           />
+                          {emailError && (
+                            <div
+                              className={`${inter.variable} font-inter text-[red]`}
+                            >
+                              {emailError}
+                            </div>
+                          )}
                         </div>
                         <div className="w-full border-2 border-[#c4c4c4] flex justify-center items-center h-[150px]">
                           <div className="relative">
@@ -226,6 +225,13 @@ function SubmitFileAsClient() {
                             </span>
                           </div>
                         </div>
+                        {error && (
+                          <div
+                            className={`${inter.variable} font-inter text-[red]`}
+                          >
+                            {error}
+                          </div>
+                        )}
                         <div className="mt-12">
                           <textarea
                             className="bg-transparent p-2 border-2 w-full border-[#c4c4c4]"
@@ -235,10 +241,24 @@ function SubmitFileAsClient() {
                             rows={10}
                             placeholder="Brief description"
                           ></textarea>
+                          {fileDescriptionError && (
+                            <div
+                              className={`${inter.variable} font-inter text-[red]`}
+                            >
+                              {fileDescriptionError}
+                            </div>
+                          )}
                         </div>
                         <div>
-                          <AuthButton text="Submit" active={true} />
+                          <AuthButton text="Submit" active={buttonActive} />
                         </div>
+                        {success && (
+                          <p
+                            className={`${inter.variable} font-inter text-[green]`}
+                          >
+                            File uploaded
+                          </p>
+                        )}
                       </form>
                     </Col>
                     <Col xs={24} lg={12}>
