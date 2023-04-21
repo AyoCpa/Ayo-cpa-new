@@ -230,7 +230,7 @@ function MakePaymentAsGuest() {
                           <p
                             className={`${inter.variable} text-[#1A1229] cursor-pointer py-2 font-inter`}
                           >
-                            + Add more Profile
+                            {/* + Add more Profile */}
                           </p>
                         </div>
                       </Col>

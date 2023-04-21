@@ -94,7 +94,7 @@ export const MobileNav = () => {
                     dispatch(closeMobileNav());
                   }}
                 >
-                  <Link href="/submit-document">Submit document</Link>
+                  <Link href="/submit-file-as-new-client">Submit document</Link>
                 </p>
                 <p
                   className="text-xs font-normal my-3 cursor-pointer"
@@ -110,7 +110,7 @@ export const MobileNav = () => {
                     dispatch(closeMobileNav());
                   }}
                 >
-                  <Link href="/make-payment-prompt">Payment</Link>
+                  <Link href="/make-payment-as-guest">Payment</Link>
                 </p>
                 <p
                   className="text-xs font-normal my-3 cursor-pointer"
