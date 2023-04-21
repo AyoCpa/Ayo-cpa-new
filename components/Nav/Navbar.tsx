@@ -165,7 +165,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                     <Link href="/book-an-appointment">Book an appointment</Link>
                   </p>
                   <p className="text-sm pt-1">
-                    <Link href="/make-payment-prompt">Payment</Link>
+                    <Link href="/make-payment-as-guest">Payment</Link>
                   </p>
                   <p className="text-sm pt-1">
                     <Link href="/remote-access">Remote Access</Link>
