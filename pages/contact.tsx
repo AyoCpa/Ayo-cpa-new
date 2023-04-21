@@ -34,7 +34,9 @@ function Contact() {
   const [emailAddress, setEmailAddress] = useState("");
   const [buttonActive, setButtonActive] = useState(false);
   const [comment, setComment] = useState("");
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const communicationData = [
     { image: email_big, text: "Email us", contact: "ayocpa@mail.com" },
@@ -61,9 +63,9 @@ function Contact() {
     }
   }, [name, phoneNumber, address, emailAddress, comment]);
 
-  const sendEmail = (e:React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setButtonActive(false)
+    setButtonActive(false);
     axios
       .post("/api/send-email", {
         name,
@@ -73,13 +75,13 @@ function Contact() {
         comment,
       })
       .then((res) => {
-        console.log(res);
+        setSuccess(true);
       })
       .catch((e) => {
-        console.log(e);
+        setFailed(true);
       })
       .finally(() => {
-        setButtonActive(true)
+        setButtonActive(true);
       });
   };
 
@@ -173,6 +175,25 @@ function Contact() {
 
                     <div className="mt-6 mb-10">
                       <AuthButton text="Send message" active={buttonActive} />
+                    </div>
+
+                    <div>
+                      {success && (
+                        <p
+                          className={`${inter.variable} font-inter text-[green]`}
+                        >
+                          Thank you for reaching out. your message is received
+                        </p>
+                      )}
+
+                      {failed && (
+                        <p
+                          className={`${inter.variable} font-inter text-[red]`}
+                        >
+                          Oops, an error occured trying to send message, Try
+                          again!
+                        </p>
+                      )}
                     </div>
                   </form>
                 </Col>

@@ -27,7 +27,7 @@ export class ContactEmail {
     this.phone = payload.phone;
     this.fromEmail = "ayo@ayocpa.ca";
     this.fromName = "ayo-cpa-support";
-    this.to = "feranmijogbodo@gmail.com";
+    this.to = "ayo@ayocpa.ca";
   }
 
   async sendMagicLink() {
