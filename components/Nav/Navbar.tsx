@@ -53,7 +53,9 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
             : authScreen
             ? "bg-[#1a1229cc]"
             : "bg-transparent"
-        } ${!authScreen ? "px-4 lg:px-12" : " px-4 lg:px-40"}  py-4 text-white items-center`}
+        } ${
+          !authScreen ? "px-4 lg:px-12" : " px-4 lg:px-40"
+        }  py-4 text-white items-center`}
       >
         <div className="">
           <Image
@@ -159,7 +161,9 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                   className={`absolute top-10 right-10 bg-white  min-w-[180px] px-3 py-3 text-[#1E1E1E] rounded-md ${inter.variable} font-inter font-semibold `}
                 >
                   <p className="text-sm pt-1">
-                    <Link href="/submit-document">Submit Document</Link>
+                    <Link href="/submit-file-as-new-client">
+                      Submit Document
+                    </Link>
                   </p>
                   <p className="text-sm pt-1">
                     <Link href="/book-an-appointment">Book an appointment</Link>

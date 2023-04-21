@@ -13,6 +13,10 @@ import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import axios from "axios";
+import inputEmail from "@/public/ASSETS/ICONS/email-input.svg";
+import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
+import GInput from "@/components/Inputs/GInput";
+import ValidateEmail from "@/utils/email-validate";
 
 function SubmitFileAsClient() {
   const [clicked, setClicked] = useState(false);
@@ -20,8 +24,10 @@ function SubmitFileAsClient() {
   const [success, setSuccess] = useState(false);
   const [fileDescriptionError, setFileDescriptionError] = useState("");
   const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
+  const [email, setEmail] = useState("");
 
   const validateData = (data) => {
     let errorFound = 0;
@@ -44,6 +50,16 @@ function SubmitFileAsClient() {
       setError("A file should be selected");
     } else {
       setError("");
+    }
+
+    if (!email) {
+      errorFound = 1;
+      setEmailError("Email is require");
+    } else if (!ValidateEmail(email)) {
+      errorFound = 1;
+      setEmailError("Wrong format of email");
+    } else {
+      setEmailError("");
     }
 
     if (file) {
@@ -72,9 +88,11 @@ function SubmitFileAsClient() {
       return;
     }
 
-    console.log("i got here");
+    
 
     data.fileName = file.name;
+    data.description = data.fileDescription;
+    data.sender = email;
 
     const API_ENDPOINT =
       "https://5vb2dagu7j.execute-api.eu-central-1.amazonaws.com/default/getPresignedImageUrl";
@@ -96,16 +114,16 @@ function SubmitFileAsClient() {
     if ((response.status = 200)) {
       console.log("File Uploaded Successfully");
       setSuccess(true);
-      // try {
-      //   axios
-      //     .post("/api/upload/notify", data)
-      //     .then(() => {
-      //       console.log("I Got Here");
-      //     })
-      //     .catch((e) => {
-      //       console.log(e);
-      //     });
-      // } catch (error) {}
+      try {
+        axios
+          .post("/api/notify", data)
+          .then(() => {
+            console.log("I Got Here");
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } catch (error) {}
     } else {
       console.log("File  Not Uploaded Successfully");
     }
@@ -181,12 +199,21 @@ function SubmitFileAsClient() {
                   <Row>
                     <Col xs={24} lg={12}>
                       <form action="" onSubmit={upload}>
+                        <div className="mb-2">
+                          <GInput
+                            image={inputEmail}
+                            imageOnFocus={inputEmailDark}
+                            placeholder="Email address"
+                            name="email"
+                            handleInputData={setEmail}
+                          />
+                        </div>
                         <div className="w-full border-2 border-[#c4c4c4] flex justify-center items-center h-[150px]">
                           <div className="relative">
                             <input
                               type="file"
                               onChange={(e) => {
-                                setFileName(e.target.files[0].name)
+                                setFileName(e.target.files[0].name);
                                 setFile(e.target.files[0]);
                               }}
                               className="text-center bg-tranparent py-2 absolute opacity-0"
