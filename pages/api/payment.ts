@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 import ValidateEmail from "@/utils/email-validate";
 import handleEncrypt from "@/utils/encryptDetails";
+import { Email } from "@/utils/paymentEmail";
 
 const prisma = new PrismaClient();
 export default async function handler(
@@ -89,6 +90,14 @@ export default async function handler(
         amount,
       },
     });
+    try {
+      await new Email({
+        txnId: payment.id,
+        userEmail: payment.email,
+      }).sendMagicLink();
+    } catch (e) {
+      console.log("could not send email");
+    }
     return res.status(201).send(payment);
   } catch (error) {
     return res.status(500).send({ msg: "An unexpected error occured" });
