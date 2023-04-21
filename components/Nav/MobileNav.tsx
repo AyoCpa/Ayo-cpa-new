@@ -1,14 +1,18 @@
-import React from "react";
-import x_ from "@/public/ASSETS/ICONS/mobileXButton.svg"
-import Image from "next/image"
+import React, { useState } from "react";
+import x_ from "@/public/ASSETS/ICONS/mobileXButton.svg";
+import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { inter } from "@/utils/fonts";
 import { closeMobileNav } from "@/redux/reducers/mobileNavReducer";
 import { useRouter } from "next/router";
+import arrow_left from "@/public/ASSETS/ICONS/moreActionRight.svg";
+import arrow_down from "@/public/ASSETS/ICONS/text-arrow-down.svg";
+import Link from "next/link";
 
 export const MobileNav = () => {
-  const router = useRouter()
-  const dispatch = useDispatch()
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [collapsedItem, setCollapsedItem] = useState(false);
   return (
     <div className="lg:hidden fixed top-0 w-full bg-[#1A1229] z-20 min-h-screen">
       <div className="flex justify-end px-8 py-10 flex-col items-end">
@@ -24,6 +28,7 @@ export const MobileNav = () => {
           <p
             onClick={() => {
               router.push("/about");
+              dispatch(closeMobileNav());
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
@@ -57,9 +62,40 @@ export const MobileNav = () => {
             File My Taxes
           </p>
           <p
-            className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
+            className={`${inter.variable} cursor-pointer text-right mt-4 flex-col justify-end items-center font-inter text-[#EFEFEF] font-semibold`}
           >
-            More Actions
+            <div
+              className="flex justify-end items-center"
+              onClick={() => {
+                setCollapsedItem(!collapsedItem);
+              }}
+            >
+              <span className="pr-3">
+                <Image
+                  src={collapsedItem ? arrow_down : arrow_left}
+                  alt=""
+                  width={20}
+                  height={20}
+                />
+              </span>
+              <span>More Actions</span>
+            </div>
+            {collapsedItem && (
+              <div>
+                <p className="text-xs font-normal my-3 cursor-pointer">
+                  <Link href="/submit-document">Submit document</Link>
+                </p>
+                <p className="text-xs font-normal my-3 cursor-pointer">
+                  <Link href="/book-an-appointment">Book an appointment</Link>
+                </p>
+                <p className="text-xs font-normal my-3 cursor-pointer">
+                  <Link href="/make-payment-prompt">Payment</Link>
+                </p>
+                <p className="text-xs font-normal my-3 cursor-pointer">
+                  <Link href="/remote-access">Remote access</Link>
+                </p>
+              </div>
+            )}
           </p>
           {/* <p className={`${inter.variable} text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}>Ayo234</p> */}
           <p
