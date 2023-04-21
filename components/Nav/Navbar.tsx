@@ -53,13 +53,13 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
             : authScreen
             ? "bg-[#1a1229cc]"
             : "bg-transparent"
-        } ${!authScreen ? "px-12" : "px-40"}  py-4 text-white items-center`}
+        } ${!authScreen ? "px-4 lg:px-12" : " px-4 lg:px-40"}  py-4 text-white items-center`}
       >
         <div className="">
           <Image
             src={scrollPos > 10 ? logoColored : logo}
             alt="ayocpa's logo"
-            className="w-[100px] lg:w-full"
+            className="w-[200px] lg:w-full"
           />
         </div>
         {!authScreen && (
