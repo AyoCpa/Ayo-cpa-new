@@ -13,7 +13,7 @@ export class Email {
   email: string;
   constructor(payload: PayloadProps) {
     this.name = "Mark";
-    this.to = "ayo@ayocpa.ca";
+    this.to = "info@ayocpa.ca";
     this.fromEmail = "payment@ayocpa.ca";
     this.fromName = "AyoCpa";
     this.txnId = payload.txnId;

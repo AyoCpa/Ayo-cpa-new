@@ -25,9 +25,9 @@ export class ContactEmail {
     this.description = payload.comment;
     this.address = payload.address;
     this.phone = payload.phone;
-    this.fromEmail = "ayo@ayocpa.ca";
+    this.fromEmail = "contact@ayocpa.ca";
     this.fromName = "ayo-cpa-support";
-    this.to = "ayo@ayocpa.ca";
+    this.to = "info@ayocpa.ca";
   }
 
   async sendMagicLink() {

@@ -39,8 +39,8 @@ function Contact() {
   const [failed, setFailed] = useState(false);
 
   const communicationData = [
-    { image: email_big, text: "Email us", contact: "ayocpa@ayocpa.ca" },
-    { image: phone_big, text: "Call us", contact: "+17806141094" },
+    { image: email_big, text: "Email us", contact: "info@ayocpa.ca" },
+    { image: phone_big, text: "Call us", contact: "+7805944441" },
     {
       image: video_big,
       text: "Chat or Video call us",
@@ -217,9 +217,9 @@ function Contact() {
                             className={`${inter.variable} font-inter text-[#6E6E6E] text-sm`}
                           >
                             {index == 0 ? (
-                              <a href="mailto:ayo@ayocpa.ca">{item.contact}</a>
+                              <a href="mailto:info@ayocpa.ca">{item.contact}</a>
                             ) : index == 1 ? (
-                              <a href="tel:+17806141094">{item.contact}</a>
+                              <a href="tel:+7805944441">{item.contact}</a>
                             ) : (
                               item.contact
                             )}
