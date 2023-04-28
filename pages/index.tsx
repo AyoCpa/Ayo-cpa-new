@@ -42,7 +42,7 @@ export default function Home() {
             <div
               className={`${inter.variable} font-inter text-base lg:text-xl text-center mt-5 w-full lg:w-4/5  m-auto`}
             >
-              Ayo & Company Chartered Professional Accountants is a new name
+              Ayo & Company Chartered Professional Accountant is a new name
               representing trusted professionals serving the Lakeland and
               surrounding area since 1964...
             </div>
@@ -103,14 +103,14 @@ export default function Home() {
               <div
                 className={`${ubuntu.variable} font-ubuntu font-bold lg:text-3xl w-full lg:w-2/3 lg:leading-normal text-xl `}
               >
-                We&apos;re more than just accountants, we want to help improve
+                We&apos;re more than just an accounting firm, we want to help improve
                 your businesses
               </div>
 
               <div
                 className={`${inter.variable} font-inter text-sm lg:text-lg w-full lg:w-2/3 mt-10 `}
               >
-                Ayo & Company Chartered Professional Accountants, our team of
+                Ayo & Company Chartered Professional Accountant, our team of
                 accountants and technicians provide services to a wide variety
                 of clients and industries
               </div>
