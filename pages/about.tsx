@@ -24,7 +24,7 @@ function about() {
 
         <div className="mt-16 w-[90%] lg:w-4/5 mx-auto text-[#5A5A5A]">
           <span className={`${inter.variable} font-inter lg:text-lg text-sm`}>
-            Ayo & Company Chartered Professional Accountants is a new name
+            Ayo & Company Chartered Professional Accountant is a new name
             representing trusted professionals serving the Lakeland and
             surrounding area since 1964. <br /> <br /> Our services include
             financial statement preparation (under review and compilation
