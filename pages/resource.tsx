@@ -6,11 +6,11 @@ import styles from "@/styles/Home.module.css";
 import React from "react";
 import { Row, Col } from "antd";
 import Image from "next/image";
-import payroll from "@/public/ASSETS/IMAGES/payroll.jpg"
-import autoBenefit from "@/public/ASSETS/IMAGES/auto-benefit.jpg"
-import pst from "@/public/ASSETS/IMAGES/pst.jpg"
-import netfile from "@/public/ASSETS/IMAGES/netFile.jpg"
-import cra from "@/public/ASSETS/IMAGES/cra.jpg"
+import payroll from "@/public/ASSETS/IMAGES/payroll.jpg";
+import autoBenefit from "@/public/ASSETS/IMAGES/auto-benefit.jpg";
+import pst from "@/public/ASSETS/IMAGES/pst.jpg";
+import netfile from "@/public/ASSETS/IMAGES/netFile.jpg";
+import cra from "@/public/ASSETS/IMAGES/cra.jpg";
 import { ButtonWithIcon } from "@/components/Buttons/ActionButton";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
@@ -54,6 +54,7 @@ function Resource() {
                         text="Payroll"
                         dark={true}
                         alignCenter={false}
+                        url=" https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/payroll-deductions-online-calculator.html"
                       />
                     </div>
                   </div>
@@ -82,6 +83,7 @@ function Resource() {
 
                     <div className="mt-4">
                       <ButtonWithIcon
+                        url="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/gst-hst-netfile.html"
                         text="GST / HST and PST"
                         dark={true}
                         alignCenter={false}
@@ -117,6 +119,7 @@ function Resource() {
                         text="CRA Forms"
                         dark={true}
                         alignCenter={false}
+                        url="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms.html"
                       />
                     </div>
                   </div>
