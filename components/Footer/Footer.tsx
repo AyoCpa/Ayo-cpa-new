@@ -28,15 +28,21 @@ export const Footer = () => {
               <div className="text-xs mb-4">Email us</div>
               <div className="flex">
                 <div className="mr-4 cursor-pointer">
-                  <Image src={facebook} alt="facebook" />
+                  <Link href="https://facebook.com/ayocpa">
+                    <Image src={facebook} alt="facebook" />
+                  </Link>
                 </div>
 
                 <div className="mr-4 cursor-pointer">
-                  <Image src={twitter} alt="twitter" />
+                  <Link href="Facebook.com/ayocpa">
+                    <Image src={twitter} alt="twitter" />
+                  </Link>
                 </div>
 
                 <div className="mr-4 cursor-pointer">
-                  <Image src={linkedIn} alt="linkedIn" />
+                  <Link href="/">
+                    <Image src={linkedIn} alt="linkedIn" />
+                  </Link>
                 </div>
               </div>
             </Col>
