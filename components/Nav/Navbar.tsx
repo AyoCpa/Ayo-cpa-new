@@ -57,11 +57,16 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
           !authScreen ? "px-4 lg:px-12" : " px-4 lg:px-40"
         }  py-4 text-white items-center`}
       >
-        <div className="">
+        <div
+          className=""
+          onClick={() => {
+            router.push("/");
+          }}
+        >
           <Image
             src={scrollPos > 10 ? logoColored : logo}
             alt="ayocpa's logo"
-            className="w-[200px] lg:w-full"
+            className="w-[200px] lg:w-full cursor-pointer"
           />
         </div>
         {!authScreen && (
