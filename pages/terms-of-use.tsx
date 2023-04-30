@@ -24,6 +24,7 @@ function TermsOfUser() {
           <SideBannerContent
             mainText="Terms of Use"
             currentPage="Terms of Use"
+            
           />
         </div>
       </section>
