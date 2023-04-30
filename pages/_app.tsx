@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/ASSETS/LOGOS/logo-full.svg" />
+        <link rel="icon" href="ASSETS/LOGOS/logo-full.svg" />
       </Head>
       <Provider store={store}>
         <Component {...pageProps} />
