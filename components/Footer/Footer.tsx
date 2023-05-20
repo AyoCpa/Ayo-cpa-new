@@ -34,13 +34,13 @@ export const Footer = () => {
                 </div>
 
                 <div className="mr-4 cursor-pointer">
-                  <Link href="Facebook.com/ayocpa">
+                  <Link href="https://www.linkedin.com/company/ayocpa/">
                     <Image src={twitter} alt="twitter" />
                   </Link>
                 </div>
 
                 <div className="mr-4 cursor-pointer">
-                  <Link href="/">
+                  <Link href="https://www.linkedin.com/company/ayocpa/">
                     <Image src={linkedIn} alt="linkedIn" />
                   </Link>
                 </div>
@@ -52,8 +52,8 @@ export const Footer = () => {
               </div>
 
               <div className="text-xs mb-4  leading-relaxed">
-                Saskatchewan <br /> PO Box 1047 Stn. Main <br /> Meadow Lake, SK
-                S9X 1Y7
+                204 1 Street East, <br /> PO Box 1047 Stn. Main <br /> Meadow
+                Lake, SK S9X 1Y7
               </div>
               <div className="text-xs mt-4 mb-4  leading-relaxed">
                 Alberta <br /> #201, 4807 - 51 Street <br /> PO Box 540, Stn.
