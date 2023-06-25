@@ -17,7 +17,7 @@ function Privacy() {
 
       <section className={styles.termsOfService}>
         <div className="text-white ml-10 mt-24">
-          <SideBannerContent mainText="" />
+          <SideBannerContent mainText="Privacy statement" currentPage="privacy" />
         </div>
       </section>
     </div>
