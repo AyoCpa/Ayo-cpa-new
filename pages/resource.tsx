@@ -73,6 +73,7 @@ function Resource() {
                         text="Auto Benefits"
                         dark={true}
                         alignCenter={false}
+                        url="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/automobile-benefits-online-calculator-disclaimer.html "
                       />
                     </div>
                   </div>
@@ -106,6 +107,7 @@ function Resource() {
                         text="GST / HST Netfile"
                         dark={true}
                         alignCenter={false}
+                        url="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/gst-hst-netfile.html"
                       />
                     </div>
                   </div>
