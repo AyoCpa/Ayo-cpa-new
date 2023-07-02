@@ -10,7 +10,6 @@ type WrapperProps = {
 
 function OverallAuthWrapper({ portalWrapper = false, children }: WrapperProps ) {
   return (
-    // <div className={styles.signUpBanner}>{children}</div>
     portalWrapper 
       ? <div className={styles.portalSignUpBanner}>{children}</div>
       : <div className={styles.signUpBanner}>{children}</div>
