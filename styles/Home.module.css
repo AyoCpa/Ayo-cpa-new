@@ -482,6 +482,3 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
-.SideNav .ant-menu .ant-menu-item{
-    border-bottom: 2px solid red !important;
-}
