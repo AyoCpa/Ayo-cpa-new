@@ -80,7 +80,7 @@ function SignIn() {
 
                   <div className="mb-8">
                     <AuthButton
-                      text="Login"
+                      text="Login "
                       active={buttonActive ? true : false}
                     />
                   </div>
