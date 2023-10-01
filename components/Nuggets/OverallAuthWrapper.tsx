@@ -1,9 +1,19 @@
 import React from 'react'
 import styles from "@/styles/Home.module.css"
 
-function OverallAuthWrapper({children}:{children:JSX.Element}) {
+
+type WrapperProps = {
+  children:JSX.Element
+  portalWrapper?: boolean;
+  
+};
+
+function OverallAuthWrapper({ portalWrapper = false, children }: WrapperProps ) {
   return (
-    <div className={styles.signUpBanner}>{children}</div>
+    // <div className={styles.signUpBanner}>{children}</div>
+    portalWrapper 
+      ? <div className={styles.portalSignUpBanner}>{children}</div>
+      : <div className={styles.signUpBanner}>{children}</div>
   )
 }
 

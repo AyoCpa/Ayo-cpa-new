@@ -463,3 +463,15 @@
     transform: rotate(0deg);
   }
 }
+
+.portalSignUpBanner{
+  background-image: url("../public/ASSETS/IMAGES/PortalAuth_Background.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
