@@ -41,7 +41,7 @@ function SignIn() {
               <Cancel />
               <section>
                 <AuthPageHeader
-                  header="Welcome back"
+                  header="Welcome back "
                   subHeader="Login into your account"
                 />
               </section>
