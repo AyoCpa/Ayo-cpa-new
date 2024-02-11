@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = ""
 }
 
 model User {
@@ -25,7 +25,7 @@ model User {
 model Payment {
   id          String  @id @default(cuid())
   clientName  String
-  email       String  
+  email       String
   profileName String
   amount      String
   mode        String
