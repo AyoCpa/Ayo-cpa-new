@@ -5,10 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = ""
-}
+// datasource db {
+//   provider = "postgresql"
+//   url      = ""
+// }
 
 model User {
   id                String   @id @default(cuid())
