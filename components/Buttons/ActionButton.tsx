@@ -2,7 +2,7 @@ import arrowRight from "@/public/ASSETS/ICONS/arrow-right.svg";
 import arrowRightDark from "@/public/ASSETS/ICONS/arrow-right-dark.svg";
 import Image from "next/image";
 import { inter } from "@/utils/fonts";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router"
 
 type ButtonProps = {
   text: string;
@@ -47,11 +47,13 @@ export const ButtonWithNoIcon = ({
   alignCenter = true,
   dark = false,
   handleRoute = () => {},
+  url,
 }: ButtonProps) => {
+  const router = useRouter()
   return (
     <div
       className={`flex ${alignCenter && "justify-center"}`}
-      onClick={() => handleRoute()}
+      onClick={() => router.push(url) }
     >
       <div
         className={`${inter.variable} ${

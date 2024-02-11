@@ -182,7 +182,6 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                 </div>
               )}
             </span>
-            <span className="cursor-pointer">Ayo234</span>
             <div
               className={`cursor-pointer ${
                 currentPage == "contact" && "mt-3"
@@ -204,7 +203,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
         )}
 
         <div className="flex items-center">
-          <div
+          {/* <div
             className={`relative border border-1 ${
               scrollPos > 10 ? "border-black" : "border-white"
             } px-2 py-2 cursor-pointer ${
@@ -251,12 +250,13 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
               }
               alt="user_icon"
             />
-          </div>
+          </div> */}
           {!authScreen && (
             <div className="hidden xl:block ml-4">
               <ButtonWithNoIcon
                 dark={scrollPos > 10 ? true : false}
                 text="Client Portal"
+                url="https://ayocpa.clientportal.com"
               />
             </div>
           )}

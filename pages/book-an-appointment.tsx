@@ -22,10 +22,11 @@ import time_plain from "@/public/ASSETS/ICONS/time-plain.svg";
 import time_dark from "@/public/ASSETS/ICONS/time-dark.svg";
 import appointment from "@/public/ASSETS/ICONS/appointment.svg";
 import appointment_black from "@/public/ASSETS/ICONS/appointment-black.svg";
-import { inter } from "@/utils/fonts";
+import { inter, ubuntu } from "@/utils/fonts";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { Footer } from "@/components/Footer/Footer";
+import { ButtonWithIcon } from "@/components/Buttons/ActionButton";
 
 function BookAnAppointment() {
   const [phone_number, setPhoneNumber] = useState("");
@@ -61,7 +62,65 @@ function BookAnAppointment() {
           />
         </section>
 
-        <section>
+        <Row justify={"center"}>
+          <Col xs={22} lg={16}>
+            <Row gutter={{ lg: 40 }}>
+              <Col xs={24} lg={12}>
+                <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
+                  <div className="mt-4">
+                    <div
+                      className={`${ubuntu.variable} font-ubuntu text-lg mb-4 lg:text-2xl font-semibold tracking-wide`}
+                    >
+                      Cold Lake
+                    </div>
+                    <div className="mb-4">
+                      <p
+                        className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
+                      >
+                        Book an appointment with us at our office (Cold lake)
+                      </p>
+                    </div>
+                    <ButtonWithIcon
+                      text="Book appointment"
+                      dark={true}
+                      alignCenter={false}
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountant@cyreco.ca/bookings/"
+                    />
+                  </div>
+                </div>
+              </Col>
+
+              <Col xs={24} lg={12}>
+                <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
+                  <div className="mt-4">
+                    <div
+                      className={`${ubuntu.variable} font-ubuntu text-lg mb-4 lg:text-2xl font-semibold tracking-wide`}
+                    >
+                      Meadow Lake
+                    </div>
+
+                    <div className="mb-4">
+                      <p
+                        className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
+                      >
+                        Book an appointment with us at our office (Meadow lake)
+                      </p>
+                    </div>
+
+                    <ButtonWithIcon
+                      text="Book appointment"
+                      dark={true}
+                      alignCenter={false}
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantSK@cyreco.ca/bookings/"
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
+        {/* <section>
           <Row justify="center">
             <Col xs={22} lg={16}>
               <form action="">
@@ -166,11 +225,11 @@ function BookAnAppointment() {
               </form>
             </Col>
           </Row>
-        </section>
+        </section> */}
       </div>
 
-      <div >
-        <HireFlash /> 
+      <div>
+        <HireFlash />
       </div>
       <div>
         <Footer />
