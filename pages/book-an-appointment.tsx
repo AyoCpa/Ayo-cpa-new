@@ -103,7 +103,7 @@ function BookAnAppointment() {
                       <p
                         className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
                       >
-                        Book an appointment with us at our office (Meadow lake).
+                        Book an appointment with us at our office (Meadow lake
                       </p>
                     </div>
 
