@@ -85,9 +85,9 @@ export const Footer = () => {
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Quick Links
               </div>
-              <div className="text-xs mb-4 cursor-pointer">
+              {/* <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/">Client Portal</Link>
-              </div>
+              </div> */}
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/resource">Resources</Link>
               </div>
@@ -103,9 +103,9 @@ export const Footer = () => {
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/make-payment-as-guest">Payments</Link>
               </div>
-              <div className="text-xs mb-4 cursor-pointer">
+              {/* <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/">Ayo 234</Link>
-              </div>
+              </div> */}
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/remote-access">Remote Access</Link>
               </div>
