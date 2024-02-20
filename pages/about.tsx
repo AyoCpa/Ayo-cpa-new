@@ -24,17 +24,18 @@ function about() {
 
         <div className="mt-16 w-[90%] lg:w-4/5 mx-auto text-[#5A5A5A]">
           <span className={`${inter.variable} font-inter lg:text-lg text-sm`}>
-            Ayo & Company Chartered Professional Accountant is a new name
-            representing trusted professionals serving the Lakeland and
-            surrounding area since 1964. <br /> <br /> Our services include
-            financial statement preparation (under review and compilation
-            engagements); personal, corporate and trust tax returns; payroll &
-            bookkeeping; and other related accounting and tax services. Our team
-            of accountants and technicians provide services to a wide variety of
-            clients and industries, including those in retail, farming,
-            transportation, oil and gas, professional services and just to
-            mention a few. <br /> <br /> We are currently situated at Alberta
-            and Saskatchwen, Canada.
+            Our Philosophy: In an industry often navigated through impersonal
+            interactions, Ayo CPA stands apart. Founded on the principles of
+            unwavering customer service, our firm believes in the power of
+            listening, understanding, and meticulously tailoring our services to
+            meet each client's individual needs. From the moment you step
+            through our doors, you're not just a client; you're part of the Ayo
+            family
+            <br />
+            <br />
+            Our Mission: To redefine the accounting experience, combining
+            personalized advice and state-of-the-art technology to empower our
+            clients towards financial success.
           </span>
         </div>
       </section>

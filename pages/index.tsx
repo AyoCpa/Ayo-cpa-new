@@ -46,14 +46,14 @@ export default function Home() {
             <div
               className={`${ubuntu.variable} font-medium text-2xl  font-ubuntu text-center lg:text-5xl lg:leading-tight `}
             >
-              New name, same faces, same team you&apos;ve always trusted.
+              Where Every Number Tells Your Story
             </div>
             <div
               className={`${inter.variable} font-inter text-base lg:text-xl text-center mt-5 w-full lg:w-4/5  m-auto`}
             >
-              Ayo & Company Chartered Professional Accountant is a new name
-              representing trusted professionals serving the Lakeland and
-              surrounding area since 1964...
+              At Ayo CPA, we see beyond the numbers. Experience personalized
+              accounting services tailored to your unique goals, powered by the
+              latest technology.
             </div>
 
             <div className="mt-10 ">
@@ -151,7 +151,7 @@ export default function Home() {
 
       <ServiceFlash />
 
-      <div className={styles.flashDetails}>
+      {/* <div className={styles.flashDetails}>
         <div
           className={`text-xl lg:text-5xl w-full lg:w-1/2 mx-auto text-center lg:leading-snug ${ubuntu.variable} font-ubuntu`}
         >
@@ -162,7 +162,7 @@ export default function Home() {
         <div className="mt-10">
           <ButtonWithIcon text="Try it now" dark={true} url="" />
         </div>
-      </div>
+      </div> */}
 
       <Footer />
     </div>
