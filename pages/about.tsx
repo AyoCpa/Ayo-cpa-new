@@ -28,9 +28,9 @@ function about() {
             interactions, Ayo CPA stands apart. Founded on the principles of
             unwavering customer service, our firm believes in the power of
             listening, understanding, and meticulously tailoring our services to
-            meet each client's individual needs. From the moment you step
-            through our doors, you're not just a client; you're part of the Ayo
-            family
+            meet each client&apos;s individual needs. From the moment you step
+            through our doors, you&apos;re not just a client; you &apos;re part
+            of the Ayo family
             <br />
             <br />
             Our Mission: To redefine the accounting experience, combining
