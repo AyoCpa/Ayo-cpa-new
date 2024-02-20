@@ -102,8 +102,9 @@ function Contact() {
       <div className="bg-[#efefef]">
         <section>
           <PageSideSubHeader
-            mainText="Get in touch with us"
-            subText="Send us all and any enquiries"
+            mainText="Ready to experience the Ayo CPA difference?"
+            subText="Contact us today to schedule your personalized consultation.
+Let’s embark on a journey towards achieving your financial goals together."
           />
         </section>
 
