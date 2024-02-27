@@ -8,7 +8,7 @@
 }
 
 .signUpBanner{
-  background-image: url("../public/ASSETS/IMAGES/Auth_background.png");
+  background-image: url("../public/ASSETS/IMAGES/Auth_background.webp");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 .serviceCol {
   padding-top: 64px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/Accounting.png");
+  background-image: url("../public/ASSETS/IMAGES/Accounting.webp");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -34,7 +34,7 @@
 .bookkeepingCol {
   padding-top: 100px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/bookkeeping.png");
+  background-image: url("../public/ASSETS/IMAGES/bookkeeping.webp");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -44,7 +44,7 @@
 .retirementCol {
   padding-top: 100px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/retirement.png");
+  background-image: url("../public/ASSETS/IMAGES/retirement.webp");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -54,7 +54,7 @@
 .agricCol {
   padding-top: 100px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/agric.png");
+  background-image: url("../public/ASSETS/IMAGES/agric.webp");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -64,7 +64,7 @@
 .advisoryCol{
   padding-top: 100px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/business-advisory.png");
+  background-image: url("../public/ASSETS/IMAGES/business-advisory.webp");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -74,7 +74,7 @@
 .taxationCol {
   padding-top: 100px;
   margin-top: 0px;
-  background-image: url("../public/ASSETS/IMAGES/taxation.png");
+  background-image: url("../public/ASSETS/IMAGES/taxation.webp");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -112,7 +112,7 @@
 }
 
 .aboutBanner , .resourceBanner , .paymentBanner ,.bookAppointmentCol , .termsOfService ,.contactCol , .remoteAccessCol , .submitDocCol , .taxesCol{
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.png");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../public/ASSETS/IMAGES/About_Image.webp");
   height: 50vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -123,42 +123,42 @@
 
 .taxesCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/file-my-tax.jpg");
+  url("../public/ASSETS/IMAGES/file-my-tax.webp");
 }
 
 
 .submitDocCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/submit-document.jpg");
+  url("../public/ASSETS/IMAGES/submit-document.webp");
 }
 
 .remoteAccessCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/remote-access.jpg");
+  url("../public/ASSETS/IMAGES/remote-access.webp");
 }
 
 .contactCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/contact-image.jpg");
+  url("../public/ASSETS/IMAGES/contact-image.webp");
 }
 .termsOfService{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/terms-of-us.jpg");
+  url("../public/ASSETS/IMAGES/terms-of-us.webp");
   ;
 }
 .bookAppointmentCol{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-  url("../public/ASSETS/IMAGES/book-an-appointment-image.jpg");
+  url("../public/ASSETS/IMAGES/book-an-appointment-image.webp");
   ;
 }
 
 .paymentBanner{
-  background-image: linear-gradient(to right , rgba(0,0,0,0.8) , rgba(0,0,0,0.8)) , url("../public/ASSETS/IMAGES/payment.jpg");
+  background-image: linear-gradient(to right , rgba(0,0,0,0.8) , rgba(0,0,0,0.8)) , url("../public/ASSETS/IMAGES/payment.webp");
 }
 
 .serviceBanner {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("../public/ASSETS/IMAGES/new_service.jpg");
+    url("../public/ASSETS/IMAGES/new_service.webp");
   height: 50vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -168,7 +168,7 @@
 }
 
 .resourceBanner{
-  background-image: linear-gradient(to right , rgba(0,0,0,0.8) , rgba(0,0,0,0.8)) , url("../public/ASSETS//IMAGES//resourceBanner.jpg");
+  background-image: linear-gradient(to right , rgba(0,0,0,0.8) , rgba(0,0,0,0.8)) , url("../public/ASSETS/IMAGES/resourceBanner.webp");
 }
 
 
@@ -185,7 +185,7 @@
 }
 
 .bannerImage {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../public/ASSETS/IMAGES/home-page-banner.jpg");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../public/ASSETS/IMAGES/home-page-banner.webp");
   height: 100vh;
   background-position: left;
   background-repeat: no-repeat;
@@ -465,7 +465,7 @@
 }
 
 .portalSignUpBanner{
-  background-image: url("../public/ASSETS/IMAGES/PortalAuth_Background.png");
+  background-image: url("../public/ASSETS/IMAGES/PortalAuth_Background.webp");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
