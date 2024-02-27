@@ -23,6 +23,7 @@ import ValidateEmail from "@/utils/email-validate";
 import axios from "axios";
 import { Success } from "@/components/Messages/Success";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function MakePaymentAsGuest() {
   const router = useRouter();
@@ -129,6 +130,14 @@ function MakePaymentAsGuest() {
   const handlePaymentMethod = (): void => {};
   return (
     <>
+      <Head>
+        <title>Make Payment | Ayo & Company</title>
+        <meta name="description" content="Make your payments with ease." />
+        <meta property="og:title" content="Make Payment | Ayo & company" />
+        <meta property="og:description" content="Make your payments with ease." />
+        <meta property="og:image" content="/payment.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <section>
         <Navbar />
       </section>

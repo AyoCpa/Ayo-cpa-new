@@ -18,11 +18,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>HOMEPAGE</title>
+        <title>Ayo & Company | Chartered Accounting Company</title>
         <meta name="description" content="Ayo & Company is a chartered professional accounting company in Canada that specializes in taxation, payroll, bookkeping and general accounting." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="accounting companies in canada, bookkeeping, general accounting, taxation, payroll, Canada business advisory, retirement accounting, estate finance planning, accounting in canada" />
-        <meta property="og:title" content="Ayocpa" />
+        <meta property="og:title" content="Ayo & Company | Chartered Accounting Company" />
         <meta
           property="og:description"
           content="Ayo & Company is a chartered professional accounting company in Canada that specializes in taxation, payroll, bookkeping and general accounting."
@@ -31,7 +31,8 @@ export default function Home() {
           property="og:image"
           content="https://firebasestorage.googleapis.com/v0/b/infarena-6aa80.appspot.com/o/home-page-banner.jpg?alt=media&token=6e94381c-15eb-4060-8d93-5c0e6b55bbc6&_gl=1*rci7nu*_ga*MTMzNzA5NDM0Mi4xNjg4NDA5MjQy*_ga_CW55HF8NVT*MTY5NjE3NDcyOS42LjEuMTY5NjE3NDg1Ny42MC4wLjA."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:type" content="website" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <Navbar />

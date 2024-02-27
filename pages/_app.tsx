@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Provider store={store}>
         <Head>
-          <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+          <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
         </Head>
         <Component {...pageProps} />
       </Provider>

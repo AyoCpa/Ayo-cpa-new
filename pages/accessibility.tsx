@@ -8,9 +8,19 @@ import { inter } from "@/utils/fonts";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import Head from "next/head";
 
 function Accessibility() {
   return (
+    <>
+      <Head>
+        <title>Accessibility | Ayo & Company</title>
+        <meta name="description" content="Find out our committment to dveloping an inclusive solution and the specifications we work hard to meet." />
+        <meta property="og:title" content="Accessibility | Ayo & company" />
+        <meta property="og:description" content="Find out how we collect, store, and use data while on our websites." />
+        <meta property="og:image" content="/remote-access.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
     <div>
       <section>
         <Navbar />
@@ -74,6 +84,7 @@ function Accessibility() {
       <ServiceFlash />
       <Footer />
     </div>
+    </>
   );
 }
 

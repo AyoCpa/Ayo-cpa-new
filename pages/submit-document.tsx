@@ -8,10 +8,19 @@ import { IdentityOption } from "@/components/Nuggets/IdentityOption";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import Head from "next/head";
 
 function SubmitDocument() {
   return (
     <>
+      <Head>
+        <title>Submit Documents | Ayo & Company</title>
+        <meta name="description" content="Submit documents for tax filing and genral accounting." />
+        <meta property="og:title" content="Submit Documents | Ayo & company" />
+        <meta property="og:description" content="Submit documents for tax filing and genral accounting." />
+        <meta property="og:image" content="/submit-document.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <section>
         <Navbar />
       </section>
