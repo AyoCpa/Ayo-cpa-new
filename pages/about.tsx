@@ -32,7 +32,7 @@ function about() {
         </div>
       </section>
       <section className="bg-[#efefef] pb-16">
-        <PagesSubHeader text="We are tested and trusted with the numbers.." />
+        <PagesSubHeader text="We are tested and trusted with the numbers" />
 
         <div className="mt-16 w-[90%] lg:w-4/5 mx-auto text-[#5A5A5A]">
           <span className={`${inter.variable} font-inter lg:text-lg text-sm`}>
