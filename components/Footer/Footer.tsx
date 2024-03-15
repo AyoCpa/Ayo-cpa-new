@@ -115,7 +115,7 @@ export const Footer = () => {
 
         <Col xs={24} className="mb-28 lg:mb-0">
           <div
-            className={` ${inter.variable} mt-10 font-inter text-[#E6E6E6] text-xs text-center text-white`}
+            className={` ${inter.variable} mt-10 font-inter text-xs text-center text-white`}
           >
             © {date} Ayo & Company Chartered Professional Accountant
           </div>
