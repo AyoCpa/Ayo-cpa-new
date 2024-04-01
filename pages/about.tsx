@@ -20,7 +20,7 @@ function about() {
             clients towards financial success." />
       <meta name="keywords" content="About Ayo & company, ayocpa chartered accountant, accounting companies in canada" />
       <meta property="og:title" content="About Us | Ayo & company" />
-      <meta property="og:description" content="Ayo & copany is a chartered professional accounting company in Canada. We are focused on redefining the accounting experience, combining personalized adi=vice and state-of-the-art technology to empower our clients towards financial success." />
+      <meta property="og:description" content="Ayo & company is a chartered professional accounting company in Canada. We are focused on redefining the accounting experience, combining personalized adi=vice and state-of-the-art technology to empower our clients towards financial success." />
       <meta property="og:image" content="/About_Image.webp" />
       <meta property="og:type" content="website" />
     </Head>

@@ -18,7 +18,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
         </Head>
         <Component {...pageProps} />
-
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-3XXWXW846N" />
         <Script src="/script.js" />
       </Provider>
