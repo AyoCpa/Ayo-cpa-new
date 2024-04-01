@@ -57,95 +57,113 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
           !authScreen ? "px-4 lg:px-12" : " px-4 lg:px-40"
         }  py-4 text-white items-center`}
       >
-        <div
-          className=""
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          <Image
-            src={scrollPos > 10 ? logoColored : logo}
-            alt="ayocpa's logo"
-            className="w-[200px] lg:w-full cursor-pointer"
-          />
-        </div>
+        <Link href={"/"}>
+          <div className="">
+            <Image
+              src={scrollPos > 10 ? logoColored : logo}
+              alt="ayocpa's logo"
+              className="w-[200px] lg:w-full cursor-pointer"
+            />
+          </div>
+        </Link>
+
         {!authScreen && (
           <div
             className={`xl:flex hidden flex-row justify-between w-1/2 items-center ${
               scrollPos > 10 ? "text-[#1A1229]" : "text-[#EFEFEF]"
             }`}
           >
-            <div
-              className={`cursor-pointer ${
-                currentPage == "about" && "mt-3"
-              }  relative flex justify-center flex-col items-center`}
-              onClick={() => {
-                router.push("/about");
-              }}
-            >
-              <p>About</p>
-              {currentPage == "about" && (
-                <span className="flex justify-center">
-                  <Image
-                    src={underline}
-                    style={{ width: "50px", paddingTop: "8px" }}
-                    alt="underline"
-                  />
-                </span>
-              )}
-            </div>
+            <Link href={"/about"}>
+              <div
+                className={`cursor-pointer ${
+                  currentPage == "about" && "mt-3"
+                }  relative flex justify-center flex-col items-center`}
+              >
+                <p>About</p>
+                {currentPage == "about" && (
+                  <span className="flex justify-center">
+                    <Image
+                      src={underline}
+                      style={{ width: "50px", paddingTop: "8px" }}
+                      alt="underline"
+                    />
+                  </span>
+                )}
+              </div>
+            </Link>
+            <Link href={"blogs"}>
+              <div
+                className={`cursor-pointer ${
+                  currentPage == "blog" && "mt-3"
+                }  relative flex justify-center flex-col items-center`}
+              >
+                <p>Blogs</p>
+                {currentPage == "blog" && (
+                  <span className="flex justify-center">
+                    <Image
+                      src={underline}
+                      style={{ width: "50px", paddingTop: "8px" }}
+                      alt="underline"
+                    />
+                  </span>
+                )}
+              </div>
+            </Link>
 
-            <div
-              className={`cursor-pointer ${
-                currentPage == "services" && "mt-3"
-              }  relative flex justify-center flex-col items-center`}
-              onClick={() => router.push("/service")}
-            >
-              <p>Services</p>
-              {currentPage == "services" && (
-                <span className="flex justify-center">
-                  <Image
-                    src={underline}
-                    style={{ width: "64px", paddingTop: "8px" }}
-                    alt="underline"
-                  />
-                </span>
-              )}
-            </div>
-            <div
-              className={`cursor-pointer ${
-                currentPage == "resources" && "mt-3"
-              }  relative flex justify-center flex-col items-center`}
-              onClick={() => router.push("/resource")}
-            >
-              <p>Resources</p>
-              {currentPage == "resources" && (
-                <span className="flex justify-center">
-                  <Image
-                    src={underline}
-                    style={{ width: "72px", paddingTop: "8px" }}
-                    alt="underline"
-                  />
-                </span>
-              )}
-            </div>
-            <div
-              className={`cursor-pointer ${
-                currentPage == "taxes" && "mt-3"
-              }  relative flex justify-center flex-col items-center`}
-              onClick={() => router.push("/file-my-taxes")}
-            >
-              <p>File My Taxes</p>
-              {currentPage == "taxes" && (
-                <span className="flex justify-center">
-                  <Image
-                    src={underline}
-                    style={{ width: "72px", paddingTop: "8px" }}
-                    alt="underline"
-                  />
-                </span>
-              )}
-            </div>
+            <Link href={"/service"}>
+              <div
+                className={`cursor-pointer ${
+                  currentPage == "services" && "mt-3"
+                }  relative flex justify-center flex-col items-center`}
+              >
+                <p>Services</p>
+                {currentPage == "services" && (
+                  <span className="flex justify-center">
+                    <Image
+                      src={underline}
+                      style={{ width: "64px", paddingTop: "8px" }}
+                      alt="underline"
+                    />
+                  </span>
+                )}
+              </div>
+            </Link>
+            <Link href={"/resource"}>
+              <div
+                className={`cursor-pointer ${
+                  currentPage == "resources" && "mt-3"
+                }  relative flex justify-center flex-col items-center`}
+              >
+                <p>Resources</p>
+                {currentPage == "resources" && (
+                  <span className="flex justify-center">
+                    <Image
+                      src={underline}
+                      style={{ width: "72px", paddingTop: "8px" }}
+                      alt="underline"
+                    />
+                  </span>
+                )}
+              </div>
+            </Link>
+            <Link href={"/file-my-taxes"}>
+              <div
+                className={`cursor-pointer ${
+                  currentPage == "taxes" && "mt-3"
+                }  relative flex justify-center flex-col items-center`}
+              >
+                <p>File My Taxes</p>
+                {currentPage == "taxes" && (
+                  <span className="flex justify-center">
+                    <Image
+                      src={underline}
+                      style={{ width: "72px", paddingTop: "8px" }}
+                      alt="underline"
+                    />
+                  </span>
+                )}
+              </div>
+            </Link>
 
             <span className="flex flex-row items-center cursor-pointer relative ">
               <span
@@ -182,6 +200,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                 </div>
               )}
             </span>
+
             <div
               className={`cursor-pointer ${
                 currentPage == "contact" && "mt-3"
