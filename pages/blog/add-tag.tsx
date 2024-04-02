@@ -38,29 +38,21 @@ const AddTag = () => {
     []
   );
 
-
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonLoading(true);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (!data.author || !data.title || !data.blog_image || !data.category) {
+    if (!data.name) {
       toast.error("All fields are required");
       setButtonLoading(false);
       return;
     }
     // Do the need validation
-    console.log(data, "Data hereee");
-    apiClient("post", "blog", {
-      author: data.author,
-      title: data.title,
-      category: data.category,
-      image: "TEst image",
-      content: model,
-      isFeatured: data.isFeatured === "on" ? true : false,
+    apiClient("post", "tag", {
+      name: data.name,
     })
       .then((res) => {
-        console.log(res);
+        toast.success("Tag Created Successfully")
       })
       .catch((e) => console.log(e))
       .finally(() => {
@@ -93,7 +85,10 @@ const AddTag = () => {
       <FixedArrowUp />
       <section className={styles.aboutBanner}>
         <div className="text-white ml-10 mt-24">
-          <SideBannerContent mainText="Create a New Blog Tag" currentPage="Blog-Tag" />
+          <SideBannerContent
+            mainText="Create a New Blog Tag"
+            currentPage="Blog-Tag"
+          />
         </div>
       </section>
       <section className="bg-[#efefef] pb-16">
@@ -118,7 +113,7 @@ const AddTag = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <AuthButton text="Submit" active={true} />
                   </div>

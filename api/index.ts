@@ -6,8 +6,8 @@ const api = axios.create({ baseURL: "http://localhost:4000/api" })
 api.interceptors.response.use((response) => {
     return response
 }, (e) => {
-    if (e?.response?.data?.error) {
-        toast.error(e.response.data.error)
+    if (e?.response?.data?.message) {
+        toast.error(e.response.data.message)
     } else {
         toast.error("Some Error Occured")
     }

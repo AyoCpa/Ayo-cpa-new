@@ -7,50 +7,36 @@ import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
 import { PagesSubHeader } from "@/components/Nuggets/PagesSubHeader";
 import { Col, Row } from "antd";
 import { inter } from "@/utils/fonts";
-import dynamic from "next/dynamic";
-// const FroalaEditor = dynamic(() => import("react-froala-wysiwyg"), {
-//   ssr: false,
-// });
-// dynamic(import("froala-editor/js/plugins/image.min.js"), { ssr: false });
-
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/froala_editor.pkgd.min.css";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { apiClient } from "@/api";
 import { toast } from "sonner";
 
 const AddCategory = () => {
   const [model, setModel] = useState("");
-  const [buttonLoading, setButtonLoading] = useState(false);
+  const [buttonActive, setButtonActive] = useState(true);
   const [categories, setCategories] = useState<{ name: string; _id: string }[]>(
     []
   );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setButtonLoading(true);
+    setButtonActive(false);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (!data.author || !data.title || !data.blog_image || !data.category) {
+    if (!data.name) {
       toast.error("All fields are required");
-      setButtonLoading(false);
+      setButtonActive(true);
       return;
     }
     // Do the need validation
-    console.log(data, "Data hereee");
-    apiClient("post", "blog", {
-      author: data.author,
-      title: data.title,
-      category: data.category,
-      image: "TEst image",
-      content: model,
-      isFeatured: data.isFeatured === "on" ? true : false,
+    apiClient("post", "category", {
+      name: data.name
     })
       .then((res) => {
-        console.log(res);
+        toast.success("Category created Successfully")
       })
       .catch((e) => console.log(e))
       .finally(() => {
-        setButtonLoading(false);
+        setButtonActive(true);
       });
   };
   return (
@@ -109,7 +95,7 @@ const AddCategory = () => {
                   </div>
                   
                   <div>
-                    <AuthButton text="Submit" active={true} />
+                    <AuthButton text="Submit" active={buttonActive} />
                   </div>
                 </form>
               </div>
