@@ -33,18 +33,18 @@ import { toast } from "sonner";
 
 const AddTag = () => {
   const [model, setModel] = useState("");
-  const [buttonLoading, setButtonLoading] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(true);
   const [categories, setCategories] = useState<{ name: string; _id: string }[]>(
     []
   );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setButtonLoading(true);
+    setButtonLoading(false);
     const data = Object.fromEntries(new FormData(e.currentTarget));
     if (!data.name) {
       toast.error("All fields are required");
-      setButtonLoading(false);
+      setButtonLoading(true);
       return;
     }
     // Do the need validation
@@ -52,11 +52,11 @@ const AddTag = () => {
       name: data.name,
     })
       .then((res) => {
-        toast.success("Tag Created Successfully")
+        toast.success("Tag Created Successfully");
       })
       .catch((e) => console.log(e))
       .finally(() => {
-        setButtonLoading(false);
+        setButtonLoading(true);
       });
   };
   return (
@@ -115,7 +115,7 @@ const AddTag = () => {
                   </div>
 
                   <div>
-                    <AuthButton text="Submit" active={true} />
+                    <AuthButton text="Submit" active={buttonLoading} />
                   </div>
                 </form>
               </div>
