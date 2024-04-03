@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
 import { PagesSubHeader } from "@/components/Nuggets/PagesSubHeader";
-import { Col, Row } from "antd";
+import { Col, Row, Select } from "antd";
 import { inter } from "@/utils/fonts";
 import dynamic from "next/dynamic";
 // const FroalaEditor = dynamic(() => import("react-froala-wysiwyg"), {
@@ -37,11 +37,21 @@ const AddBlog = () => {
   const [categories, setCategories] = useState<{ name: string; _id: string }[]>(
     []
   );
+  const [tags, setTags] = useState<{ name: string; _id: string }[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   useEffect(() => {
     apiClient("get", "category")
       .then((res) => {
         setCategories(res?.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+    apiClient("get", "tag")
+      .then((res) => {
+        setTags(res?.data);
       })
       .catch((e) => {
         console.log(e);
@@ -52,13 +62,12 @@ const AddBlog = () => {
     e.preventDefault();
     setButtonLoading(true);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (!data.author || !data.title || !data.blog_image || !data.category) {
+    if (!data.author || !data.title || !data.blog_image || !data.category || !selectedTags.length) {
       toast.error("All fields are required");
       setButtonLoading(false);
       return;
     }
     // Do the need validation
-    console.log(data, "Data hereee");
     apiClient("post", "blog", {
       author: data.author,
       title: data.title,
@@ -66,6 +75,7 @@ const AddBlog = () => {
       image: "TEst image",
       content: model,
       isFeatured: data.isFeatured === "on" ? true : false,
+      tags: selectedTags
     })
       .then((res) => {
         console.log(res);
@@ -108,7 +118,7 @@ const AddBlog = () => {
         <PagesSubHeader text="Create New Blog/Article" />
         <div className="my-10">
           <Row justify={"center"}>
-            <Col lg={8}>
+            <Col xl={8} lg={12} sm={16} xs={22}>
               <div
                 className={`${inter.variable} font-inter bg-white py-10 px-10`}
               >
@@ -194,6 +204,23 @@ const AddBlog = () => {
                         placeholder="Enter Category"
                         className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
                       /> */}
+                    </div>
+                  </div>
+                  <div className="my-4">
+                    <p className={`mb-2 ${inter.variable} font-inter`}>Tags</p>
+                    <div>
+                      <Select
+                        mode="multiple"
+                        placeholder="Select Tag"
+                        style={{ flex: 1, width: "100%" }}
+                        className="py-2"
+                        onChange={(e) => {
+                          setSelectedTags(e);
+                        }}
+                        options={tags.map((item) => {
+                          return { value: item._id, label: item.name };
+                        })}
+                      />
                     </div>
                   </div>
 

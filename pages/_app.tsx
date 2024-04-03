@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import Head from "next/head";
 import Script from "next/script";
 import { Toaster, toast } from "sonner";
+import { ConfigProvider } from "antd";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +18,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
           <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
         </Head>
+        <ConfigProvider>
+
         <Component {...pageProps} />
+        </ConfigProvider>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-3XXWXW846N" />
         <Script src="/script.js" />
       </Provider>

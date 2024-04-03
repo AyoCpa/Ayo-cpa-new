@@ -75,7 +75,7 @@ const AddCategory = () => {
         <PagesSubHeader text="Create Category For Articles/Blog " />
         <div className="my-10">
           <Row justify={"center"}>
-            <Col lg={8}>
+            <Col xl={8} lg={12} sm={16} xs={22}>
               <div
                 className={`${inter.variable} font-inter bg-white py-10 px-10`}
               >
