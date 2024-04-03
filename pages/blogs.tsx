@@ -94,7 +94,7 @@ const Blogs = () => {
                         <p
                           className={`text-lg ${ubuntu.variable} font-ubuntu  `}
                         >
-                          Do's of Managing your books
+                          Do&apos;s of Managing your books
                         </p>
                       </div>
                       <hr />
