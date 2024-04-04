@@ -12,9 +12,8 @@ import blogImage from "@/public/ASSETS/IMAGES/accounting-image.jpg"
 import secondBlog from "@/public/ASSETS/IMAGES/contact-image.webp"
 import thirdBlog from "@/public/ASSETS/IMAGES/payroll.webp";
 
-
-
 const Blogs = () => {
+  
   return (
     <>
       <Head>

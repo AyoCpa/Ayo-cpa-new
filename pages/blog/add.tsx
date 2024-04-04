@@ -30,15 +30,30 @@ import "froala-editor/css/froala_editor.pkgd.min.css";
 import { AuthButton } from "@/components/Buttons/AuthButton";
 import { apiClient } from "@/api";
 import { toast } from "sonner";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { storage } from "@/firebase";
+import { v4 } from "uuid";
 
 const AddBlog = () => {
   const [model, setModel] = useState("");
-  const [buttonLoading, setButtonLoading] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(true);
   const [categories, setCategories] = useState<{ name: string; _id: string }[]>(
     []
   );
   const [tags, setTags] = useState<{ name: string; _id: string }[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [imageChosen, setImageChosen] = useState<any>(null);
+  const [imageUrl, setImageUrl] = useState("");
+
+  const uploadToFirebase = async () => {
+    if (imageChosen) {
+      const imageRef = ref(storage, `blogImages/${imageChosen.name + v4()} }`);
+      console.log(imageRef);
+
+      const uploadIsh = await uploadBytes(imageRef, imageChosen);
+      return await getDownloadURL(uploadIsh.ref);
+    }
+  };
 
   useEffect(() => {
     apiClient("get", "category")
@@ -58,31 +73,39 @@ const AddBlog = () => {
       });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setButtonLoading(true);
+    setButtonLoading(false);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (!data.author || !data.title || !data.blog_image || !data.category || !selectedTags.length) {
+    if (
+      !data.author ||
+      !data.title ||
+      !data.blog_image ||
+      !data.category ||
+      !selectedTags.length
+    ) {
       toast.error("All fields are required");
-      setButtonLoading(false);
+      setButtonLoading(true);
       return;
     }
+    const imageUrl_ = await uploadToFirebase();
+
     // Do the need validation
     apiClient("post", "blog", {
       author: data.author,
       title: data.title,
       category: data.category,
-      image: "TEst image",
+      image: imageUrl_,
       content: model,
       isFeatured: data.isFeatured === "on" ? true : false,
-      tags: selectedTags
+      tags: selectedTags,
     })
       .then((res) => {
-        console.log(res);
+        toast.success("Blog Created Successfully")
       })
       .catch((e) => console.log(e))
       .finally(() => {
-        setButtonLoading(false);
+        setButtonLoading(true);
       });
   };
   return (
@@ -154,6 +177,11 @@ const AddBlog = () => {
                       <input
                         style={{
                           border: "2px solid #aaaaaa",
+                        }}
+                        onChange={(e) => {
+                          if (e.target.files) {
+                            setImageChosen(e.target.files[0]);
+                          }
                         }}
                         name="blog_image"
                         type="file"
@@ -229,7 +257,7 @@ const AddBlog = () => {
                     onModelChange={(e: string) => setModel(e)}
                   />
                   <div>
-                    <AuthButton text="Submit" active={true} />
+                    <AuthButton text="Submit" active={buttonLoading} />
                   </div>
                 </form>
               </div>
