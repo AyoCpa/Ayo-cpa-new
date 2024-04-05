@@ -88,8 +88,23 @@ const AddBlog = () => {
       setButtonLoading(true);
       return;
     }
+
+    try{
+      const verify = await apiClient("get", `blog/${data.title}`);
+      if (verify?.data) {
+        toast.error(`Blog with the title ${data.title} already Exist`);
+        setButtonLoading(true);
+        return;
+      }
+    }catch(e){
+      toast.error("Oops! Some Error Occured, Try Again.")
+      setButtonLoading(true)
+    }
+     
     const imageUrl_ = await uploadToFirebase();
 
+    // Verify From the backend first to be sure that post isn't already in existent 
+   
     // Do the need validation
     apiClient("post", "blog", {
       author: data.author,
