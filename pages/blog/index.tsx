@@ -79,7 +79,7 @@ const Blogs = () => {
                 ) : (
                   blogs.map((item) => {
                     return (
-                      <Col lg={6}>
+                      <Col key={item._id} lg={6}>
                         <div className="bg-white rounded-xl overflow-hidden mb-8">
                           <Image
                             src={item.image}
