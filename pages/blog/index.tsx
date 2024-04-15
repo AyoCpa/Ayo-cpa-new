@@ -8,30 +8,12 @@ import { PagesSubHeader } from "@/components/Nuggets/PagesSubHeader";
 import { Col, Row, Spin } from "antd";
 import { ubuntu } from "@/utils/fonts";
 import Image from "next/image";
-import blogImage from "@/public/ASSETS/IMAGES/accounting-image.jpg";
-import secondBlog from "@/public/ASSETS/IMAGES/contact-image.webp";
-import thirdBlog from "@/public/ASSETS/IMAGES/payroll.webp";
 import { apiClient } from "@/api";
 import { LoadingOutlined } from "@ant-design/icons";
 import moment from "moment";
-
-interface NuggetType {
-  name: string;
-  _id: string;
-}
-
-interface BlogType {
-  _id: string;
-  category: NuggetType;
-  title: string;
-  tags: NuggetType[];
-  isFeatured: boolean;
-  content: string;
-  slug: string;
-  author: string;
-  image: string;
-  createdAt: string;
-}
+import Link from "next/link";
+import { BlogType } from "@/types";
+import LoadingState from "@/components/Nuggets/LoadingState";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<BlogType[]>([]);
@@ -91,18 +73,14 @@ const Blogs = () => {
               </div>
               <Row className="my-10" gutter={{ lg: 18 }}>
                 {loading ? (
-                  <Spin
-                    indicator={
-                      <LoadingOutlined style={{ fontSize: 24 }} spin />
-                    }
-                  />
+                 <LoadingState />
                 ) : !blogs.length ? (
                   "No Blogs Available"
                 ) : (
                   blogs.map((item) => {
                     return (
                       <Col lg={6}>
-                        <div className="bg-white rounded-xl overflow-hidden">
+                        <div className="bg-white rounded-xl overflow-hidden mb-8">
                           <Image
                             src={item.image}
                             alt=""
@@ -111,13 +89,16 @@ const Blogs = () => {
                             height={400}
                           />
                           <div className="cursor-pointer">
-                            <div className="p-4">
-                              <p
-                                className={`text-lg ${ubuntu.variable} font-ubuntu  `}
-                              >
-                                {item.title}
-                              </p>
-                            </div>
+                            <Link href={`blog/details?v=${item.slug}`}>
+                              <div className="p-4">
+                                <p
+                                  className={`text-lg whitespace-nowrap w-full overflow-hidden text-ellipsis text-black ${ubuntu.variable} font-ubuntu  `}
+                                >
+                                  {item.title}
+                                </p>
+                              </div>
+                            </Link>
+
                             <hr />
                             <div className="p-4 flex justify-between items-center">
                               <p className="py-2 px-4 rounded-full bg-[#efefef]">

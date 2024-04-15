@@ -89,22 +89,22 @@ const AddBlog = () => {
       return;
     }
 
-    try{
+    try {
       const verify = await apiClient("get", `blog/${data.title}`);
       if (verify?.data) {
         toast.error(`Blog with the title ${data.title} already Exist`);
         setButtonLoading(true);
         return;
       }
-    }catch(e){
-      toast.error("Oops! Some Error Occured, Try Again.")
-      setButtonLoading(true)
+    } catch (e) {
+      toast.error("Oops! Some Error Occured, Try Again.");
+      setButtonLoading(true);
     }
-     
+
     const imageUrl_ = await uploadToFirebase();
 
-    // Verify From the backend first to be sure that post isn't already in existent 
-   
+    // Verify From the backend first to be sure that post isn't already in existent
+
     // Do the need validation
     apiClient("post", "blog", {
       author: data.author,
@@ -116,7 +116,7 @@ const AddBlog = () => {
       tags: selectedTags,
     })
       .then((res) => {
-        toast.success("Blog Created Successfully")
+        toast.success("Blog Created Successfully");
       })
       .catch((e) => console.log(e))
       .finally(() => {
@@ -268,6 +268,7 @@ const AddBlog = () => {
                   </div>
 
                   <FroalaEditor
+                    tag="textarea"
                     model={model}
                     onModelChange={(e: string) => setModel(e)}
                   />
