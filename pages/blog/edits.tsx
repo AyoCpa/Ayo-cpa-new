@@ -15,7 +15,7 @@ import Link from "next/link";
 import { BlogType } from "@/types";
 import LoadingState from "@/components/Nuggets/LoadingState";
 
-const Blogs = () => {
+const Edits = () => {
   const [blogs, setBlogs] = useState<BlogType[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -30,10 +30,6 @@ const Blogs = () => {
         setLoading(false);
       });
   }, []);
-
-  const handleDelete = (id) => {
-    apiClient('delete', "blog").then
-  }
   return (
     <>
       <Head>
@@ -77,7 +73,7 @@ const Blogs = () => {
               </div>
               <Row className="my-10" justify={"center"} gutter={{ lg: 18 }}>
                 {loading ? (
-                 <LoadingState />
+                  <LoadingState />
                 ) : !blogs.length ? (
                   "No Blogs Available"
                 ) : (
@@ -113,6 +109,10 @@ const Blogs = () => {
                               </p>
                             </div>
                           </div>
+                          <div className="flex ml-4 gap-2 mb-4">
+                            <p className="cursor-pointer text-[red]">Delete</p>
+                            <p className="cursor-pointer">Edit</p>
+                          </div>
                         </div>
                       </Col>
                     );
@@ -127,4 +127,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Edits;

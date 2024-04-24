@@ -14,11 +14,14 @@ api.interceptors.response.use((response) => {
     return Promise.reject(e)
 })
 
-export const apiClient = async (method: 'get' | "post", url: string, body?: any) => {
+export const apiClient = async (method: 'get' | "post" | "delete", url: string, body?: any) => {
     if (method.toLowerCase() === "get") {
         return await api.get(url);
     }
     else if (method.toLowerCase() === "post") {
         return await api.post(url, body)
+    }
+    else if (method.toLowerCase() === 'delete') {
+        return await api.delete(url);
     }
 }
