@@ -19,7 +19,7 @@ export const apiClient = async (method: 'get' | "post" | "delete", url: string, 
         return await api.get(url);
     }
     else if (method.toLowerCase() === "post") {
-        return await api.post(url, body)
+        return await api.post(url, body);
     }
     else if (method.toLowerCase() === 'delete') {
         return await api.delete(url);

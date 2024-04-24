@@ -14,11 +14,18 @@ import moment from "moment";
 import Link from "next/link";
 import { BlogType } from "@/types";
 import LoadingState from "@/components/Nuggets/LoadingState";
+import ConfirmationModal from "@/components/Modals/ConfirmationModal";
+import { toast } from "sonner";
+import { ActionLoader } from "@/components/Nuggets/ActionLoader";
 
 const Edits = () => {
   const [blogs, setBlogs] = useState<BlogType[]>([]);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
+  const [confirmationActive, setConfirmationActive] = useState(false);
+  const [currentId, setCurrentId] = useState("");
+  const [actionLoader, setActionLoader] = useState(false);
+
+  const getBlogs = () => {
     apiClient("get", "blog")
       .then((res) => {
         setBlogs(res?.data);
@@ -29,7 +36,28 @@ const Edits = () => {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    getBlogs();
   }, []);
+
+  const handleDelete = () => {
+    setActionLoader(true);
+    apiClient("delete", `blog/${currentId}`)
+      .then((res) => {
+        toast.success("Deleted Successfully");
+        getBlogs();
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        setCurrentId("");
+        setActionLoader(false);
+      });
+  };
+
   return (
     <>
       <Head>
@@ -52,6 +80,12 @@ const Edits = () => {
         <meta property="og:image" content="/About_Image.webp" />
         <meta property="og:type" content="website" />
       </Head>
+      <ActionLoader loadingState={actionLoader} />
+      <ConfirmationModal
+        handleModalClose={setConfirmationActive}
+        active={confirmationActive}
+        triggerFnc={handleDelete}
+      />
       <Navbar currentPage="blog" />
       <FixedArrowUp />
       <section className={styles.aboutBanner}>
@@ -110,7 +144,15 @@ const Edits = () => {
                             </div>
                           </div>
                           <div className="flex ml-4 gap-2 mb-4">
-                            <p className="cursor-pointer text-[red]">Delete</p>
+                            <p
+                              onClick={() => {
+                                setCurrentId(item._id);
+                                setConfirmationActive(true);
+                              }}
+                              className="cursor-pointer text-[red]"
+                            >
+                              Delete
+                            </p>
                             <p className="cursor-pointer">Edit</p>
                           </div>
                         </div>
