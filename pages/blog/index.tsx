@@ -63,7 +63,7 @@ const Blogs = () => {
         <PagesSubHeader text="Blogs" />
         <div className="my-10">
           <Row justify={"center"}>
-            <Col lg={18}>
+            <Col xs={22} lg={18}>
               <div>
                 <p
                   className={`${ubuntu.variable} font-ubuntu text-[#1E1E1E] text-lg lg:text-2xl font-bold`}
@@ -71,7 +71,7 @@ const Blogs = () => {
                   Accounting
                 </p>
               </div>
-              <Row className="my-10" gutter={{ lg: 18 }}>
+              <Row className="my-10" justify={"center"} gutter={{ lg: 18 }}>
                 {loading ? (
                  <LoadingState />
                 ) : !blogs.length ? (
@@ -79,7 +79,7 @@ const Blogs = () => {
                 ) : (
                   blogs.map((item) => {
                     return (
-                      <Col key={item._id} lg={6}>
+                      <Col key={item._id} lg={6} xs={22}>
                         <div className="bg-white rounded-xl overflow-hidden mb-8">
                           <Image
                             src={item.image}

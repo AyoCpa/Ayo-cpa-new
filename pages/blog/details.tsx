@@ -99,7 +99,7 @@ const FullBlog = () => {
         </div>
       </section>
       <Row gutter={{ lg: 20 }}>
-        <Col xs={16}>
+        <Col xs={22} lg={8}>
           {mainBlogLoading ? (
             <LoadingState />
           ) : (
@@ -121,7 +121,7 @@ const FullBlog = () => {
             </>
           )}
         </Col>
-        <Col xs={8}>
+        <Col xs={22} lg={8}>
           <div className="h-screen overflow-scroll">
             <div>
               <PageSideSubHeader

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 type SideBannerContentProps = {
   currentPage?: string;
-  extra?: { name: string, _id: string }[];
+  extra?: { name: string; _id: string }[];
 };
 
 export const TagContainer = ({
@@ -13,12 +13,15 @@ export const TagContainer = ({
   const router = useRouter();
   return (
     <>
-      <div className={`${ubuntu.variable} font-ubuntu text-xl lg:text-4xl mb-4`}>
-       Tags
+      <div
+        className={`${ubuntu.variable} font-ubuntu text-xl lg:text-4xl mb-4`}
+      >
+        Tags
       </div>
 
-      <div className={`${inter.variable} font-inter flex gap-2  text-xs lg:text-lg mt-2 `}>
-       
+      <div
+        className={`${inter.variable} font-inter flex gap-2  text-xs lg:text-lg mt-2 flex-wrap `}
+      >
         {" "}
         {extra?.length ? (
           extra.map((item, index, root) => {
@@ -29,7 +32,7 @@ export const TagContainer = ({
                      text-[#E6E6E6] cursor-pointer
                 `}
               >
-                {item.name} 
+                {item.name}
               </span>
             );
           })
