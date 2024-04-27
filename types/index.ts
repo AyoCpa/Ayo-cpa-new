@@ -1,4 +1,4 @@
-interface NuggetType {
+export interface NuggetType {
     name: string;
     _id: string;
 }
@@ -15,3 +15,17 @@ export interface BlogType {
     image: string;
     createdAt: string;
 }
+
+export interface BlogTypeEntry{
+    _id: string;
+    category: string;
+    title: string;
+    tags: string[];
+    isFeatured: boolean;
+    content: string;
+    slug: string;
+    author: string;
+    image: string;
+    createdAt: string;
+}
+

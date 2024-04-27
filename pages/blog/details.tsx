@@ -35,10 +35,10 @@ const FullBlog = () => {
       });
   };
 
+  
   useEffect(() => {
     let queryVal = new URLSearchParams(window.location.search);
     const newVal = queryVal.get("v") ? queryVal.get("v") : "";
-    console.log(newVal, "new vlalue hereeeeee");
     setUrlQuery(newVal ?? "");
 
     apiClient(
@@ -99,7 +99,7 @@ const FullBlog = () => {
         </div>
       </section>
       <Row gutter={{ lg: 20 }}>
-        <Col xs={22} lg={8}>
+        <Col xs={22} lg={16}>
           {mainBlogLoading ? (
             <LoadingState />
           ) : (

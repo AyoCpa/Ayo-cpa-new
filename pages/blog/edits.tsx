@@ -153,7 +153,9 @@ const Edits = () => {
                             >
                               Delete
                             </p>
-                            <p className="cursor-pointer">Edit</p>
+                            <Link href={`/blog/editBlog?blogId=${item.slug}`}>
+                              <p className="cursor-pointer">Edit</p>
+                            </Link>
                           </div>
                         </div>
                       </Col>

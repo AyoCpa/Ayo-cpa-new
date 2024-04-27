@@ -14,7 +14,7 @@ api.interceptors.response.use((response) => {
     return Promise.reject(e)
 })
 
-export const apiClient = async (method: 'get' | "post" | "delete", url: string, body?: any) => {
+export const apiClient = async (method: 'get' | "post" | "delete" | "patch", url: string, body?: any) => {
     if (method.toLowerCase() === "get") {
         return await api.get(url);
     }
@@ -23,5 +23,8 @@ export const apiClient = async (method: 'get' | "post" | "delete", url: string, 
     }
     else if (method.toLowerCase() === 'delete') {
         return await api.delete(url);
+    }
+    else if (method.toLowerCase() === "patch") {
+        return await api.patch(url, body)
     }
 }
