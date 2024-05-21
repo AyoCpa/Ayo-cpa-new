@@ -31,9 +31,6 @@ const Blogs = () => {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    apiClient('delete', "blog").then
-  }
   return (
     <>
       <Head>
@@ -77,7 +74,7 @@ const Blogs = () => {
               </div>
               <Row className="my-10" justify={"center"} gutter={{ lg: 18 }}>
                 {loading ? (
-                 <LoadingState />
+                  <LoadingState />
                 ) : !blogs.length ? (
                   "No Blogs Available"
                 ) : (
