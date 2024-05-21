@@ -179,7 +179,7 @@ const AddBlog = () => {
                     <div>
                       <input type="checkbox" name="isFeatured" />
                       <span className={`ml-2 ${inter.variable} font-inter`}>
-                        IsFeatured ?
+                        IsFeatured ?.
                       </span>
                     </div>
                   </div>
