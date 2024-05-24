@@ -5,7 +5,7 @@ const api = axios.create({ baseURL: process.env.NEXT_PUBLIC_SERVER_URL })
 
 api.interceptors.request.use(function (config) {
     // Get the token and assign to the request 
-
+    console.log("process-ev" , process.env.NEXT_PUBLIC_SERVER_URL);
     let token = localStorage.getItem("user-token");
     if (token) {
         const tokenParsed = JSON.parse(token);

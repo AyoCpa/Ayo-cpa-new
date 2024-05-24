@@ -34,7 +34,7 @@ function SignIn() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonActive(false);
-    apiClient("post", "auth/login", { email, password })
+    apiClient("post", "/auth/login", { email, password })
       .then((res) => {
         console.log(res?.data);
         toast.success("Authenticated Successfully");
