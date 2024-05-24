@@ -16,6 +16,7 @@ import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
 import ValidateEmail from "@/utils/email-validate";
 import { apiClient } from "@/api";
 import { toast } from "sonner";
+import axios from "axios";
 
 function SignIn() {
   const router = useRouter();
@@ -34,20 +35,24 @@ function SignIn() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonActive(false);
-    apiClient("post", "/auth/login", { email, password })
-      .then((res) => {
-        console.log(res?.data);
-        toast.success("Authenticated Successfully");
-        localStorage.setItem("user-token", JSON.stringify(res?.data));
-        router.push("/blog");
-      })
-      .catch((e) => {
-        toast.error("Some errror occured");
-        console.log(e);
-      })
-      .finally(() => {
-        setButtonActive(true);
-      });
+    axios
+      .post("https://ayocpa-be.vercel.app/api/auth/login", { email, password })
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+    // apiClient("post", "/auth/login", { email, password })
+    //   .then((res) => {
+    //     console.log(res?.data);
+    //     toast.success("Authenticated Successfully");
+    //     localStorage.setItem("user-token", JSON.stringify(res?.data));
+    //     router.push("/blog");
+    //   })
+    //   .catch((e) => {
+    //     toast.error("Some errror occured");
+    //     console.log(e);
+    //   })
+    //   .finally(() => {
+    //     setButtonActive(true);
+    //   });
   };
 
   return (
