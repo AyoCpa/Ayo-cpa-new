@@ -10,6 +10,7 @@ api.interceptors.request.use(function (config) {
     if (token) {
         const tokenParsed = JSON.parse(token);
         config.headers['Authorization'] = `Bearer ${tokenParsed.access_token}`
+
     }
     return config;
 }, function (error) {

@@ -35,24 +35,20 @@ function SignIn() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonActive(false);
-    axios
-      .post("https://ayocpa-be.vercel.app/api/auth/login", { email, password })
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
-    // apiClient("post", "/auth/login", { email, password })
-    //   .then((res) => {
-    //     console.log(res?.data);
-    //     toast.success("Authenticated Successfully");
-    //     localStorage.setItem("user-token", JSON.stringify(res?.data));
-    //     router.push("/blog");
-    //   })
-    //   .catch((e) => {
-    //     toast.error("Some errror occured");
-    //     console.log(e);
-    //   })
-    //   .finally(() => {
-    //     setButtonActive(true);
-    //   });
+    apiClient("post", "/auth/login", { email, password })
+      .then((res) => {
+        console.log(res?.data);
+        toast.success("Authenticated Successfully");
+        localStorage.setItem("user-token", JSON.stringify(res?.data));
+        router.push("/blog");
+      })
+      .catch((e) => {
+        toast.error("Some errror occured");
+        console.log(e);
+      })
+      .finally(() => {
+        setButtonActive(true);
+      });
   };
 
   return (
