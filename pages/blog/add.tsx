@@ -82,6 +82,8 @@ const AddBlog = () => {
       !data.title ||
       !data.blog_image ||
       !data.category ||
+      !data.keywords ||
+      !data.description ||
       !selectedTags.length
     ) {
       toast.error("All fields are required");
@@ -114,6 +116,8 @@ const AddBlog = () => {
       content: model,
       isFeatured: data.isFeatured === "on" ? true : false,
       tags: selectedTags,
+      keywords: data.keywords,
+      description: data.description,
     })
       .then((res) => {
         toast.success("Blog Created Successfully");
@@ -216,6 +220,36 @@ const AddBlog = () => {
                         }}
                         name="author"
                         placeholder="Enter author's name"
+                        className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
+                      />
+                    </div>
+                  </div>
+                  <div className="my-4">
+                    <p className={`mb-2 ${inter.variable} font-inter`}>
+                      Key words
+                    </p>
+                    <div>
+                      <input
+                        style={{
+                          border: "2px solid #aaaaaa",
+                        }}
+                        name="keywords"
+                        placeholder="Enter keywords for the article"
+                        className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
+                      />
+                    </div>
+                  </div>
+                  <div className="my-4">
+                    <p className={`mb-2 ${inter.variable} font-inter`}>
+                      Description
+                    </p>
+                    <div>
+                      <input
+                        style={{
+                          border: "2px solid #aaaaaa",
+                        }}
+                        name="description"
+                        placeholder="Enter Description for article"
                         className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
                       />
                     </div>

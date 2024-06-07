@@ -123,7 +123,7 @@ const Edits = () => {
                             height={400}
                           />
                           <div className="cursor-pointer">
-                            <Link href={`blog/details?v=${item.slug}`}>
+                            <Link href={`/blog/details?v=${item.slug}`}>
                               <div className="p-4">
                                 <p
                                   className={`text-lg whitespace-nowrap w-full overflow-hidden text-ellipsis text-black ${ubuntu.variable} font-ubuntu  `}

@@ -14,9 +14,11 @@ export interface BlogType {
     author: string;
     image: string;
     createdAt: string;
+    keywords: string;
+    description: string;
 }
 
-export interface BlogTypeEntry{
+export interface BlogTypeEntry {
     _id: string;
     category: string;
     title: string;
@@ -27,5 +29,7 @@ export interface BlogTypeEntry{
     author: string;
     image: string;
     createdAt: string;
+    keywords: string;
+    description: string;
 }
 

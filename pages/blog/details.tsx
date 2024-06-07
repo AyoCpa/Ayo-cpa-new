@@ -22,6 +22,7 @@ const FullBlog = () => {
   const [mainBlogLoading, setMainBlogLoading] = useState(true);
   const [sideBlogLoading, setSideBlogLoading] = useState(true);
   const [remainingBlogs, setRemainingBlogs] = useState<BlogType[]>([]);
+  const [convertedContent, setConvertedContent] = useState("");
   const getExcludedData = (val_: string) => {
     apiClient("get", `blog/excluded/${val_}`)
       .then((res) => {
@@ -35,7 +36,6 @@ const FullBlog = () => {
       });
   };
 
-  
   useEffect(() => {
     let queryVal = new URLSearchParams(window.location.search);
     const newVal = queryVal.get("v") ? queryVal.get("v") : "";
@@ -62,23 +62,15 @@ const FullBlog = () => {
   return (
     <>
       <Head>
-        <title>Blog Listing | Ayo & Company</title>
-        <meta
-          name="description"
-          content="Ayo & company is focused on redefining the accounting experience, combining
-            personalized advice and state-of-the-art technology to empower our
-            clients towards financial success."
-        />
+        <title>{blog?.title}</title>
+        <meta name="description" content={blog?.content} />
         <meta
           name="keywords"
           content="About Ayo & company, ayocpa chartered accountant, accounting companies in canada"
         />
-        <meta property="og:title" content="About Us | Ayo & company" />
-        <meta
-          property="og:description"
-          content="Ayo & company is a chartered professional accounting company in Canada. We are focused on redefining the accounting experience, combining personalized adi=vice and state-of-the-art technology to empower our clients towards financial success."
-        />
-        <meta property="og:image" content="/About_Image.webp" />
+        <meta property="og:title" content={blog?.title} />
+        <meta property="og:description" content={blog?.title} />
+        <meta property="og:image" content={blog?.image} />
         <meta property="og:type" content="website" />
       </Head>
       <Navbar currentPage="blog" />
@@ -185,5 +177,13 @@ const FullBlog = () => {
     </>
   );
 };
+
+// export const getServerSideProps = async () => {
+//   // Fetch data from external API
+//   const res = await fetch("https://api.github.com/repos/vercel/next.js");
+//   const repo: Repo = await res.json();
+//   // Pass data to the page via props
+//   return { props: { repo } };
+// };
 
 export default FullBlog;

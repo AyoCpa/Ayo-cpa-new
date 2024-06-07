@@ -116,7 +116,9 @@ const EditBlog = () => {
       !blogEntry?.title ||
       (!data.blog_image && !blogEntry.image) ||
       !blogEntry.category ||
-      !blogEntry.tags.length
+      !blogEntry.tags.length ||
+      !blogEntry?.description ||
+      !blogEntry.keywords
     ) {
       toast.error("All fields are required");
       setButtonLoading(true);
@@ -148,6 +150,8 @@ const EditBlog = () => {
       content: model,
       isFeatured: blogEntry?.isFeatured,
       tags: blogEntry?.tags,
+      keywords: blogEntry.keywords,
+      description: blogEntry.description,
     })
       .then((res) => {
         toast.success("Blog Created Successfully");
@@ -290,6 +294,54 @@ const EditBlog = () => {
                         name="author"
                         placeholder="Enter author's name"
                         className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
+                      />
+                    </div>
+                  </div>
+                  <div className="my-4">
+                    <p className={`mb-2 ${inter.variable} font-inter`}>
+                      Key words
+                    </p>
+                    <div>
+                      <input
+                        style={{
+                          border: "2px solid #aaaaaa",
+                        }}
+                        value={blogEntry?.keywords}
+                        name="keywords"
+                        placeholder="Enter keywords for the article"
+                        className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
+                        onChange={(e) => {
+                          if (blogEntry) {
+                            setBlogEntry({
+                              ...blogEntry,
+                              keywords: e.target.value,
+                            });
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="my-4">
+                    <p className={`mb-2 ${inter.variable} font-inter`}>
+                      Description
+                    </p>
+                    <div>
+                      <input
+                        style={{
+                          border: "2px solid #aaaaaa",
+                        }}
+                        name="description"
+                        value={blogEntry?.description}
+                        placeholder="Enter Description for article"
+                        className="w-full px-4 py-2 rounded-lg text-[#5A5A5A]"
+                        onChange={(e) => {
+                          if (blogEntry) {
+                            setBlogEntry({
+                              ...blogEntry,
+                              description: e.target.value,
+                            });
+                          }
+                        }}
                       />
                     </div>
                   </div>
