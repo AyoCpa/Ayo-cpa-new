@@ -154,7 +154,7 @@ const EditBlog = () => {
       description: blogEntry.description,
     })
       .then((res) => {
-        toast.success("Blog Created Successfully");
+        toast.success("Blog Updated Successfully");
       })
       .catch((e) => console.log(e))
       .finally(() => {
