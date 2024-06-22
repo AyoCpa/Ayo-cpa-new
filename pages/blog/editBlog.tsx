@@ -142,7 +142,7 @@ const EditBlog = () => {
     // Verify From the backend first to be sure that post isn't already in existent
 
     // Do the need validation
-    apiClient("patch", `blog/${blogEntry._id}`, {
+    apiClient("post", `blog/${blogEntry._id}`, {
       author: blogEntry.author,
       title: blogEntry.title,
       category: blogEntry.category,
