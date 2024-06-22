@@ -128,7 +128,7 @@ const FullBlog = () => {
               ) : remainingBlogs.length ? (
                 remainingBlogs.map((item) => {
                   return (
-                    <Col xs={16} key={item._id}>
+                    <Col xs={22} lg={16} key={item._id}>
                       <div className="bg-white rounded-xl overflow-hidden my-4 border">
                         <Image
                           src={item.image}
