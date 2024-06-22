@@ -93,7 +93,7 @@ const Blogs = () => {
                             <Link href={`blog/details?v=${item.slug}`}>
                               <div className="p-4">
                                 <p
-                                  className={`text-lg whitespace-nowrap w-full overflow-hidden text-ellipsis text-black ${ubuntu.variable} font-ubuntu  `}
+                                  className={`text-lg  w-full   text-black ${ubuntu.variable} font-ubuntu  `}
                                 >
                                   {item.title}
                                 </p>
