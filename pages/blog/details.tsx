@@ -90,7 +90,7 @@ const FullBlog = () => {
           <TagContainer extra={blog?.tags} />
         </div>
       </section>
-      <Row gutter={{ lg: 20 }}>
+      <Row justify={'center'} gutter={{ lg: 20 }}>
         <Col xs={22} lg={16}>
           {mainBlogLoading ? (
             <LoadingState />
@@ -128,7 +128,7 @@ const FullBlog = () => {
               ) : remainingBlogs.length ? (
                 remainingBlogs.map((item) => {
                   return (
-                    <Col xs={22} lg={16} key={item._id}>
+                    <Col xs={24} lg={16} key={item._id}>
                       <div className="bg-white rounded-xl overflow-hidden my-4 border">
                         <Image
                           src={item.image}
