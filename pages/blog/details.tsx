@@ -69,7 +69,7 @@ const FullBlog = () => {
           content="About Ayo & company, ayocpa chartered accountant, accounting companies in canada"
         />
         <meta property="og:title" content={blog?.title} />
-        <meta property="og:description" content={blog?.title} />
+        <meta property="og:description" content={blog?.description} />
         <meta property="og:image" content={blog?.image} />
         <meta property="og:type" content="website" />
       </Head>

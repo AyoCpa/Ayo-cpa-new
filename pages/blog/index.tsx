@@ -50,7 +50,10 @@ const Blogs = () => {
           property="og:description"
           content="Ayo & company is a chartered professional accounting company in Canada. We are focused on redefining the accounting experience, combining personalized adi=vice and state-of-the-art technology to empower our clients towards financial success."
         />
-        <meta property="og:image" content="/About_Image.webp" />
+        <meta
+          property="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/ayocpa-26a62.appspot.com/o/blogImages%2Fcorporate-tax.jpg18200500-26d6-4fc3-85eb-6ba4920ca511%20%7D?alt=media&token=0e43a5e1-018d-47eb-84d8-49da2f5aa070"
+        />
         <meta property="og:type" content="website" />
       </Head>
       <Navbar currentPage="blog" />
