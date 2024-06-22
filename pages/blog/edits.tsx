@@ -44,7 +44,7 @@ const Edits = () => {
 
   const handleDelete = () => {
     setActionLoader(true);
-    apiClient("delete", `blog/${currentId}`)
+    apiClient("post", `blog/delete/${currentId}`)
       .then((res) => {
         toast.success("Deleted Successfully");
         getBlogs();
