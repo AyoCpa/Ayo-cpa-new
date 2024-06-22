@@ -91,7 +91,7 @@ const FullBlog = () => {
         </div>
       </section>
       <Row justify={'center'} gutter={{ lg: 20 }}>
-        <Col xs={22} lg={16}>
+        <Col xs={24} lg={16}>
           {mainBlogLoading ? (
             <LoadingState />
           ) : (
