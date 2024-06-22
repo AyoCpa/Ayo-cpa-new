@@ -58,6 +58,15 @@ export const MobileNav = () => {
           >
             Resources
           </p>
+          <p
+            onClick={() => {
+              router.push("/blog");
+              dispatch(closeMobileNav());
+            }}
+            className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
+          >
+            Blog
+          </p>
           {/* <p
             onClick={() => {
               router.push("/file-my-taxes");

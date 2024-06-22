@@ -91,7 +91,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                 )}
               </div>
             </Link>
-            <Link href={"blogs"}>
+            <Link href={"blog"}>
               <div
                 className={`cursor-pointer ${
                   currentPage == "blog" && "mt-3"
