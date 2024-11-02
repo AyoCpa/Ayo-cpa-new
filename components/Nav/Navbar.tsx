@@ -146,7 +146,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                 )}
               </div>
             </Link>
-            <Link href={"/file-my-taxes"}>
+            {/* <Link href={"/file-my-taxes"}>
               <div
                 className={`cursor-pointer ${
                   currentPage == "taxes" && "mt-3"
@@ -163,7 +163,7 @@ const Navbar = ({ authScreen = false, currentPage }: NavBarProps) => {
                   </span>
                 )}
               </div>
-            </Link>
+            </Link> */}
 
             <span className="flex flex-row items-center cursor-pointer relative ">
               <span

@@ -23,10 +23,19 @@ function BookAnAppointment() {
     <>
       <Head>
         <title>Book Appointment | Ayo & Company</title>
-        <meta name="description" content="Book an appointment with Ayo & company so our experts can get in touch with/your team." />
-        <meta name="keywords" content="book appointment with an accountant,tax filing appointments" />
+        <meta
+          name="description"
+          content="Book an appointment with Ayo & company so our experts can get in touch with/your team."
+        />
+        <meta
+          name="keywords"
+          content="book appointment with an accountant,tax filing appointments"
+        />
         <meta property="og:title" content="Book Appointment | Ayo & company" />
-        <meta property="og:description" content="Book an appointment with Ayo & company so our experts can get in touch with/your team." />
+        <meta
+          property="og:description"
+          content="Book an appointment with Ayo & company so our experts can get in touch with/your team."
+        />
         <meta property="og:image" content="/book-an-appointment-image.webp" />
         <meta property="og:type" content="website" />
       </Head>
@@ -76,7 +85,7 @@ function BookAnAppointment() {
                       text="Book appointment"
                       dark={true}
                       alignCenter={false}
-                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountant@cyreco.ca/bookings/"
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantAB@ayocpa.ca/bookings/"
                     />
                   </div>
                 </div>
@@ -103,7 +112,7 @@ function BookAnAppointment() {
                       text="Book appointment"
                       dark={true}
                       alignCenter={false}
-                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantSK@cyreco.ca/bookings/"
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantSK@ayocpa.ca/bookings/"
                     />
                   </div>
                 </div>
