@@ -56,7 +56,7 @@ export const MobileNav = () => {
             }}
             className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
           >
-            Resources
+            Resources.
           </p>
           <p
             onClick={() => {
