@@ -26,6 +26,7 @@ import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import axios from "axios";
 import ValidateEmail from "@/utils/email-validate";
+import Head from "next/head";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -87,6 +88,16 @@ function Contact() {
 
   return (
     <>
+      <Head>
+        <title>Contact Us | Ayo & Company</title>
+        <meta name="description" content="Ayo & company is based in both Cold Lake and Meadow Lake, Canada. You can reach via phone, email, or on any of our social media handles." />
+        <meta name="keywords" content="Ayo & company office address, ayo and company contact information" />
+        <meta property="og:title" content="Contact Us | Ayo & company" />
+        <meta property="og:description" content="Ayo & company is based in both Cold Lake and Meadow Lake, Canada. You can reach via phone, email, or on any of our social media handles." />
+        <meta property="og:image" content="/contact-image.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
+
       <div>
         <Navbar currentPage="contact" />
       </div>
@@ -102,8 +113,9 @@ function Contact() {
       <div className="bg-[#efefef]">
         <section>
           <PageSideSubHeader
-            mainText="Get in touch with us"
-            subText="Send us all and any enquiries"
+            mainText="Ready to experience the Ayo CPA difference?"
+            subText="Contact us today to schedule your personalized consultation.
+Let’s embark on a journey towards achieving your financial goals together."
           />
         </section>
 

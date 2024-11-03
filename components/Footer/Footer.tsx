@@ -85,9 +85,9 @@ export const Footer = () => {
               <div className={`${inter.variable} font-inter font-lg mb-10`}>
                 Quick Links
               </div>
-              <div className="text-xs mb-4 cursor-pointer">
+              {/* <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/">Client Portal</Link>
-              </div>
+              </div> */}
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/resource">Resources</Link>
               </div>
@@ -103,9 +103,9 @@ export const Footer = () => {
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/make-payment-as-guest">Payments</Link>
               </div>
-              <div className="text-xs mb-4 cursor-pointer">
+              {/* <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/">Ayo 234</Link>
-              </div>
+              </div> */}
               <div className="text-xs mb-4 cursor-pointer">
                 <Link href="/remote-access">Remote Access</Link>
               </div>
@@ -115,7 +115,7 @@ export const Footer = () => {
 
         <Col xs={24} className="mb-28 lg:mb-0">
           <div
-            className={` ${inter.variable} mt-10 font-inter text-[#E6E6E6] text-xs text-center text-white`}
+            className={` ${inter.variable} mt-10 font-inter text-xs text-center text-white`}
           >
             © {date} Ayo & Company Chartered Professional Accountant
           </div>

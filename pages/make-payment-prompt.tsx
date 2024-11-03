@@ -15,53 +15,64 @@ import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import { useRouter } from "next/router";
 import { IdentityOption } from "@/components/Nuggets/IdentityOption";
+import Head from "next/head";
 
 function MakePaymentPrompt() {
   const router = useRouter();
   return (
-    <div>
+    <>
+      <Head>
+        <title>Make Payment | Ayo & Company</title>
+        <meta name="description" content="Make your payments with ease." />
+        <meta property="og:title" content="Make Payment | Ayo & company" />
+        <meta property="og:description" content="Make your payments with ease." />
+        <meta property="og:image" content="/payment.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <div>
-        <Navbar />
-      </div>
-
-      <div>
-        <FixedArrowUp />
-      </div>
-      <section className={styles.paymentBanner}>
-        <div className="text-white ml-10 mt-24">
-          <SideBannerContent mainText="Make Payments" currentPage="Payments" />
+        <div>
+          <Navbar />
         </div>
-      </section>
 
-      <div className="bg-[#efefef]">
-        <section>
-          <PagesSubHeader text="Secure payments for your Client Portal proceedings" />
+        <div>
+          <FixedArrowUp />
+        </div>
+        <section className={styles.paymentBanner}>
+          <div className="text-white ml-10 mt-24">
+            <SideBannerContent mainText="Make Payments" currentPage="Payments" />
+          </div>
         </section>
 
-        <section className="py-20">
-          <IdentityOption
-            blueBorderHead="Continue as an existing Client"
-            blueBorderText="Quickly and securely make payments for your business Profile(s) on the Client Portal, proceed to the Client Portal"
-            blueBorderButtonText="Client Portal"
-            blackBorderHead="Continue as a Guest"
-            blackBorderText="Make payments for your business Profile(s) quickly and securely as a quest."
-            blackBorderButtonText="Proceed"
-          />
-        </section>
+        <div className="bg-[#efefef]">
+          <section>
+            <PagesSubHeader text="Secure payments for your Client Portal proceedings" />
+          </section>
 
-        <section>
-          <HireFlash />
-        </section>
+          <section className="py-20">
+            <IdentityOption
+              blueBorderHead="Continue as an existing Client"
+              blueBorderText="Quickly and securely make payments for your business Profile(s) on the Client Portal, proceed to the Client Portal"
+              blueBorderButtonText="Client Portal"
+              blackBorderHead="Continue as a Guest"
+              blackBorderText="Make payments for your business Profile(s) quickly and securely as a quest."
+              blackBorderButtonText="Proceed"
+            />
+          </section>
 
-        <section>
-          <ServiceFlash />
-        </section>
+          <section>
+            <HireFlash />
+          </section>
 
-        <section>
-          <Footer />
-        </section>
+          <section>
+            <ServiceFlash />
+          </section>
+
+          <section>
+            <Footer />
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

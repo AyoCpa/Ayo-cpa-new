@@ -60,6 +60,15 @@ export const MobileNav = () => {
           </p>
           <p
             onClick={() => {
+              router.push("/blog");
+              dispatch(closeMobileNav());
+            }}
+            className={`${inter.variable} cursor-pointer text-right mt-4 font-inter text-[#EFEFEF] font-semibold`}
+          >
+            Blog
+          </p>
+          {/* <p
+            onClick={() => {
               router.push("/file-my-taxes");
               dispatch(closeMobileNav());
             }}
@@ -133,11 +142,13 @@ export const MobileNav = () => {
           >
             Contact us
           </p>
-          <div
-            className={`${inter.variable} cursor-pointer text-right mt-4 pt-3 font-inter text-[#EFEFEF] font-semibold`}
-          >
-            <span className="border px-6 py-3">Client Portal</span>
-          </div>
+          <Link href={"https://ayocpa.clientportal.com"}>
+            <div
+              className={`${inter.variable} cursor-pointer text-right mt-4 pt-3 font-inter text-[#EFEFEF] font-semibold`}
+            >
+              <span className="border px-6 py-3">Client Portal</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

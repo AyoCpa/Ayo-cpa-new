@@ -6,19 +6,29 @@ import styles from "@/styles/Home.module.css";
 import React from "react";
 import { Row, Col } from "antd";
 import Image from "next/image";
-import payroll from "@/public/ASSETS/IMAGES/payroll.jpg";
-import autoBenefit from "@/public/ASSETS/IMAGES/auto-benefit.jpg";
-import pst from "@/public/ASSETS/IMAGES/pst.jpg";
-import netfile from "@/public/ASSETS/IMAGES/netFile.jpg";
-import cra from "@/public/ASSETS/IMAGES/cra.jpg";
+import payroll from "@/public/ASSETS/IMAGES/payroll.webp";
+import autoBenefit from "@/public/ASSETS/IMAGES/auto-benefit.webp";
+import pst from "@/public/ASSETS/IMAGES/pst.webp";
+import netfile from "@/public/ASSETS/IMAGES/netFile.webp";
+import cra from "@/public/ASSETS/IMAGES/cra.webp";
 import { ButtonWithIcon } from "@/components/Buttons/ActionButton";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import Head from "next/head";
 
 function Resource() {
   return (
     <>
+      <Head>
+        <title>Resources | Ayo & Company</title>
+        <meta name="description" content="Resources for your Cold Lake Canada accounting, taxation, paroll and filings." />
+        <meta name="keywords" content="taxation in Cold Lake Canada, payroll accounting, bookkeeping" />
+        <meta property="og:title" content="Resoruces | Ayo & company" />
+        <meta property="og:description" content="Resources for your Cold Lake Canada accounting, taxation, paroll and filings." />
+        <meta property="og:image" content="/resourceBanner.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <div>
         <Navbar currentPage="resources" />
       </div>

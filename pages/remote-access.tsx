@@ -8,10 +8,19 @@ import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
 import {Row , Col} from "antd"
+import Head from "next/head";
 
 function RemoteAccess() {
   return (
     <>
+      <Head>
+        <title>Remote Access | Ayo & Company</title>
+        <meta name="description" content="Give us permission to access your PC remotely." />
+        <meta property="og:title" content="Remote Access | Ayo & company" />
+        <meta property="og:description" content="Give us permission to access your PC remotely." />
+        <meta property="og:image" content="/remote-access.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <section>
         <Navbar />
       </section>

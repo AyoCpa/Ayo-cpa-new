@@ -1,31 +1,15 @@
 import Navbar from "@/components/Nav/Navbar";
 import FixedArrowUp from "@/components/Nuggets/FixedArrowUp";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import { SideBannerContent } from "@/components/Nuggets/SideBannerContent";
-import { PagesSubHeader } from "@/components/Nuggets/PagesSubHeader";
 import { PageSideSubHeader } from "@/components/Nuggets/PageSideSubHeader";
 import { Row, Col } from "antd";
-import { SectionHeader } from "@/components/Nuggets/SectionHeader";
-import GInput from "@/components/Inputs/GInput";
-import inputProfileDark from "@/public/ASSETS/ICONS/profile-input-dark.svg";
-import inputProfile from "@/public/ASSETS/ICONS/profile-input.svg";
-import telephone from "@/public/ASSETS/ICONS/telephone.svg";
-import telephoneDark from "@/public/ASSETS/ICONS/telephone-dark.svg";
-import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
-import inputEmail from "@/public/ASSETS/ICONS/email-input.svg";
-import locationDark from "@/public/ASSETS/ICONS/location-dark.svg";
-import location from "@/public/ASSETS/ICONS/input-location.svg";
-import date_black from "@/public/ASSETS/ICONS/date_black.svg";
-import date_image from "@/public/ASSETS/ICONS/date_image.svg";
-import time_plain from "@/public/ASSETS/ICONS/time-plain.svg";
-import time_dark from "@/public/ASSETS/ICONS/time-dark.svg";
-import appointment from "@/public/ASSETS/ICONS/appointment.svg";
-import appointment_black from "@/public/ASSETS/ICONS/appointment-black.svg";
-import { inter } from "@/utils/fonts";
-import { AuthButton } from "@/components/Buttons/AuthButton";
+import { inter, ubuntu } from "@/utils/fonts";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { Footer } from "@/components/Footer/Footer";
+import { ButtonWithIcon } from "@/components/Buttons/ActionButton";
+import Head from "next/head";
 
 function BookAnAppointment() {
   const [phone_number, setPhoneNumber] = useState("");
@@ -37,6 +21,24 @@ function BookAnAppointment() {
   const [appointmentLocation, setAppointmentLocation] = useState("");
   return (
     <>
+      <Head>
+        <title>Book Appointment | Ayo & Company</title>
+        <meta
+          name="description"
+          content="Book an appointment with Ayo & company so our experts can get in touch with/your team."
+        />
+        <meta
+          name="keywords"
+          content="book appointment with an accountant,tax filing appointments"
+        />
+        <meta property="og:title" content="Book Appointment | Ayo & company" />
+        <meta
+          property="og:description"
+          content="Book an appointment with Ayo & company so our experts can get in touch with/your team."
+        />
+        <meta property="og:image" content="/book-an-appointment-image.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
       <section>
         <Navbar />
       </section>
@@ -61,7 +63,65 @@ function BookAnAppointment() {
           />
         </section>
 
-        <section>
+        <Row justify={"center"}>
+          <Col xs={22} lg={16}>
+            <Row gutter={{ lg: 40 }}>
+              <Col xs={24} lg={12}>
+                <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
+                  <div className="mt-4">
+                    <div
+                      className={`${ubuntu.variable} font-ubuntu text-lg mb-4 lg:text-2xl font-semibold tracking-wide`}
+                    >
+                      Cold Lake
+                    </div>
+                    <div className="mb-4">
+                      <p
+                        className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
+                      >
+                        Book an appointment with us at our office (Cold lake)
+                      </p>
+                    </div>
+                    <ButtonWithIcon
+                      text="Book appointment"
+                      dark={true}
+                      alignCenter={false}
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantAB@ayocpa.ca/bookings/"
+                    />
+                  </div>
+                </div>
+              </Col>
+
+              <Col xs={24} lg={12}>
+                <div className="border-2 border-[#7FBAE6] p-6 mb-4 mt-16">
+                  <div className="mt-4">
+                    <div
+                      className={`${ubuntu.variable} font-ubuntu text-lg mb-4 lg:text-2xl font-semibold tracking-wide`}
+                    >
+                      Meadow Lake
+                    </div>
+
+                    <div className="mb-4">
+                      <p
+                        className={`${inter.variable} font-inter text-[#6E6E6E] text-xs lg:text-lg mt-3`}
+                      >
+                        Book an appointment with us at our office (Meadow lake
+                      </p>
+                    </div>
+
+                    <ButtonWithIcon
+                      text="Book appointment"
+                      dark={true}
+                      alignCenter={false}
+                      url="https://outlook.office365.com/owa/calendar/AyoCompanyCharteredProfessionalAccountantSK@ayocpa.ca/bookings/"
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
+        {/* <section>
           <Row justify="center">
             <Col xs={22} lg={16}>
               <form action="">
@@ -166,11 +226,11 @@ function BookAnAppointment() {
               </form>
             </Col>
           </Row>
-        </section>
+        </section> */}
       </div>
 
-      <div >
-        <HireFlash /> 
+      <div>
+        <HireFlash />
       </div>
       <div>
         <Footer />

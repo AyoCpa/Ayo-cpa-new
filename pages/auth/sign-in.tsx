@@ -14,20 +14,42 @@ import { useRouter } from "next/router";
 import inputEmailDark from "@/public/ASSETS/ICONS/email-input-dark.svg";
 import passwordLockDark from "@/public/ASSETS/ICONS/password-lock-dark.svg";
 import ValidateEmail from "@/utils/email-validate";
+import { apiClient } from "@/api";
+import { toast } from "sonner";
+import axios from "axios";
 
 function SignIn() {
   const router = useRouter();
-  const [emailAddress, setEmailAddress] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
-    if (ValidateEmail(emailAddress) && password.length > 6) {
+    if (ValidateEmail(email) && password.length > 6) {
       setButtonActive(true);
       return;
     }
     setButtonActive(false);
-  }, [emailAddress, password]);
+  }, [email, password]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setButtonActive(false);
+    apiClient("post", "/auth/login", { email, password })
+      .then((res) => {
+        console.log(res?.data);
+        toast.success("Authenticated Successfully");
+        localStorage.setItem("user-token", JSON.stringify(res?.data));
+        router.push("/blog");
+      })
+      .catch((e) => {
+        toast.error("Some errror occured");
+        console.log(e);
+      })
+      .finally(() => {
+        setButtonActive(true);
+      });
+  };
 
   return (
     <>
@@ -47,14 +69,14 @@ function SignIn() {
               </section>
 
               <div className="mt-8">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <GInput
                       imageOnFocus={inputEmailDark}
                       image={input_email}
-                      name="email_address"
+                      name="email"
                       placeholder="Email Address"
-                      handleInputData={setEmailAddress}
+                      handleInputData={setEmail}
                     />
                   </div>
                   <div className="mb-4">
@@ -81,7 +103,7 @@ function SignIn() {
                   <div className="mb-8">
                     <AuthButton
                       text="Login "
-                      active={buttonActive ? true : false }
+                      active={buttonActive ? true : false}
                     />
                   </div>
                 </form>

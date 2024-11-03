@@ -8,9 +8,20 @@ import { Row, Col } from "antd";
 import { HireFlash } from "@/components/PageFlash/HireFlash";
 import { ServiceFlash } from "@/components/PageFlash/ServiceFlash";
 import { Footer } from "@/components/Footer/Footer";
+import Head from "next/head";
 
 function TermsOfUser() {
   return (
+    <>
+      <Head>
+        <title>Terms of Use | Ayo & Company</title>
+        <meta name="description" content="The terms of use for Ayo & company and related products and services." />
+        <meta property="og:title" content="Terms of Use | Ayo & company" />
+        <meta property="og:description" content="The terms of use for Ayo & company and related products and services." />
+        <meta property="og:image" content="/terms-of-us.webp" />
+        <meta property="og:type" content="website" />
+      </Head>
+    
     <div>
       <section>
         <Navbar />
@@ -329,6 +340,7 @@ function TermsOfUser() {
       <ServiceFlash />
       <Footer />
     </div>
+    </>
   );
 }
 
