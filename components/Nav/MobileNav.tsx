@@ -78,7 +78,7 @@ export const MobileNav = () => {
             >
               <span className="pr-3">
                 <Image
-                  src={collapsedItem ? arrow_down : arrow_left}
+                  src={collapsedItem ? arrow_down : arrow_left }
                   alt=""
                   width={20}
                   height={20}
